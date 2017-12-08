@@ -1700,4 +1700,8 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', end
 	-moz-border-radius: 0 0 3px 0;
 	border-radius: 0 0 3px 0
 }
+.mainPane{
+	background:#28262c;
+	border: 1px solid #e5e5e5;
+}
 @media(max-width:767px){body{padding:0!important}.wrapper{padding:20px 15px}}

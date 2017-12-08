@@ -1,18 +1,23 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Edmin</title>
+        <title>ThereManOneDog</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
-    </head>
-    <body>
+<script type="text/javascript" src="scripts/ajax.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/jquery.js"></script>
+
+</head>
+<body>
+<body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -58,7 +63,7 @@
                                 人事管理
 								</a>
                                     <ul id="togglePages1" class="collapse unstyled">
-                                        <li><a href="other-login.html"><i class="icon-inbox"></i>部门管理</a></li>
+                                        <li><a  onclick="loadXMLDoc1()"><i class="icon-inbox"></i>部门管理</a></li>
                                         <li><a href="other-user-profile.html"><i class="icon-inbox"></i>职工管理</a></li>
                                     </ul>
                                 </li>
@@ -86,8 +91,8 @@
                                 </i>公告管理
                                  </a>
                                     <ul id="togglePages3" class="collapse unstyled">
-                                        <li><a href="other-login.html"><i class="icon-inbox"></i>发布公告 </a></li>
-                                        <li><a href="other-user-profile.html"><i class="icon-inbox"></i>查看公告 </a></li>
+                                        <li><a onclick="loadReleasePage()"><i class="icon-inbox"></i>发布公告 </a></li>
+                                        <li><a onclick="loadTablePage()"><i class="icon-inbox"></i>查看公告 </a></li>
                                       
                                     </ul>
                                 </li>
@@ -97,11 +102,14 @@
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-                    
+                <div class="span9">
+                <div id="content"></div>
+                </div> 
                 </div>
             </div>
             <!--/.container-->
         </div>
+        
         <!--/.wrapper-->
         <div class="footer">
             <div  class="container"  align="center">
@@ -117,3 +125,5 @@
         <script src="scripts/common.js" type="text/javascript"></script>
       
     </body>
+</body>
+</html>
