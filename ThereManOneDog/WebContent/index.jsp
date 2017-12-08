@@ -13,6 +13,8 @@
         <link type="text/css" href="${pageContext.request.contextPath}/images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
+            <script type="text/javascript" src="scripts/datatable.js"></script>
+            <script type="text/javascript" src="scripts/ajax.js"></script>
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
@@ -64,7 +66,7 @@
                                         <li><a href="other-user-profile.html"><i class="icon-inbox"></i>职工管理</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                          
                             </ul>
                                <!-- 这里有一个 -->
                              <ul class="widget widget-menu unstyled">
@@ -77,7 +79,7 @@
                                        
                                     </ul>
                                 </li>
-                                <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                                
                             </ul>
                             <!-- 这里有一个 -->
                              <ul class="widget widget-menu unstyled">
@@ -93,7 +95,7 @@
                                       
                                     </ul>
                                 </li>
-                                <li><a href="#"><i class="menu-icon icon-signout"></i>Logout </a></li>
+                              
                             </ul>
                         </div>
                         <!--/.sidebar-->

@@ -56,6 +56,56 @@ xmlhttp.send();
 	xmlhttp.open("GET","TeamTable.jsp" ,false);
 	xmlhttp.send();
 	}
+	
+	function loadDepartment()
+	{
+	var xmlhttp;
+	
+	xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("content").innerHTML=xmlhttp.responseText;
+	    tableFunction();
+	    }
+	  }
+	xmlhttp.open("GET","Department.jsp" ,false);
+	xmlhttp.send();
+	}
+	
+	function loadStaff()
+	{
+	var xmlhttp;
+	
+	xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("content").innerHTML=xmlhttp.responseText;
+	    tableFunction();
+	    }
+	  }
+	xmlhttp.open("GET","Staff.jsp" ,false);
+	xmlhttp.send();
+	}
+	function loadMange()
+	{
+	var xmlhttp;
+	
+	xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("content").innerHTML=xmlhttp.responseText;
+	    tableFunction();
+	    }
+	  }
+	xmlhttp.open("GET","MangeDepartment.jsp" ,false);
+	xmlhttp.send();
+	}
 	function tableFunction(){
 		
 			$('.datatable-1').dataTable();

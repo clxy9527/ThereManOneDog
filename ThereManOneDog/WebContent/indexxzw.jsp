@@ -65,8 +65,9 @@
                                 人事管理
 								</a>
                                     <ul id="togglePages1" class="collapse unstyled">
-                                        <li><a  onclick="loadXMLDoc1()"><i class="icon-inbox"></i>部门管理</a></li>
-                                        <li><a href="other-user-profile.html"><i class="icon-inbox"></i>职工管理</a></li>
+                                    	
+                                        <li><a  onclick="loadDepartment()"><i class="icon-inbox"></i>部门管理</a></li>
+                                        <li><a onclick="loadStaff()"><i class="icon-inbox"></i>员工调动信息</a></li>
                                     </ul>
                                 </li>
                                 
