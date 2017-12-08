@@ -1,0 +1,179 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link type="text/css" href="css/theme.css" rel="stylesheet">
+        <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+        <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
+            rel='stylesheet'>
+<title>Insert title here</title>
+
+<script>
+
+function hide(){
+	$(":checkbox").toggle();
+	$("#delete").toggle();
+}
+</script>
+</head>
+<body>
+                    <div class="span9">
+                        <div class="content">
+                            <div class="module message">
+                                <div class="module-head">
+                                    <h3>消息管理</h3>
+                                </div>
+                                <div class="module-option clearfix">
+                                    <div class="pull-left">
+                                        <div class="btn-group">
+                                            <button class="btn">
+                                                Inbox</button>
+                                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Inbox(11)</a></li>
+                                                <li><a href="#">Sent</a></li>
+                                                <li><a href="#">Draft(2)</a></li>
+                                                <li><a href="#">Trash</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Settings</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-primary" onclick="hide()" id="deal">通知处理</a>
+                                        <a href="#" class="btn btn-primary" id="delete">删除</a>
+                                    </div>
+                                </div>
+                                <div class="module-body table">
+                                    <table class="table table-message">
+                                        <thead>
+                                         <tr class="heading">
+                                                <td class="cell-check" >
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    Sender
+                                                </td>
+                                                <td class="cell-title">
+                                                    Subject
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    Date
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Donga
+                                                </td>
+                                                <td class="cell-title">
+                                                    Sample Work
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    18:24
+                                                </td>
+                                            </tr>
+                                            <tr class="unread starred">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Donga
+                                                </td>
+                                                <td class="cell-title">
+                                                    Test Title
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip-no"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    18:01
+                                                </td>
+                                            </tr>
+                                            <tr class="read starred">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Donga
+                                                </td>
+                                                <td class="cell-title">
+                                                    Someone wants to talk to you!
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip-no"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    May 21
+                                                </td>
+                                            </tr>
+                                            <tr class="read">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Doe
+                                                </td>
+                                                <td class="cell-title">
+                                                    Doe wants to talk to you!
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    May 15
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="module-foot">
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.content-->
+                    </div>
+</body>
+        <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="scripts/datatables/jquery.dataTables.js"></script>
+        <script>
+		$(document).ready(function() {
+			$('.table-message').dataTable();
+			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
+			$('.dataTables_paginate > a').wrapInner('<span />');
+			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
+			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+		} );
+	</script>
+</html>
