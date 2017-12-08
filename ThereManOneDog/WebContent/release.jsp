@@ -63,12 +63,15 @@ text-decoration: none;
         </td>
     </tr>
     <tr>
-        <td>发布范围</td>
-        <td width="350px" height="100px">
+        <td>发布范围
+        </td>
+        <td>
+        <textarea id="employee" name="employee" readonly="readonly" style="80%" ></textarea>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加人员</button>
         </td>
     </tr> 
     <tr height="200px">
-    <td colspan="2"><textarea name="content" cols="100" rows="8" style="width:700px;height:200px;visibility:hidden;"><%=htmlspecialchars(htmlData)%></textarea></td>
+    <td colspan="2"><textarea name="content" cols="100" rows="8"  style="width:700px;height:200px;visibility:hidden;resize: none;"><%=htmlspecialchars(htmlData)%></textarea></td>
     </tr>
     <tr>
         <td align="center" colspan="2">
@@ -76,5 +79,32 @@ text-decoration: none;
         </td>
     </tr>
 </table>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					模态框（Modal）标题
+				</h4>
+			</div>
+			<div class="modal-body">
+				在这里添加一些文本
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 </body>
 </html>

@@ -12,7 +12,9 @@
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
+        <link type="text/css" href="">
 <script type="text/javascript" src="scripts/ajax.js"></script>
+<script type="text/javascript" src="scripts/datatable.js"></script>
 <script charset="utf-8" src="./kindeditor-4.1.7/jquery.js"></script>
 
 </head>
@@ -77,7 +79,6 @@
                                     <ul id="togglePages2" class="collapse unstyled">
                                         <li><a href="other-login.html"><i class="icon-inbox"></i>团队管理 </a></li>
                                         <li><a href="other-user-profile.html"><i class="icon-inbox"></i>发布任务 </a></li>
-                                       
                                     </ul>
                                 </li>
                                 
