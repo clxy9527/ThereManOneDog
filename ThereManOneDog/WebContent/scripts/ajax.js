@@ -1,13 +1,14 @@
 function loadTablePage()
 {
 var xmlhttp;
+var bu = $(this).attr("id"); 
 xmlhttp=new XMLHttpRequest();
 xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
     document.getElementById("content").innerHTML=xmlhttp.responseText;
-    datatable()
+    tableFunction()
     }
   }
 xmlhttp.open("GET","table.jsp" ,false);
@@ -39,10 +40,28 @@ xmlhttp.send();
 			});
     }
 	
-	function datatable(){
-		$('.datatable-1').dataTable();
-		$('.dataTables_paginate').addClass("btn-group datatable-pagination");
-		$('.dataTables_paginate > a').wrapInner('<span />');
-		$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-		$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+	function loadTeamTablePage()
+	{
+	var xmlhttp;
+	
+	xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function()
+	  {
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    {
+	    document.getElementById("content").innerHTML=xmlhttp.responseText;
+	    tableFunction();
+	    }
+	  }
+	xmlhttp.open("GET","TeamTable.jsp" ,false);
+	xmlhttp.send();
+	}
+	function tableFunction(){
+		
+			$('.datatable-1').dataTable();
+			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
+			$('.dataTables_paginate > a').wrapInner('<span />');
+			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
+			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+		 
 	}

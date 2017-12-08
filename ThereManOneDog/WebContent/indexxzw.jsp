@@ -77,7 +77,7 @@
                                 </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
                                 </i>我的团队 </a><!-- 这里开始 -->
                                     <ul id="togglePages2" class="collapse unstyled">
-                                        <li><a href="other-login.html"><i class="icon-inbox"></i>团队管理 </a></li>
+                                        <li><a onclick="loadTeamTablePage()"><i class="icon-inbox"></i>团队管理 </a></li>
                                         <li><a href="other-user-profile.html"><i class="icon-inbox"></i>发布任务 </a></li>
                                     </ul>
                                 </li>
@@ -92,8 +92,8 @@
                                 </i>公告管理
                                  </a>
                                     <ul id="togglePages3" class="collapse unstyled">
-                                        <li><a onclick="loadReleasePage()"><i class="icon-inbox"></i>发布公告 </a></li>
-                                        <li><a onclick="loadTablePage()"><i class="icon-inbox"></i>查看公告 </a></li>
+                                        <li><a onclick="loadReleasePage()" id=""><i class="icon-inbox"></i>发布公告 </a></li>
+                                        <li><a id="table" onclick="loadTablePage(id)"><i class="icon-inbox"></i>查看公告 </a></li>
                                       
                                     </ul>
                                 </li>
