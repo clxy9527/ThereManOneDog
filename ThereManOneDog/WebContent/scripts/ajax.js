@@ -8,12 +8,14 @@ xmlhttp.onreadystatechange=function()
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
     document.getElementById("content").innerHTML=xmlhttp.responseText;
-    tableFunction()
+    MessageTable()
     }
   }
-xmlhttp.open("GET","table.jsp" ,false);
+xmlhttp.open("GET","message.jsp" ,false);
 xmlhttp.send();
 }
+
+
   function loadReleasePage()
 {
 	var xmlhttp;
@@ -114,4 +116,19 @@ xmlhttp.send();
 			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
 			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 		 
+	}
+	
+	function MessageTable(){
+		
+		$('.table-message').dataTable();
+		$('.dataTables_paginate').addClass("btn-group datatable-pagination");
+		$('.dataTables_paginate > a').wrapInner('<span />');
+		$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
+		$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+	 
+}
+	
+	function hide(){
+		$(":checkbox").toggle();
+		$("#delete").toggle();
 	}

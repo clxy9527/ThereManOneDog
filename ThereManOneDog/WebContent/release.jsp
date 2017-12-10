@@ -1,5 +1,7 @@
+<%@page import="com.oa.test.deptTest"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
 <html>
 <%
@@ -41,6 +43,7 @@ text-decoration: none;
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+	<script type="text/javascript" src="scripts/ajax.js"></script>
 </head>
 <body>
 				<table align="center" border="1" >
@@ -83,7 +86,7 @@ text-decoration: none;
 
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
+	<div class="modal-dialog" >
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -93,8 +96,26 @@ text-decoration: none;
 					模态框（Modal）标题
 				</h4>
 			</div>
-			<div class="modal-body">
-				在这里添加一些文本
+			<div class="modal-body" style="width:400px;height:600px;overflow: auto;">
+			<table>
+			    <tr>
+			    <td colspan="3">
+                    <div class="col-md-6">         
+                        <ul class="nav nav-pills nav-stacked">
+                        <c:forEach items="${dept_list}" var="dept" varStatus="no">
+                            <li>
+                            <a  data-toggle="tab" onclick="loadEmployeePage()">${dept.getName()}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                </td>
+                <td>
+                <div id="employee" class="col-md-4">
+                </div>
+                 </td>
+                </tr>
+                </table>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -106,5 +127,8 @@ text-decoration: none;
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
+<% List<deptTest> list = (List<deptTest>) session.getAttribute("dept_list");
+   System.out.print(list.size());
+%>
 </body>
 </html>
