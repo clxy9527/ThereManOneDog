@@ -15,18 +15,22 @@
             http://www.springframework.org/schema/util/spring-util.xsd">
      
 
-		<mvc:annotation-driven ></mvc:annotation-driven>
+		<mvc:annotation-driven >
+			<mvc:message-converters register-defaults="true">
+		        <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		            <property name="supportedMediaTypes" value="*/*"></property>
+		        </bean>
+		    </mvc:message-converters>
+		</mvc:annotation-driven>
 		<!-- 对于注解的Handler可以单个配置实际开发中建议使用组件扫描	 -->		
-      	<context:component-scan base-package="com.ssm.controller"></context:component-scan>
-      	
-        <context:component-scan base-package="jackson_test"></context:component-scan>
+      	<context:component-scan base-package="com.oa.controller"></context:component-scan>
 
   
   
 	  	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 	  		<property name="converters">
 	  			<list>
-	  				<bean class="com.soft.converter.DateConverter"></bean>
+	  				<bean class="com.oa.converter.DateConverter"></bean>
 	  			</list>
 	  		</property>
 	  	</bean>
