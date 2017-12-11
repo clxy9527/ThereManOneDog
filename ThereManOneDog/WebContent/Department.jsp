@@ -39,7 +39,6 @@
                                            <button class="btn " data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
-                                          
                                             <ul class="dropdown-menu">
                                                 <li><a href="#">公关部</a></li>
                                                 <li><a href="#">财务部</a></li>
@@ -67,8 +66,14 @@
                                                 <td class="cell-author hidden-phone hidden-tablet">
                                               		      姓名
                                                 </td>
-                                                <td class="cell-title">
+                                                <td class="cell-author hidden-phone hidden-tablet">
                                           	          性别
+                                                </td>
+                                                  <td class="cell-author hidden-phone hidden-tablet">
+                                          	         职位
+                                                </td>
+                                                  <td class="cell-author hidden-phone hidden-tablet">
+                                          	          部门
                                                 </td>
                                                 <td class="cell-time align-right">
                                                    	入职日期
@@ -84,8 +89,14 @@
                                                 <td class="cell-author hidden-phone hidden-tablet">
                                                     John Donga
                                                 </td>
-                                                <td class="cell-title">
+                                                <td class="cell-author hidden-phone hidden-tablet">
                                                     Sample Work
+                                                </td>
+                                                 <td class="cell-author hidden-phone hidden-tablet">
+                                                    Test Title
+                                                </td>
+                                                 <td class="cell-author hidden-phone hidden-tablet">
+                                                    Test Title
                                                 </td>
                                                 
                                                 <td class="cell-time align-right">
@@ -102,10 +113,15 @@
                                                 <td class="cell-author hidden-phone hidden-tablet">
                                                     John Donga
                                                 </td>
-                                                <td class="cell-title">
+                                                <td class="cell-author hidden-phone hidden-tablet">
                                                     Test Title
                                                 </td>
-                                               
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    Test Title
+                                                </td> 
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    Test Title
+                                                </td>
                                                 <td class="cell-time align-right">
                                                     18:01
                                                 </td>
