@@ -10,15 +10,16 @@
 </head>
 <body>
 <%
+int index = Integer.parseInt(request.getParameter("index"));
     List<deptTest> depts =(List<deptTest>) session.getAttribute("dept_list");
-    List<employeeTest> employeeTests = depts.get(1).getEmployees();
-    System.out.print("call");
+    List<employeeTest> employeeTests = depts.get(index).getEmployees();
+    System.out.print(employeeTests.get(index).getName());
 %>
 
-<c:forEach var="employee" items="<%=employeeTests%>">
+<c:forEach var="em" items="<%=employeeTests%>">
         <label class=" btn btn-default btn-block">
             <input name="employee_selected" type="checkbox" />
-             ${employee.getName()}
+             ${em.getName()}
         </label>
 </c:forEach>
 </body>

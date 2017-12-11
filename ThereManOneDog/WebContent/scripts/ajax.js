@@ -1,3 +1,20 @@
+function changeList(id){
+			var x=document.getElementById("listName");
+			
+			if(id==1){
+				x.innerHTML="test";
+				
+			}
+			else if(id==2) {
+				x.innerHTML="test2";
+				
+			}
+			else if(id==3){
+				x.innerHTML="test3";
+			}
+
+			
+		}
 function loadTablePage()
 {
 var xmlhttp;
@@ -15,7 +32,21 @@ xmlhttp.open("GET","message.jsp" ,false);
 xmlhttp.send();
 }
 
-
+function loadTaskRelease()
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("content").innerHTML=xmlhttp.responseText;
+    MessageTable()
+    }
+  }
+xmlhttp.open("GET","TaskRelease.jsp" ,false);
+xmlhttp.send();
+}
 function loadEmployeePage()
 {
 var xmlhttp;
@@ -162,3 +193,6 @@ xmlhttp.send();
 		$(":checkbox").toggle();
 		$("#delete").toggle();
 	}
+		
+		
+			

@@ -66,15 +66,24 @@ text-decoration: none;
         </td>
     </tr>
     <tr>
+            <td>重要公告</td>
+        <td>
+            <select name="important">
+                <option value="0">否</option>
+                <option value="1">是</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
         <td>发布范围
         </td>
         <td>
-        <textarea id="employee" name="employee" readonly="readonly" style="80%" ></textarea>
+        <textarea id="employeeLink" readonly="readonly" style="80%" ></textarea>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加人员</button>
         </td>
     </tr> 
     <tr height="200px">
-    <td colspan="2"><textarea name="content" cols="100" rows="8"  style="width:700px;height:200px;visibility:hidden;resize: none;"><%=htmlspecialchars(htmlData)%></textarea></td>
+    <td colspan="2"><textarea name="content" cols="100" rows="8"  style="width:700px;height:500px;visibility:hidden;resize: none;"><%=htmlspecialchars(htmlData)%></textarea></td>
     </tr>
     <tr>
         <td align="center" colspan="2">
@@ -85,9 +94,9 @@ text-decoration: none;
 
 
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" >
-		<div class="modal-content">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 300px">
+	<div class="modal-dialog" style="width: 300px" >
+		<div class="modal-content" style="width: 300px">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
@@ -96,7 +105,7 @@ text-decoration: none;
 					模态框（Modal）标题
 				</h4>
 			</div>
-			<div class="modal-body" style="width:400px;height:600px;overflow: auto;">
+			<div class="modal-body" style="overflow: auto;">
 			<table>
 			    <tr>
 			    <td colspan="3">
@@ -104,14 +113,14 @@ text-decoration: none;
                         <ul class="nav nav-pills nav-stacked">
                         <c:forEach items="${dept_list}" var="dept" varStatus="no">
                             <li>
-                            <a  data-toggle="tab" onclick="loadEmployeePage()">${dept.getName()}</a>
+                            <a  data-toggle="tab" onclick="loadEmployeePage('${no.index}')">${dept.getName()}</a>
                             </li>
                         </c:forEach>
                     </ul>
                 </div>
                 </td>
                 <td>
-                <div id="employee" class="col-md-4">
+                <div id="EmployeeList" class="col-md-4">
                 </div>
                  </td>
                 </tr>

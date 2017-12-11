@@ -41,13 +41,15 @@ public class testlist extends HttpServlet {
 		d1.getEmployees().add(e1);
 		d1.getEmployees().add(e2);
 		
+		System.out.println(d1.getEmployees().get(1).getName());
+		
 		deptTest d2 = new deptTest();
 		d2.setDid(2);
 		d2.setName("部门B");
 		employeeTest e3 = new employeeTest();
-		e1.setName("员工03");
+		e3.setName("员工03");
 		employeeTest e4 = new employeeTest();
-		e2.setName("员工04");
+		e4.setName("员工04");
 		d2.getEmployees().add(e3);
 		d2.getEmployees().add(e4);
 		
@@ -56,6 +58,9 @@ public class testlist extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("dept_list", deptlist);
+		
+		System.out.println(deptlist.get(0).getEmployees().get(1).getName());
+		
 		request.getRequestDispatcher("indexxzw.jsp").forward(request, response);
 	}
 

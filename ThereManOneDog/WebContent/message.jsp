@@ -19,14 +19,14 @@
                                 <div class="module-option clearfix">
                                     <div class="pull-left">
                                         <div class="btn-group">
-                                            <button class="btn" id="outitem" >全部</button>
+                                            <button class="btn" id="output">全部</button>
                                             <button class="btn dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#" id="item1" >全部</a></li>
-                                                <li><a href="#" id="item2" >未读</a></li>
-                                                <li><a href="#" id="item3" >已读</a></li>
+                                                <li><a href="#" id="allMessage" onclick="MessageFilter('全部')" >全部</a></li>
+                                                <li><a href="#" id="unReadMessage" onclick="MessageFilter('未读')">未读</a></li>
+                                                <li><a href="#" id="ReadMessage" onclick="MessageFilter('已读')">已读</a></li>
                                             </ul>
                                         </div>
                                     </div>
