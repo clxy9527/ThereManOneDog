@@ -15,7 +15,21 @@ xmlhttp.open("GET","message.jsp" ,false);
 xmlhttp.send();
 }
 
-
+function loadTaskRelease()
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("content").innerHTML=xmlhttp.responseText;
+    MessageTable()
+    }
+  }
+xmlhttp.open("GET","TaskRelease.jsp" ,false);
+xmlhttp.send();
+}
 function loadEmployeePage()
 {
 var xmlhttp;
