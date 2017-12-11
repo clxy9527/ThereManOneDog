@@ -59,8 +59,6 @@ public class testlist extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("dept_list", deptlist);
 		
-		System.out.println(deptlist.get(0).getEmployees().get(1).getName());
-		
 		request.getRequestDispatcher("indexxzw.jsp").forward(request, response);
 	}
 

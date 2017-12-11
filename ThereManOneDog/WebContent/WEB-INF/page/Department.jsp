@@ -141,7 +141,7 @@
        
        
        <!-- 添加人员 -->
-       <jsp:include page="/AddStaff.jsp" flush="true"/>
+       <jsp:include page="/page/AddStaff.jsp" flush="true"/>
   
 
 

@@ -13,7 +13,6 @@
 int index = Integer.parseInt(request.getParameter("index"));
     List<deptTest> depts =(List<deptTest>) session.getAttribute("dept_list");
     List<employeeTest> employeeTests = depts.get(index).getEmployees();
-    System.out.print(employeeTests.get(index).getName());
 %>
 
 <c:forEach var="em" items="<%=employeeTests%>">

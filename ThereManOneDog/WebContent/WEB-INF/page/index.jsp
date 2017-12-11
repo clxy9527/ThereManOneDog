@@ -1,20 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Edmin</title>
+        <title>ThereManOneDog</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
-    </head>
-    <body>
+        <link type="text/css" href="">
+<script type="text/javascript" src="scripts/ajax.js"></script>
+<script type="text/javascript" src="scripts/datatable.js"></script>
+<script charset="utf-8" src="./kindeditor-4.1.7/jquery.js"></script>
+
+</head>
+<body>
+<body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
@@ -28,7 +33,7 @@
                         <i class="icon-reorder shaded"></i>
                         </a>
                         <!-- 这个是 方法 -->
-                        <a class="brand" href="index.html">Edmin </a>
+                        <a class="brand" href="index.html">ThereManOneDog </a>
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav nav-icons">
                             <li class="active"><a href="#"><i class="icon-envelope"></i></a></li>
@@ -60,11 +65,13 @@
                                 人事管理
 								</a>
                                     <ul id="togglePages1" class="collapse unstyled">
-                                        <li><a href="other-login.html"><i class="icon-inbox"></i>部门管理</a></li>
-                                        <li><a href="other-user-profile.html"><i class="icon-inbox"></i>职工管理</a></li>
+                                    	
+                                        <li><a  onclick="loadDepartment()"><i class="icon-inbox"></i>员工管理</a></li>
+                                        <li><a onclick="loadStaff()"><i class="icon-inbox"></i>员工调动信息</a></li>
+                                           <li><a onclick="loadStaff()"><i class="icon-inbox"></i>部门管理</a></li>
                                     </ul>
                                 </li>
-                              
+                                
                             </ul>
                                <!-- 这里有一个 -->
                              <ul class="widget widget-menu unstyled">
@@ -72,12 +79,11 @@
                                 </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
                                 </i>我的团队 </a><!-- 这里开始 -->
                                     <ul id="togglePages2" class="collapse unstyled">
-                                        <li><a href="other-login.html"><i class="icon-inbox"></i>团队管理 </a></li>
-                                        <li><a href="other-user-profile.html"><i class="icon-inbox"></i>发布任务 </a></li>
-                                       
+                                        <li><a onclick="loadTeamTablePage()"><i class="icon-inbox"></i>团队管理 </a></li>
+                                        <li><a onclick="loadTaskRelease()"><i class="icon-inbox"></i>发布任务 </a></li>
                                     </ul>
                                 </li>
-                           
+                                
                             </ul>
                             <!-- 这里有一个 -->
                              <ul class="widget widget-menu unstyled">
@@ -88,22 +94,27 @@
                                 </i>公告管理
                                  </a>
                                     <ul id="togglePages3" class="collapse unstyled">
-                                        <li><a href="other-login.html"><i class="icon-inbox"></i>发布公告 </a></li>
-                                        <li><a href="other-user-profile.html"><i class="icon-inbox"></i>查看公告 </a></li>
+                                        <li><a onclick="loadReleasePage()" id=""><i class="icon-inbox"></i>发布公告 </a></li>
+                                        <li><a id="table" onclick="loadTablePage(id)"><i class="icon-inbox"></i>查看公告 </a></li>
                                       
                                     </ul>
                                 </li>
-                              
+                                
                             </ul>
                         </div>
                         <!--/.sidebar-->
                     </div>
                     <!--/.span3-->
-                    
+                <div class="span9">
+                
+                <div id="content"></div>
+                </div> 
+                
                 </div>
             </div>
             <!--/.container-->
         </div>
+        
         <!--/.wrapper-->
         <div class="footer">
             <div  class="container"  align="center">
@@ -119,5 +130,5 @@
         <script src="scripts/common.js" type="text/javascript"></script>
       
     </body>
-
+</body>
 </html>
