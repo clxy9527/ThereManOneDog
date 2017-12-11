@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,8 +19,8 @@
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="index.html">
-			  		Edmin
+			  	<a class="brand" href="indexxzw.jsp">
+			  		ThreeManOneDog
 			  	</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">

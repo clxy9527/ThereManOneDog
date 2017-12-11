@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@page import="com.oa.test.deptTest"%>
+    <%@page import="java.util.List"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,7 +52,7 @@
                            					</tr>
                            					<tr>
                            						<td>参与者:</td>
-                           						<td><input type="text" readonly="readonly" name="taskMember"><a style="color: blue">+添加</a>   <a style="color: grey">清空</a></td>
+                           						<td><input type="text" readonly="readonly" name="taskMember"><a style="color: blue" data-toggle="modal" data-target="#myModal">+添加</a>   <a style="color: grey">清空</a></td>
                            					</tr>
                            					<tr>
                            						<td>任务提醒:</td>
@@ -77,6 +80,52 @@
             </div>
             <!--/.container-->
         </div>
-        <!--/.wrapper-->				
+        <!--/.wrapper-->
+        <!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 300px">
+	<div class="modal-dialog" style="width: 300px" >
+		<div class="modal-content" style="width: 300px">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					模态框（Modal）标题
+				</h4>
+			</div>
+			<div class="modal-body" style="overflow: auto;">
+			<table>
+			    <tr>
+			    <td colspan="3">
+                    <div class="col-md-6">         
+                        <ul class="nav nav-pills nav-stacked">
+                        <c:forEach items="${dept_list}" var="dept" varStatus="no">
+                            <li>
+                            <a  data-toggle="tab" onclick="loadEmployeePage('${no.index}')">${dept.getName()}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                </td>
+                <td>
+                <div id="EmployeeList" class="col-md-4">
+                </div>
+                 </td>
+                </tr>
+                </table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<% List<deptTest> list = (List<deptTest>) session.getAttribute("dept_list");
+   System.out.print(list.size());
+%>				
 </body>
 </html>
