@@ -47,7 +47,7 @@ xmlhttp.onreadystatechange=function()
 xmlhttp.open("GET","TaskRelease.jsp" ,false);
 xmlhttp.send();
 }
-function loadEmployeePage()
+function loadEmployeePage(id)
 {
 var xmlhttp;
 var bu = $(this).attr("id"); 
@@ -56,11 +56,11 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-    document.getElementById("employee").innerHTML=xmlhttp.responseText;
+    document.getElementById("EmployeeList").innerHTML=xmlhttp.responseText;
     MessageTable()
     }
   }
-xmlhttp.open("GET","EmployeeList.jsp" ,false);
+xmlhttp.open("GET","EmployeeList.jsp?index="+id ,false);
 xmlhttp.send();
 }
 
@@ -178,16 +178,9 @@ xmlhttp.send();
 		$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 	 
 }
-	
-		$('#item1').click(function (){
-			alert("13");
-		})
-		$("#item2").click(function (){
-			$("#outitem").text = $("#item2").text;
-		})
-		$("#item3").click(function (){
-			$("#outitem").text = $("#item3").text;
-		})
+	function MessageFilter(text) {
+		document.getElementById("output").innerHTML = text;
+	}
 	
 	function hide(){
 		$(":checkbox").toggle();
