@@ -128,6 +128,10 @@ xmlhttp.send();
 	 
 }
 	
+	function a(){
+		alert("nih");
+	}
+	
 	function hide(){
 		$(":checkbox").toggle();
 		$("#delete").toggle();
