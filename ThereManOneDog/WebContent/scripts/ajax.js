@@ -108,6 +108,7 @@ xmlhttp.send();
 	xmlhttp.open("GET","MangeDepartment.jsp" ,false);
 	xmlhttp.send();
 	}
+	
 	function tableFunction(){
 		
 			$('.datatable-1').dataTable();

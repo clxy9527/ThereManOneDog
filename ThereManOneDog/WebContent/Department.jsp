@@ -13,6 +13,13 @@
         <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
         <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
             rel='stylesheet'>
+            
+             <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script>
 		$(document).ready(function() {
 			$('.datatable-1').dataTable();
@@ -24,7 +31,6 @@
 	</script>
     </head>
     <body>                     
-
      <div class="span9">
                         <div class="content">
                             <div class="module message">
@@ -51,8 +57,8 @@
                                         </div>
                                     </div>
                                     <div class="pull-right">
-                                      <a href="#" class="btn btn-primary">添加员工</a>
-                                        <a onclick="loadMange()" class="btn btn-primary">部门管理</a>
+                                      <button data-toggle="modal" data-target="#myModal"  class="btn btn-pri mary">添加员工</button>
+                                        <a onclick="loadMange()" class="btn btn-pri	mary">部门管理</a>
                                     </div>
                                 </div>
                                 <div class="module-body table">
@@ -357,64 +363,10 @@
                                                 </td>
                                             </tr>
                                             <tr class="read">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    Greepit.com
-                                                </td>
-                                                <td class="cell-title">
-                                                    An email from Greepit.com
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip-no"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    Jan 12
-                                                </td>
+                                                
                                             </tr>
                                             <tr class="read starred">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    EGrappler.com
-                                                </td>
-                                                <td class="cell-title">
-                                                    An email from EGrappler.com
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    Jan 11
-                                                </td>
-                                            </tr>
-                                            <tr class="read">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    An unread message
-                                                </td>
-                                                <td class="cell-title">
-                                                    This is how an unread message looks alike.
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip-no"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    Jan 10
-                                                </td>
+                                            
                                             </tr>
                                         </tbody>
                                     </table>
@@ -428,8 +380,6 @@
         <!--/.wrapper-->
        </div>
 
- <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-        <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
     </body>
     </html>
