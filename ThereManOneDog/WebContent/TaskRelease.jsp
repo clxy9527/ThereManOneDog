@@ -28,13 +28,42 @@
                                 </div>
                                 <div class="module-body table">
                            
-                           			<form style="vertical-align:middle">
-                           			起始日期:<input type="Date" name="startDate"> 为空为当前日期<br>
-                           			结束日期:<input type="Date" name="endDate">  为空则不结束<br>
-                           			任务内容:<input type="text" name="taskContent"><h3 style="color: red">此处不可空白</h3><br>
-                           			参与者:<input type="text" readonly="readonly" name="taskMember"><a style="color: blue">+添加</a>   <a style="color: grey">清空</a><br>
-                           			任务提醒:<input type="checkbox" name="taskAlerm">发送任务提醒
-                           			<a class="btn btn-primary">确定</a>
+                           			<form style="vertical-align:middle;margin: 20px;">
+                           			<table align="center" >
+                           				<tbody>
+                           					<tr style="border:0px;">
+                           						<td>起始日期:</td>
+                           						<td><input type="Date" name="startDate">为空为当前日期</td>
+                           					</tr>
+                           					<tr>
+                           						<td>结束日期:</td>
+                           						<td><input type="Date" name="endDate">为空则不结束</td>
+                           					</tr>
+                           					<tr>
+                           						<td>任务内容:</td>
+                           						<td>
+                           							<textarea rows="" cols=""></textarea>
+                           							<div style="color: red">此处不可空白</div>
+                           						</td>
+                           						
+                           					</tr>
+                           					<tr>
+                           						<td>参与者:</td>
+                           						<td><input type="text" readonly="readonly" name="taskMember"><a style="color: blue">+添加</a>   <a style="color: grey">清空</a></td>
+                           					</tr>
+                           					<tr>
+                           						<td>任务提醒:</td>
+                           						<td style="text-align: center;"><input type="checkbox" name="taskAlerm">发送任务提醒</td>
+                           					</tr>
+                           					<tr>
+                           						<td >
+                           							<button class="btn btn-primary" type="submit">确定</button>
+                           							<button type="button">重置</button>
+                           						</td>
+                           					</tr>
+                           				</tbody>
+                           			</table>
+                           		
                            			</form>
                                     </div>
                                 </div>

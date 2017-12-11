@@ -3,6 +3,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript">
+function changeList(id){
+	var x=document.getElementById("listName");
+	
+	if(id==1){
+		x.innerHTML="test";
+		
+	}
+	else if(id==2) {
+		x.innerHTML="test2";
+		
+	}
+	else if(id==3){
+		x.innerHTML="test3";
+	}
+
+	
+}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="scripts/jquery-1.9.1.min.js"></script>
@@ -29,14 +48,14 @@
                                 <div class="module-option clearfix">
                                     <div class="pull-left">
                                         <div class="btn-group">
-                                            <button class="btn" style="size: 20px">Team</button>
+                                            <button class="btn" style="size: 20px" id="listName" value="Team">Team</button>
                                             <button class="btn dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">PC9527</a></li>
-                                                <li><a href="#">三男一狗</a></li>
-                                                <li><a href="#">ThereManOneDog</a></li>
+                                                <li><a href="#" id="1" onclick="changeList(id)">PC9527</a></li>
+                                                <li><a href="#" id="2" onclick="changeList(id)">三男一狗</a></li>
+                                                <li><a href="#" id="3" onclick="changeList(id)">ThereManOneDog</a></li>
                                                
                                             </ul>
                                         </div>

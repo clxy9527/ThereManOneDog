@@ -79,7 +79,7 @@
                                 </i>我的团队 </a><!-- 这里开始 -->
                                     <ul id="togglePages2" class="collapse unstyled">
                                         <li><a onclick="loadTeamTablePage()"><i class="icon-inbox"></i>团队管理 </a></li>
-                                        <li><a href="other-user-profile.html"><i class="icon-inbox"></i>发布任务 </a></li>
+                                        <li><a onclick="loadTaskRelease()"><i class="icon-inbox"></i>发布任务 </a></li>
                                     </ul>
                                 </li>
                                 
