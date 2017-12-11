@@ -51,7 +51,7 @@
                                         </div>
                                     </div>
                                     <div class="pull-right">
-                                      <a href="#" class="btn btn-primary">添加员工</a>
+                                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加员工</button>
                                         <a onclick="loadMange()" class="btn btn-primary">部门管理</a>
                                     </div>
                                 </div>
@@ -427,6 +427,53 @@
         </div>
         <!--/.wrapper-->
        </div>
+       
+       
+       
+       
+       <!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" >
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					模态框（Modal）标题
+				</h4>
+			</div>
+			<div class="modal-body" style="width:400px;height:600px;overflow: auto;">
+			<table>
+			    <tr>
+			    <td colspan="3">
+                    <div class="col-md-6">         
+                        <ul class="nav nav-pills nav-stacked">
+                        <c:forEach items="${dept_list}" var="dept" varStatus="no">
+                            <li>
+                            <a  data-toggle="tab" onclick="loadEmployeePage()">${dept.getName()}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                </td>
+                <td>
+                <div id="employee" class="col-md-4">
+                </div>
+                 </td>
+                </tr>
+                </table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 
  <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
