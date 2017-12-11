@@ -41,26 +41,23 @@
 			</div>
 		</div><!-- /navbar-inner -->
 	</div><!-- /navbar -->
-
-
-
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
 				<div class="module module-login span4 offset4">
-					<form class="form-vertical" action="/employeeController/login.action">
+					<form class="form-vertical"  action="employeeController/login.action">
 						<div class="module-head">
 							<h3>Sign In</h3>
 						</div>
 						<div class="module-body">
 							<div class="control-group">
 								<div class="controls row-fluid">
-									<input class="span12" type="text" id="inputEmail" name="eid" placeholder="Username">
+									<input class="span12" type="text" id="eId" name="eId" placeholder="Username">
 								</div>
 							</div>
 							<div class="control-group">
 								<div class="controls row-fluid">
-									<input class="span12" type="password" id="inputPassword" name="epassword" placeholder="Password">
+									<input class="span12" type="password" id="ePassword" name="ePassword" placeholder="Password">
 								</div>
 							</div>
 						</div>

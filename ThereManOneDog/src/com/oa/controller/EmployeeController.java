@@ -18,14 +18,14 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest request,HttpServletResponse response){
+	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		System.out.println("123465");
 		ModelAndView modelAndView = new ModelAndView();
-//		if(employeeService.login(employee)){
-//			modelAndView.setViewName("/index");
-//		}else{
-//			modelAndView.setViewName("/login");
-//		}
+		if(employeeService.login(employee)){
+			modelAndView.setViewName("/index");
+		}else{
+			modelAndView.setViewName("/login");
+		}
 		return modelAndView;
 	}
 	

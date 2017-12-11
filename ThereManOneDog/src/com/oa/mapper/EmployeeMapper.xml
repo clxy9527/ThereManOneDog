@@ -4,7 +4,7 @@
 <mapper namespace="com.oa.mapper.EmployeeMapper">
 	
 	<select id="selectEmployeeById" resultType="Employee">
-	 select * from employee where eid=#{value}
+	 select * from employee where eId=#{value}
 	</select>
 	
 	
