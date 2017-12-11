@@ -1,3 +1,20 @@
+function changeList(id){
+			var x=document.getElementById("listName");
+			
+			if(id==1){
+				x.innerHTML="test";
+				
+			}
+			else if(id==2) {
+				x.innerHTML="test2";
+				
+			}
+			else if(id==3){
+				x.innerHTML="test3";
+			}
+
+			
+		}
 function loadTablePage()
 {
 var xmlhttp;
@@ -176,3 +193,6 @@ xmlhttp.send();
 		$(":checkbox").toggle();
 		$("#delete").toggle();
 	}
+		
+		
+			
