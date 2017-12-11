@@ -16,60 +16,137 @@
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-	<script>
-		$(document).ready(function() {
-			$('.datatable-1').dataTable();
-			$('.dataTables_paginate').addClass("btn-group datatable-pagination");
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
-		} );
-	</script>
 </head>
 <body>
-				<div class="span9">
-					<div class="content">
-						<div class="module">
-							<div class="module-head">
-								<button class="btn btn-primary">新建团队</button>
-							</div>
-							<div class="module-body table">
-								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
-									<thead>
-										<tr><th>发布人</th>
-											<th>公告标题</th>
-											<th>发布时间</th>
-											<th>公告状态</th>
-											<th>操作</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="even gradeC">
-											<td>Trident</td>
-											<td>Internet
-												 Explorer 5.0</td>
-											<td>Win 95+</td>
-											<td class="center">5</td>
-											<td class="center">C</td>
-										</tr>
-										
-									</tbody>
-									<tfoot>
-										<tr>
-											<th>Rendering engine</th>
-											<th>Browser</th>
-											<th>Platform(s)</th>
-											<th>Engine version</th>
-											<th>CSS grade</th>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</div><!--/.module-->
+<body>
 
-					<br />
-						
-					</div><!--/.content-->
-				</div><!--/.span9-->
+					<div class="span9">
+                        <div class="content">
+                            <div class="module message">
+                                <div class="module-head">
+                                    <h3> 团队管理</h3>
+                                </div>
+                                <div class="module-option clearfix">
+                                    <div class="pull-left">
+                                        <div class="btn-group">
+                                            <button class="btn" style="size: 20px">Team</button>
+                                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">PC9527</a></li>
+                                                <li><a href="#">三男一狗</a></li>
+                                                <li><a href="#">ThereManOneDog</a></li>
+                                               
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-primary">新建团队</a>
+                                    </div>
+                                </div>
+                                <div class="module-body table">
+                                <div style="padding:10px">
+                                	团队名称：<input >
+                                </div>
+                                    <table class="table table-message">
+                                        <tbody>
+                                            <tr class="heading">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                  	  姓名
+                                                </td>
+                                                <td class="cell-title">
+                                                  	  部门
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                  	 加入时间
+                                                </td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Donga
+                                                </td>
+                                                <td class="cell-title">
+                                                    Sample Work
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    18:24
+                                                </td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Donga
+                                                </td>
+                                                <td class="cell-title">
+                                                    Sample Work
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    18:24
+                                                </td>
+                                            </tr>
+                                            <tr class="unread">
+                                                <td class="cell-check">
+                                                    <input type="checkbox" class="inbox-checkbox">
+                                                </td>
+                                                <td class="cell-icon">
+                                                    <i class="icon-star"></i>
+                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                    John Donga
+                                                </td>
+                                                <td class="cell-title">
+                                                    Sample Work
+                                                </td>
+                                                <td class="cell-icon hidden-phone hidden-tablet">
+                                                    <i class="icon-paper-clip"></i>
+                                                </td>
+                                                <td class="cell-time align-right">
+                                                    18:24
+                                                </td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                
+                                        <a href="#" class="btn btn-primary">新增成员</a>
+                                        <a href="#" class="btn btn-danger">删除成员</a>
+                                    </div>
+                                </div>
+                             
+                            </div>
+                        </div>
+                        <!--/.content-->
+                    </div>
+                    <!--/.span9-->
+                </div>
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.wrapper-->				
 </body>
 </html>

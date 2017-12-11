@@ -16,6 +16,25 @@ xmlhttp.send();
 }
 
 
+function loadEmployeePage()
+{
+var xmlhttp;
+var bu = $(this).attr("id"); 
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("employee").innerHTML=xmlhttp.responseText;
+    MessageTable()
+    }
+  }
+xmlhttp.open("GET","EmployeeList.jsp" ,false);
+xmlhttp.send();
+}
+
+
+
   function loadReleasePage()
 {
 	var xmlhttp;
@@ -128,6 +147,16 @@ xmlhttp.send();
 		$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 	 
 }
+	
+		$('#item1').click(function (){
+			alert("13");
+		})
+		$("#item2").click(function (){
+			$("#outitem").text = $("#item2").text;
+		})
+		$("#item3").click(function (){
+			$("#outitem").text = $("#item3").text;
+		})
 	
 	function hide(){
 		$(":checkbox").toggle();

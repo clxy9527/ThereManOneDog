@@ -5,6 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<script>
+
+</script>
 </head>
 <body>
                     <div class="span9">
@@ -16,18 +19,14 @@
                                 <div class="module-option clearfix">
                                     <div class="pull-left">
                                         <div class="btn-group">
-                                            <button class="btn">
-                                                Inbox</button>
+                                            <button class="btn" id="outitem" >全部</button>
                                             <button class="btn dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Inbox(11)</a></li>
-                                                <li><a href="#">Sent</a></li>
-                                                <li><a href="#">Draft(2)</a></li>
-                                                <li><a href="#">Trash</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Settings</a></li>
+                                                <li><a href="#" id="item1" >全部</a></li>
+                                                <li><a href="#" id="item2" >未读</a></li>
+                                                <li><a href="#" id="item3" >已读</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -45,17 +44,11 @@
                                                 </td>
                                                 <td class="cell-icon">
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    Sender
-                                                </td>
-                                                <td class="cell-title">
-                                                    Subject
-                                                </td>
+                                                <td class="cell-author hidden-phone hidden-tablet">发送人</td>
+                                                <td class="cell-title">公告标题</td>
                                                 <td class="cell-icon hidden-phone hidden-tablet">
                                                 </td>
-                                                <td class="cell-time align-right">
-                                                    Date
-                                                </td>
+                                                <td class="cell-time align-right">发送日期</td>
                                             </tr>
                                         </thead>
                                         <tbody>
