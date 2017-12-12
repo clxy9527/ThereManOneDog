@@ -17,6 +17,13 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	/**
+	 * µÇÂ½·½·¨
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		System.out.println("123465");
@@ -29,4 +36,11 @@ public class EmployeeController {
 		return modelAndView;
 	}
 	
-}
+	@RequestMapping("/addemployee")
+	public ModelAndView addemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView =new ModelAndView();
+		employeeService.addEmployee(employee);
+		modelAndView.addObject("employee",employee);
+		modelAndView.setViewName("");
+		return modelAndView;
+}}

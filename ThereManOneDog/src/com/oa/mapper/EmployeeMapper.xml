@@ -6,6 +6,10 @@
 	<select id="selectEmployeeById" resultType="Employee">
 	 select * from employee where eId=#{value}
 	</select>
+	<insert id="addEmployee" parameterType="Employee">
+	 insert into employee values(#{eId},#{eName},#{ePassword},#{ePhone},#{eCard},#{pId},#{dId},#{eIndate},#{eOutdate},#{eState},#{eAddress})
+	</insert>
+	
 	
 	
 </mapper>

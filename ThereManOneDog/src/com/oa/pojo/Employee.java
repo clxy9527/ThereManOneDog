@@ -11,7 +11,7 @@ public class Employee {
 	private int pId;
 	private int dId;
 	private Date eIndate;
-	private Date eOutDate;
+	private Date eOutdate;
 	private int eState;
 	private String eAddress;
 	public String geteId() {
@@ -62,12 +62,7 @@ public class Employee {
 	public void seteIndate(Date eIndate) {
 		this.eIndate = eIndate;
 	}
-	public Date geteOutDate() {
-		return eOutDate;
-	}
-	public void seteOutDate(Date eOutDate) {
-		this.eOutDate = eOutDate;
-	}
+
 	public int geteState() {
 		return eState;
 	}
@@ -80,7 +75,12 @@ public class Employee {
 	public void seteAddress(String eAddress) {
 		this.eAddress = eAddress;
 	}
-	
+	public Date geteOutdate() {
+		return eOutdate;
+	}
+	public void seteOutdate(Date eOutdate) {
+		this.eOutdate = eOutdate;
+	}
 	
 	
 	
