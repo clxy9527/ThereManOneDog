@@ -13,8 +13,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Override
 	public boolean login(Employee employee) {
-		Employee dbEmployee = employeeMapper.selectEmployeeById(employee.getEid());
-		if(dbEmployee.getEpassword().equals(employee.getEpassword())){
+		Employee dbEmployee = employeeMapper.selectEmployeeById(employee.geteId());
+		if(dbEmployee.getePassword().equals(employee.getePassword())){
 			return true;
 		}else{
 			return false;

@@ -18,8 +18,8 @@ public class EmployeeServiceTest {
 	@Test
 	public void loginTest(){
 		Employee employee = new Employee();
-		employee.setEid("T9527");
-		employee.setEaddress("9527");
+		employee.seteId("T9527");
+		employee.seteAddress("9527");
 		EmployeeService employeeService = (EmployeeService) ac.getBean("employeeService");
 		employeeService.login(employee);
 	}
