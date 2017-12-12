@@ -3,16 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<script src="scripts/jquery-1.9.1.min.js"></script>
-	<script src="scripts/jquery-ui-1.10.1.custom.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="scripts/datatables/jquery.dataTables.js"></script>
+	<script src="${pageContext.request.contextPath}/scripts/jquery-1.9.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/scripts/jquery-ui-1.10.1.custom.min.js"></script>
+	<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/scripts/datatables/jquery.dataTables.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="css/theme.css" rel="stylesheet">
-	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+	<link type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link type="text/css" href="${pageContext.request.contextPath}/css/theme.css" rel="stylesheet">
+	<link type="text/css" href="${pageContext.request.contextPath}/images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 </head>
 <body>

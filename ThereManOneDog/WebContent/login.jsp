@@ -19,7 +19,7 @@
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="indexxzw.jsp">
+			  	<a class="brand" href="/WEB-INF/page/index.jsp">
 			  		ThreeManOneDog
 			  	</a>
 
