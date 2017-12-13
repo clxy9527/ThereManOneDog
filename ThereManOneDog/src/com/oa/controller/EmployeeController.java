@@ -17,6 +17,13 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	/**
+	 * 登陆方法
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		System.out.println("123465");
@@ -28,5 +35,64 @@ public class EmployeeController {
 		}
 		return modelAndView;
 	}
-	
+	/**
+	 *  执行添加员工操作
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
+	@RequestMapping("/addemployee")
+	public ModelAndView addemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView =new ModelAndView();
+		employeeService.addEmployee(employee);
+		modelAndView.addObject("employee",employee);
+		modelAndView.setViewName("");
+		return modelAndView;
+}
+	/**
+	 * 执行修改员工信息操作
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
+	@RequestMapping("/updateemployee")
+	public ModelAndView updateemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView =new ModelAndView();
+		employeeService.updateEmployee(employee);
+		modelAndView.addObject("employee",employee);
+		modelAndView.setViewName("");
+		return modelAndView;
+}
+	/**
+	 * 执行查询所有员工操作
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
+	@RequestMapping("/queryAllEmployee")
+	public ModelAndView queryAllEmployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView =new ModelAndView();
+		employeeService.queryAllEmployee();
+		modelAndView.addObject("employee",employee);
+		modelAndView.setViewName("");
+		return modelAndView;
+	}
+	/**
+	 * 执行根据部门查询员工操作
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
+	@RequestMapping("/queryAllEmployee")
+	public ModelAndView queryEmployeebyterm(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView =new ModelAndView();
+		employeeService.queryEmployeebyterm(employee);
+		modelAndView.addObject("employee",employee);
+		modelAndView.setViewName("");
+		return modelAndView;
+	}
 }

@@ -10,8 +10,8 @@ public class Employee {
 	private String eCard;
 	private int pId;
 	private int dId;
-	private Date eIndate;
-	private Date eOutDate;
+	private String eIndate;
+	private String eOutdate;
 	private int eState;
 	private String eAddress;
 	public String geteId() {
@@ -56,18 +56,13 @@ public class Employee {
 	public void setdId(int dId) {
 		this.dId = dId;
 	}
-	public Date geteIndate() {
+	public String geteIndate() {
 		return eIndate;
 	}
-	public void seteIndate(Date eIndate) {
+	public void seteIndate(String eIndate) {
 		this.eIndate = eIndate;
 	}
-	public Date geteOutDate() {
-		return eOutDate;
-	}
-	public void seteOutDate(Date eOutDate) {
-		this.eOutDate = eOutDate;
-	}
+
 	public int geteState() {
 		return eState;
 	}
@@ -80,7 +75,12 @@ public class Employee {
 	public void seteAddress(String eAddress) {
 		this.eAddress = eAddress;
 	}
-	
+	public String geteOutdate() {
+		return eOutdate;
+	}
+	public void seteOutdate(String eOutdate) {
+		this.eOutdate = eOutdate;
+	}
 	
 	
 	

@@ -8,9 +8,9 @@ public class Notice {
 	private String nTitle;
 	private Employee nAuthor;//Ô±¹¤id
 	private String nContent;
-	private Date nTime;
+	private String nTime;
 	private String nType;
-	private String nImportant;
+	private int nImportant;
 	private int nReadState;
 	private List<Employee> readers;
 	
@@ -38,10 +38,12 @@ public class Notice {
 	public void setnContent(String nContent) {
 		this.nContent = nContent;
 	}
-	public Date getnTime() {
+	
+	
+	public String getnTime() {
 		return nTime;
 	}
-	public void setnTime(Date nTime) {
+	public void setnTime(String nTime) {
 		this.nTime = nTime;
 	}
 	public String getnType() {
@@ -50,10 +52,12 @@ public class Notice {
 	public void setnType(String nType) {
 		this.nType = nType;
 	}
-	public String getnImportant() {
+
+	
+	public int getnImportant() {
 		return nImportant;
 	}
-	public void setnImportant(String nImportant) {
+	public void setnImportant(int nImportant) {
 		this.nImportant = nImportant;
 	}
 	public int getnReadState() {
