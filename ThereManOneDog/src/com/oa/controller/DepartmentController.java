@@ -48,4 +48,22 @@ public class DepartmentController {
 		modelAndView.setViewName("");
 		return modelAndView;
 }
+	/**
+	 *  执行删除部门操作
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
+	@RequestMapping("/deleteDepartment")
+	public ModelAndView deleteDepartment(HttpServletRequest request,HttpServletResponse response,Department department){
+		int dId=0;
+		ModelAndView modelAndView =new ModelAndView();
+		departmentService.deleteDepartment(dId);
+		//需要修改传递list
+		modelAndView.addObject("department",department);
+		modelAndView.setViewName("");
+		return modelAndView;
+}
+	
 }
