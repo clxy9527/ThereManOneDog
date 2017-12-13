@@ -43,4 +43,14 @@ public class EmployeeController {
 		modelAndView.addObject("employee",employee);
 		modelAndView.setViewName("");
 		return modelAndView;
-}}
+}
+	@RequestMapping("/updateemployee")
+	public ModelAndView updateemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView =new ModelAndView();
+		employeeService.updateEmployee(employee);
+		modelAndView.addObject("employee",employee);
+		modelAndView.setViewName("");
+		return modelAndView;
+}
+
+}
