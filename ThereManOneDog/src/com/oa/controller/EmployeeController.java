@@ -26,9 +26,10 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
-		System.out.println("123465");
 		ModelAndView modelAndView = new ModelAndView();
+
 		if(employeeService.login(employee)){
+			request.getSession().setAttribute("eid", employee.geteId());
 			modelAndView.setViewName("/index");
 		}else{
 			modelAndView.setViewName("/login");
@@ -76,6 +77,7 @@ public class EmployeeController {
 	public ModelAndView queryAllEmployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
 		employeeService.queryAllEmployee();
+		//需要修改传递list
 		modelAndView.addObject("employee",employee);
 		modelAndView.setViewName("");
 		return modelAndView;
@@ -91,6 +93,7 @@ public class EmployeeController {
 	public ModelAndView queryEmployeebyterm(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
 		employeeService.queryEmployeebyterm(employee);
+		//需要修改传递list
 		modelAndView.addObject("employee",employee);
 		modelAndView.setViewName("");
 		return modelAndView;
