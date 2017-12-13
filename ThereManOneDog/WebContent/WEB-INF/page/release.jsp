@@ -1,11 +1,9 @@
-<%@page import="com.oa.test.deptTest"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.List"%>
 <html>
 <%
-request.setCharacterEncoding("UTF-8");
 String htmlData = request.getParameter("content1") != null ? request.getParameter("content1") : "";
 %>
 <%!
@@ -46,17 +44,18 @@ text-decoration: none;
 	<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 </head>
 <body>
+<form   action="${pageContext.request.contextPath}/noticeController/saveNotice.action" method="get">
 				<table align="center" border="1" >
     <tr>
         <td>标题：</td>
         <td width="500px">
-        <input type="text" name="title" placeholder="请输入标题内容" width="80px"/>
+        <input type="text" name="nTitle" placeholder="请输入标题内容" width="80px"/>
         </td>
     </tr>
     <tr>
         <td>类别：</td>
         <td>
-            <select name="type">
+            <select name="nType">
                 <option value=""></option>
                 <option value="决定">决定</option>
                 <option value="通知">通知</option>
@@ -68,7 +67,7 @@ text-decoration: none;
     <tr>
             <td>重要公告</td>
         <td>
-            <select name="important">
+            <select name="nImportant">
                 <option value="0">否</option>
                 <option value="1">是</option>
             </select>
@@ -79,18 +78,20 @@ text-decoration: none;
         </td>
         <td>
         <textarea id="employeeLink" readonly="readonly" style="80%" ></textarea>
+        <textarea id="selectEmployees" name="selectEmployees" readonly="readonly" style="80%" ></textarea>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加人员</button>
         </td>
     </tr> 
     <tr height="200px">
-    <td colspan="2"><textarea name="content" cols="100" rows="8"  style="width:700px;height:500px;visibility:hidden;resize: none;"><%=htmlspecialchars(htmlData)%></textarea></td>
+    <td colspan="2"><textarea name="nContent" cols="100" rows="8"  style="width:700px;height:500px;visibility:hidden;resize: none;"><%=htmlspecialchars(htmlData)%></textarea></td>
     </tr>
     <tr>
         <td align="center" colspan="2">
-        <button class="btn btn-success" type="button" onclick="release()">确定</button>
+        <input class="btn btn-success" type="submit" value="确定" />
         </td>
     </tr>
 </table>
+</form>
 
 
 <!-- 模态框（Modal） -->
@@ -111,9 +112,9 @@ text-decoration: none;
 			    <td colspan="3">
                     <div class="col-md-6">         
                         <ul class="nav nav-pills nav-stacked">
-                        <c:forEach items="${dept_list}" var="dept" varStatus="no">
+                        <c:forEach items="${departments}" var="dept" varStatus="no">
                             <li>
-                            <a  data-toggle="tab" onclick="loadEmployeePage('${no.index}')">${dept.getName()}</a>
+                            <a  data-toggle="tab" onclick="loadEmployeePage('${dept.getdId()}')">${dept.getdName()}</a>
                             </li>
                         </c:forEach>
                     </ul>
@@ -129,15 +130,12 @@ text-decoration: none;
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="getNames()">
 					提交更改
 				</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
-<% List<deptTest> list = (List<deptTest>) session.getAttribute("dept_list");
-   System.out.print(list.size());
-%>
 </body>
 </html>

@@ -45,7 +45,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="module module-login span4 offset4">
-					<form class="form-vertical"  action="employeeController/login.action">
+					<form class="form-vertical"  action="employeeController/login.action" method="post">
 						<div class="module-head">
 							<h3>Sign In</h3>
 						</div>

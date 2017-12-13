@@ -21,6 +21,12 @@ public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	private EmployeeMapper employeeMapper;
 
+	
+
+
+	
+
+
 	@Override
 	public void addNotice(Notice notice) {
 		notice.setnTime(TimeUtil.getTime());
