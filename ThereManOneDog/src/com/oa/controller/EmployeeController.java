@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -14,7 +15,7 @@ import com.oa.pojo.Employee;
 import com.oa.service.impl.EmployeeService;
 
 @Controller
-@RequestMapping("/employeeController")
+@RequestMapping("employeeController")
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
@@ -29,11 +30,13 @@ public class EmployeeController {
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView = new ModelAndView();
-		if(employeeService.login(employee)){
+		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
+		if(dbEmployee.getePassword().equals(employee.getePassword())){
 			request.getSession().setAttribute("eid", employee.geteId());
-			modelAndView.setViewName("/index");
+			modelAndView.setViewName("index");
+			request.getSession().setAttribute("employee", employee);
 		}else{
-			modelAndView.setViewName("/login");
+			modelAndView.setViewName("login");
 		}
 		return modelAndView;
 	}

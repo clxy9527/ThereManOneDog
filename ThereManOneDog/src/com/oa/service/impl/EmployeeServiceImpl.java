@@ -16,13 +16,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 * 登陆接口实现
 	 */
 	@Override
-	public boolean login(Employee employee) {
-		Employee dbEmployee = employeeMapper.selectEmployeeById(employee.geteId());
-		if(dbEmployee.getePassword().equals(employee.getePassword())){
-			return true;
-		}else{
-			return false;
-		}
+	public Employee selectEmployeeById(String eId) {
+		Employee employee = employeeMapper.selectEmployeeById(eId);
+		return employee;
 
 	}
 	/**

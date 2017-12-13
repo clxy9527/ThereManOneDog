@@ -20,7 +20,8 @@ public class EmployeeServiceTest {
 		Employee employee = new Employee();
 		employee.seteId("T9527");
 		employee.seteAddress("9527");
+		String eId="9527";
 		EmployeeService employeeService = (EmployeeService) ac.getBean("employeeService");
-		employeeService.login(employee);
+		employeeService.selectEmployeeById(eId);
 	}
 }

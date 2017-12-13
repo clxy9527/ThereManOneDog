@@ -1,3 +1,4 @@
+
 function changeList(id){
 			var x=document.getElementById("listName");
 			
@@ -28,7 +29,7 @@ xmlhttp.onreadystatechange=function()
     MessageTable()
     }
   }
-xmlhttp.open("GET","message.jsp" ,false);
+xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/getAllNotice.action" ,false);
 xmlhttp.send();
 }
 
@@ -58,9 +59,10 @@ xmlhttp.onreadystatechange=function()
     {
     document.getElementById("EmployeeList").innerHTML=xmlhttp.responseText;
     MessageTable()
+    getChecked();
     }
   }
-xmlhttp.open("GET","EmployeeList.jsp?index="+id ,false);
+xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/getEmploeeByDepartment.action?dId="+id ,false);
 xmlhttp.send();
 }
 
@@ -78,19 +80,11 @@ xmlhttp.send();
 	    createEditor();
 	    }
 	  }
-	xmlhttp.open("GET","release.jsp" ,false);
+	xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/addNotice.action" ,false);
 	xmlhttp.send();
 	}
 	  
-    function createEditor(){
-		$.getScript('./kindeditor-4.1.7/kindeditor-min.js', function() {
-			KindEditor.basePath = './kindeditor-4.1.7/';
-			Editor=KindEditor.create('textarea[name="content"]',{
-				afterBlur:function(){this.sync();}
-			});
-			Editor.sync();
-			});
-    }
+
 	
 	function loadTeamTablePage()
 	{
@@ -187,5 +181,76 @@ xmlhttp.send();
 		$("#delete").toggle();
 	}
 		
-		
+	
+    var checkedIds=[];
+    function changeIds(){
+        var oneches=document.getElementsByName("employeeSelected");
+        var num=0;
+      for(var i=0;i<oneches.length;i++){
+          if(oneches[i].checked==true){
+              //避免重复累计id （不含该id时进行累加）
+              for(var j=0;j<checkedIds.length;j++){
+            	  if(oneches[i].value==checkedIds[j]){
+            		  num=1;
+            		  break;
+            	  }
+              }
+              if(num==0){
+            	  checkedIds.push(oneches[i].value);
+            	  
+              }
+              num=0;
+          }
+          if(oneches[i].checked==false){
+              //取消复选框时 含有该id时将id从全局变量中去除
+              for(var j=0;j<checkedIds.length;j++){
+            	  if(oneches[i].value==checkedIds[j]){
+            		  checkedIds.splice(j, 1);
+            	  }
+              }
+          }
+      }
+   }
+
+function getChecked(){
+      var oneches=document.getElementsByName("employeeSelected");
+      for(var i=0;i<oneches.length;i++){
+    	  for(var j=0;j<checkedIds.length;j++){
+    		  if(oneches[i].value==checkedIds[j]){
+                  oneches[i].checked=true;
+    		  }
+    	  }
+          }
+      changeIds()
+   }	
+
+
+function createEditor(){
+	var url = "http://localhost:8080/ThereManOneDog/kindeditor-4.1.7/kindeditor-min.js";
+	$.getScript(url, function() {
+		KindEditor.basePath = "http://localhost:8080/ThereManOneDog/kindeditor-4.1.7/";
+		Editor=KindEditor.create('textarea[name="nContent"]',{
+			afterBlur:function(){this.sync();}
+		});
+		Editor.sync();
+		});
+}
+
+
+function getNames()
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("employeeLink").value=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/getEmployeeNames.action?eIds="+checkedIds ,false);
+xmlhttp.send();
+alert(checkedIds);
+document.getElementById("selectEmployees").value = checkedIds;
+}
 			

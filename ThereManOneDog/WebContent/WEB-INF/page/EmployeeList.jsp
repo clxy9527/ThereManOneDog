@@ -1,6 +1,3 @@
-<%@page import="com.oa.test.employeeTest"%>
-<%@page import="com.oa.test.deptTest"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,17 +6,13 @@
 <head>
 </head>
 <body>
-<%
-int index = Integer.parseInt(request.getParameter("index"));
-    List<deptTest> depts =(List<deptTest>) session.getAttribute("dept_list");
-    List<employeeTest> employeeTests = depts.get(index).getEmployees();
-%>
 
-<c:forEach var="em" items="<%=employeeTests%>">
+    <c:forEach items="${employeelist}" var="employee" varStatus="no">
         <label class=" btn btn-default btn-block">
-            <input name="employee_selected" type="checkbox" />
-             ${em.getName()}
+            <input name="employeeSelected" type="checkbox"  value="${employee.geteId()}" onclick="changeIds()" />
+                                           员工号：${employee.geteId()}
+                                            姓名：${employee.geteName()}
         </label>
-</c:forEach>
+    </c:forEach> 
 </body>
 </html>

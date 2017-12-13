@@ -15,7 +15,7 @@
         <link type="text/css" href="">
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/scripts/datatables/jquery.dataTables.js"></script>
-<script charset="utf-8" src="./kindeditor-4.1.7/jquery.js"></script>
+<script charset="utf-8" src="${pageContext.request.contextPath}/kindeditor-4.1.7/jquery.js"></script>
 
 </head>
 <body>
