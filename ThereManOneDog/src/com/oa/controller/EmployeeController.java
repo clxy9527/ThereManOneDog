@@ -1,5 +1,7 @@
 package com.oa.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,7 +29,6 @@ public class EmployeeController {
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView = new ModelAndView();
-
 		if(employeeService.login(employee)){
 			request.getSession().setAttribute("eid", employee.geteId());
 			modelAndView.setViewName("/index");
@@ -76,9 +77,9 @@ public class EmployeeController {
 	@RequestMapping("/queryAllEmployee")
 	public ModelAndView queryAllEmployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
-		employeeService.queryAllEmployee();
-		//需要修改传递list
-		modelAndView.addObject("employee",employee);
+		//修改传递list
+		List<Employee> employeelist=  employeeService.queryAllEmployee();
+		modelAndView.addObject("employeelist",employeelist);
 		modelAndView.setViewName("");
 		return modelAndView;
 	}
@@ -92,9 +93,9 @@ public class EmployeeController {
 	@RequestMapping("/queryEmployeebyterm")
 	public ModelAndView queryEmployeebyterm(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
-		employeeService.queryEmployeebyterm(employee);
+		List<Employee> employeelist=employeeService.queryEmployeebyterm(employee);
 		//需要修改传递list
-		modelAndView.addObject("employee",employee);
+		modelAndView.addObject("employeelist",employeelist);
 		modelAndView.setViewName("");
 		return modelAndView;
 	}

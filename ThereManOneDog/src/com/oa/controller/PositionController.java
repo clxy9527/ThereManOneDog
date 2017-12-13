@@ -1,5 +1,7 @@
 package com.oa.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,9 +43,9 @@ public ModelAndView deleteposition(HttpServletRequest request,HttpServletRespons
 public ModelAndView queryposition(HttpServletRequest request,HttpServletResponse response,Position position){
 	int dId=0;
 	ModelAndView modelAndView =new ModelAndView();
-	positionService.queryposition(dId);
+	List<Position> positionlist  =positionService.queryposition(dId);
 	//没有获取list
-	modelAndView.addObject("position",position);
+	modelAndView.addObject("positionlist",positionlist);
 	modelAndView.setViewName("");
 	return modelAndView;
 }

@@ -1,5 +1,7 @@
 package com.oa.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,9 +44,9 @@ public class DepartmentController {
 	@RequestMapping("/queryAllDepartment")
 	public ModelAndView queryAllDepartment(HttpServletRequest request,HttpServletResponse response,Department department){
 		ModelAndView modelAndView =new ModelAndView();
-		departmentService.queryAllDepartment();
+		List<Department>  departmentlist=departmentService.queryAllDepartment();
 		//需要修改传递list
-		modelAndView.addObject("department",department);
+		modelAndView.addObject("departmentlist",departmentlist);
 		modelAndView.setViewName("");
 		return modelAndView;
 }
@@ -60,7 +62,6 @@ public class DepartmentController {
 		int dId=0;
 		ModelAndView modelAndView =new ModelAndView();
 		departmentService.deleteDepartment(dId);
-		//需要修改传递list
 		modelAndView.addObject("department",department);
 		modelAndView.setViewName("");
 		return modelAndView;
