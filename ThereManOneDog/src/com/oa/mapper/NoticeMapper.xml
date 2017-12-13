@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.oa.mapper.TeamMapper">
+<mapper namespace="com.oa.mapper.NoticeMapper">
 	
-	<select id="selectTeamById" resultType="Team">
-	 select * from Team where tmId=#{value}
-	</select>
+	<parameterMap type="map" id="readers">
+	<parameter property="nId"/>
+	<parameter property="readers"/>
+	<parameter property="nReadState"/>
+	</parameterMap>
+	
+	<insert id="addNotice"  useGeneratedKeys="true" keyProperty="nId" parameterType="com.oa.pojo.Notice">
+	    insert into notice values(null,#{nTitle},#{nAuthor.eId},#{nContent},#{nTime},#{nType},#{nImportant})
+	</insert>
+	
+	<insert id="addReaders" parameterMap="readers">
+	 insert into noticeemployee values
+	 <foreach collection="readers" item="reader" separator="," >
+	 (#{nId},#{reader.eId},#{nReadState})
+	 </foreach>
+	</insert>
 	
 	
 </mapper>
