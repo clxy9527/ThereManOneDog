@@ -89,7 +89,7 @@ public class EmployeeController {
 	 * @param employee
 	 * @return
 	 */
-	@RequestMapping("/queryAllEmployee")
+	@RequestMapping("/queryEmployeebyterm")
 	public ModelAndView queryEmployeebyterm(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
 		employeeService.queryEmployeebyterm(employee);
