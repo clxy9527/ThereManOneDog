@@ -4,8 +4,36 @@
 <mapper namespace="com.oa.mapper.TeamMapper">
 	
 	<select id="selectTeamById" resultType="Team">
-	 select * from Team where tmId=#{value}
+	 select * from team where TMid=#{tmId}
+	</select>
+	
+	<select id="selectAllTeamFromEmployee" resultType="Team">
+		SELECT team.TMid,TMname,TMdescribe,TMtime FROM team,teamemployee WHERE teamemployee.TMid=team.TMid AND teamemployee.Eid=#{eId}
+	</select>
+	
+	<select id=" selectAllMenmberInTeam" resultType="Employee"> 
+		SELECT employee.Eid,Ename,Epassword,Ephone,Ecard FROM employee,teamemployee WHERE teamemployee.Eid=employee.Eid AND teamemployee.TMid=#{tmId}
 	</select>
 	
 	
+	<select id="createTeam" parameterType="Team">
+		insert into team (TMid,TMname,TMdescribe,TMtime,Eid) values(#{tmId},#{tmName},#{tmDescribe},#{tmTime},#{eId});
+	</select>
+	
+	<select id="deleteTeam" parameterType="Team">
+		delete from team where TMid =#{tmId}
+	</select>
+	
+	<select id="changeTeamName" >
+		update team set TMname=#{tmName} where TMid=#{tmid}
+	
+	</select>
+	
+	<select id="addTeamMember" >
+		insert into teamemployee (,TMid,Eid) values(,#{tmId},#{eId})
+	</select>
+	
+	<select id="deleteTeamMember">
+		delete from teamemployee where TMidid=#{tmId} and Eid=#{eId}
+	</select>
 </mapper>
