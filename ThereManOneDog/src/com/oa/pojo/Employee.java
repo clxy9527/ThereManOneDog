@@ -15,6 +15,8 @@ public class Employee {
 	private String eOutdate;
 	private int eState;
 	private String eAddress;
+
+	private int readState;
 	private Department depart;
 	public Department getDepart() {
 		return depart;
@@ -102,6 +104,12 @@ public class Employee {
 	}
 	public void seteOutdate(String eOutdate) {
 		this.eOutdate = eOutdate;
+	}
+	public int getReadState() {
+		return readState;
+	}
+	public void setReadState(int readState) {
+		this.readState = readState;
 	}
 	
 	

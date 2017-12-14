@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,105 +38,42 @@
                                 </div>
                                 <div class="module-body table">
                                     <table class="table table-message">
-                                        <thead>
-                                         <tr class="heading">
-                                                <td class="cell-check" >
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">发送人</td>
-                                                <td class="cell-title">公告标题</td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                </td>
-                                                <td class="cell-time align-right">发送日期</td>
+                                        <thead>        
+                                        <tr class="heading">
+                                                <td class="cell-check" ></td>
+                                                <td class="cell-icon"></td>
+                                                <td>发送人</td>
+                                                <td>公告标题</td>
+                                                <td>公告类型</td>
+                                                <td>发送日期</td>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="unread">
+                                        <c:forEach var="notice" items="${allNotice}">
+                                        <tr class="unread<c:if test="${notice.nImportant==1}"> starred</c:if>">
                                                 <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
+                                                    <input name="selectedNotice" type="checkbox" class="inbox-checkbox">
                                                 </td>
-                                                <td class="cell-icon">
+                                                <td class="cell-check">
+                                                <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
                                                     <i class="icon-star"></i>
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Donga
+                                                   <c:out value="${notice.getnAuthor().geteName()}" />
                                                 </td>
                                                 <td class="cell-title">
-                                                    Sample Work
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    18:24
-                                                </td>
-                                            </tr>
-                                            <tr class="unread starred">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Donga
+                                                    <c:out value="${notice.getnTitle()}" />
                                                 </td>
                                                 <td class="cell-title">
-                                                    Test Title
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip-no"></i>
+                                                    <c:out value="${notice.getnType()}" />
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:01
+                                                    <c:out value="${notice.getnTime()}" />
                                                 </td>
                                             </tr>
-                                            <tr class="read starred">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Donga
-                                                </td>
-                                                <td class="cell-title">
-                                                    Someone wants to talk to you!
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip-no"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    May 21
-                                                </td>
-                                            </tr>
-                                            <tr class="read">
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                    <i class="icon-star"></i>
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Doe
-                                                </td>
-                                                <td class="cell-title">
-                                                    Doe wants to talk to you!
-                                                </td>
-                                                <td class="cell-icon hidden-phone hidden-tablet">
-                                                    <i class="icon-paper-clip"></i>
-                                                </td>
-                                                <td class="cell-time align-right">
-                                                    May 15
-                                                </td>
-                                            </tr>
+                                         </c:forEach>
                                         </tbody>
                                     </table>
-                                </div>
-                                <div class="module-foot">
                                 </div>
                             </div>
                         </div>

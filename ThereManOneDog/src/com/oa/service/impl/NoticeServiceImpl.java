@@ -1,6 +1,7 @@
 package com.oa.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.oa.mapper.EmployeeMapper;
 import com.oa.mapper.NoticeMapper;
+import com.oa.pojo.Employee;
 import com.oa.pojo.Notice;
 import com.oa.util.TimeUtil;
 import com.sun.javafx.collections.MappingChange.Map;
@@ -41,9 +43,17 @@ public class NoticeServiceImpl implements NoticeService {
 		map.put("nReadState",notice.getnReadState());
 		noticeMapper.addReaders(map);
 	}
-	
-	
-	
-	
+
+
+	@Override
+	public List<Notice> getAllNotice() {
+		List<Notice> notices = noticeMapper.getAllNotice();
+		for(Notice notice:notices){
+			List<Employee> employees = noticeMapper.getReaders(notice.getnId());
+			notice.setReaders(employees);
+		}
+		return notices;
+	}
+
 	
 }

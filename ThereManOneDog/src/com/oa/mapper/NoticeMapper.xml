@@ -9,6 +9,20 @@
 	<parameter property="nReadState"/>
 	</parameterMap>
 	
+	
+	<resultMap id="noticeMap" type="com.oa.pojo.Notice">
+	    <id property="nId" column="Nid"></id>
+	    <result property="nTitle" column="Ntitle"></result>
+	    <result property="nContent" column="Ncontent"></result>
+	    <result property="nTime" column="Ntime"></result>
+	    <result property="nType" column="Ntype"></result>
+	    <result property="nImportant" column="Nimportant"></result>
+	    <association property="nAuthor" javaType="com.oa.pojo.Employee">
+	       <id property="eId" column="Eid"></id>
+	       <result property="eName" column="Ename"></result>
+	    </association>
+	</resultMap> 
+	
 	<insert id="addNotice"  useGeneratedKeys="true" keyProperty="nId" parameterType="com.oa.pojo.Notice">
 	    insert into notice values(null,#{nTitle},#{nAuthor.eId},#{nContent},#{nTime},#{nType},#{nImportant})
 	</insert>
@@ -19,6 +33,17 @@
 	 (#{nId},#{reader.eId},#{nReadState})
 	 </foreach>
 	</insert>
+	
+	<select id="getAllNotice" resultMap="noticeMap">
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,n.Nimportant,e.Eid,e.Ename from notice n,employee e
+	where  n.Nauthor=e.Eid 
+	
+	
+	</select>
+	
+	<select id="getReaders" resultType="com.oa.pojo.Employee">
+	     select e.Eid,e.Ename,ne.readstate from Employee e,noticeemployee ne WHERE ne.Eid = e.Eid and ne.Nid = ${value}
+	</select>
 	
 	
 </mapper>

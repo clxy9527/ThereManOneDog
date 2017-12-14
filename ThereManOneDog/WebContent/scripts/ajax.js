@@ -32,43 +32,6 @@ xmlhttp.onreadystatechange=function()
 xmlhttp.open("GET","TaskRelease.jsp" ,false);
 xmlhttp.send();
 }
-function loadEmployeePage(id)
-{
-var xmlhttp;
-var bu = $(this).attr("id"); 
-xmlhttp=new XMLHttpRequest();
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("EmployeeList").innerHTML=xmlhttp.responseText;
-    MessageTable()
-    getChecked();
-    }
-  }
-xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/getEmploeeByDepartment.action?dId="+id ,false);
-xmlhttp.send();
-}
-
-
-
-  function loadReleasePage()
-{
-	var xmlhttp;
-	xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-	    document.getElementById("content").innerHTML=xmlhttp.responseText;
-	    createEditor();
-	    }
-	  }
-	xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/addNotice.action" ,false);
-	xmlhttp.send();
-	}
-	  
-
 	
 	function loadTeamTablePage()
 	{

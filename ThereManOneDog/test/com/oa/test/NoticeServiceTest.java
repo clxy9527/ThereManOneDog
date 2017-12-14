@@ -20,47 +20,55 @@ public class NoticeServiceTest {
 	public void init(){
 		ac = new ClassPathXmlApplicationContext("spring/spring-bean.xml");
 	}
+//	
+//	@Test
+//	public void addNoticeTest(){
+//		
+//		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
+//		
+//		noticeService.addNotice(createData());
+//	}
+//	
+//	
+//	public Notice createData(){
+//		Notice notice = new Notice();
+//		notice.setnTitle("测试001");
+//		notice.setnContent("测试数据");
+//		notice.setnType("公告");
+//		notice.setnTime(TimeUtil.getTime());
+//		notice.setnImportant(0);
+//		notice.setnReadState(0);
+//		
+//		
+//		
+//		Employee author = new Employee();
+//		author.seteId("T9527");
+//		notice.setnAuthor(author);
+//		
+//		Employee e1 = new Employee();
+//		e1.seteId("T0010");
+//		
+//		Employee e2 = new Employee();
+//		e2.seteId("T0048");
+//		
+//		List<Employee> employees = new ArrayList<Employee>();
+//
+//		employees.add(e1);
+//		employees.add(e2);
+//		
+//		notice.setReaders(employees);
+//		
+//		notice.getReaders().get(1).geteId();
+//		
+//		return notice;
+//	}
+	
+	
 	
 	@Test
-	public void addNoticeTest(){
-		
+	public void getAllNotice(){
 		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
-		
-		noticeService.addNotice(createData());
-	}
-	
-	
-	public Notice createData(){
-		Notice notice = new Notice();
-		notice.setnTitle("测试001");
-		notice.setnContent("测试数据");
-		notice.setnType("公告");
-		notice.setnTime(TimeUtil.getTime());
-		notice.setnImportant(0);
-		notice.setnReadState(0);
-		
-		
-		
-		Employee author = new Employee();
-		author.seteId("T9527");
-		notice.setnAuthor(author);
-		
-		Employee e1 = new Employee();
-		e1.seteId("T0010");
-		
-		Employee e2 = new Employee();
-		e2.seteId("T0048");
-		
-		List<Employee> employees = new ArrayList<Employee>();
-		
-		employees.add(e1);
-		employees.add(e2);
-		
-		notice.setReaders(employees);
-		
-		notice.getReaders().get(1).geteId();
-		
-		return notice;
+		noticeService.getAllNotice();
 	}
 }
 

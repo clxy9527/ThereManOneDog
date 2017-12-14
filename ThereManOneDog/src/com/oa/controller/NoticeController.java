@@ -98,6 +98,8 @@ public class NoticeController {
 	public ModelAndView getAllNotice(HttpServletRequest request,HttpServletResponse response){
 		 ModelAndView modelAndView = new ModelAndView();
 		 modelAndView.setViewName("message");
+		 List<Notice> notices = noticeService.getAllNotice();
+		 modelAndView.addObject("allNotice", notices);
 		 return modelAndView;
 		
 		
