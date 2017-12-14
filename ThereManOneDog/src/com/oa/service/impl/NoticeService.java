@@ -17,4 +17,18 @@ public interface NoticeService {
 	 * @return
 	 */
 	public List<Notice> getAllNotice();
+	
+	
+	/**
+	 * 根据公告编号获取公告
+	 * @param nId 公告编号
+	 * @return
+	 */
+	public Notice findNoticeById(int nId);
+	
+	/**根据员工编号获取公告
+	 * @param eId员工编号
+	 * @return
+	 */
+	public List<Notice> findNoticeByEid(String eId);
 }

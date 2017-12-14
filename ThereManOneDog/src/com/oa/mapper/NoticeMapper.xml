@@ -42,8 +42,18 @@
 	</select>
 	
 	<select id="getReaders" resultType="com.oa.pojo.Employee">
-	     select e.Eid,e.Ename,ne.readstate from Employee e,noticeemployee ne WHERE ne.Eid = e.Eid and ne.Nid = ${value}
+	     select e.Eid,e.Ename,ne.readstate from Employee e,noticeemployee ne WHERE ne.Eid = e.Eid and ne.Nid = #{value}
 	</select>
 	
+	
+	<select id="findNoticeById" resultMap="noticeMap">
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,n.Nimportant,e.Eid,e.Ename from notice n,employee e
+	where  n.Nauthor=e.Eid and n.nid = #{value}
+	</select>
+	
+    <select id="findNoticeByEmployee" resultMap="noticeMap">
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,n.Nimportant,e.Eid,e.Ename from notice n,employee e ,noticeemployee ne
+	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = #{value}
+	</select>
 	
 </mapper>

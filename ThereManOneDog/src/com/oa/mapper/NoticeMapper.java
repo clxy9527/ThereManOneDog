@@ -8,7 +8,8 @@ import com.oa.pojo.Notice;
 
 public interface NoticeMapper {
 	public List<Notice> getAllNotice();
-	public Notice findNoticeById();
+	public Notice findNoticeById(int nId);
+	public List<Notice> findNoticeByEmployee(String eId);
 	public List<Notice> findNoticeByState();
 	public void deleteNotice();
 	public void addNotice(Notice notice);

@@ -64,11 +64,17 @@ public class NoticeServiceTest {
 //	}
 	
 	
+//	
+//	@Test
+//	public void getAllNotice(){
+//		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
+//		noticeService.getAllNotice();
+//	}
 	
 	@Test
-	public void getAllNotice(){
+	public void getNoticeById(){
 		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
-		noticeService.getAllNotice();
+		noticeService.findNoticeById(16);
 	}
 }
 

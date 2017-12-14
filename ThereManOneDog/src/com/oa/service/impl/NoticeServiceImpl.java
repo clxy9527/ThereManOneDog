@@ -55,5 +55,25 @@ public class NoticeServiceImpl implements NoticeService {
 		return notices;
 	}
 
+
+	@Override
+	public Notice findNoticeById(int nId) {
+		Notice notice = noticeMapper.findNoticeById(nId);
+		List<Employee> employees = noticeMapper.getReaders(nId);
+		notice.setReaders(employees);
+		return notice;
+	}
+
+
+	@Override
+	public List<Notice> findNoticeByEid(String eId) {
+		List<Notice> notices = noticeMapper.findNoticeByEmployee(eId);
+		for(Notice notice:notices){
+			List<Employee> employees = noticeMapper.getReaders(notice.getnId());
+			notice.setReaders(employees);
+		}
+		return notices;
+	}
+
 	
 }

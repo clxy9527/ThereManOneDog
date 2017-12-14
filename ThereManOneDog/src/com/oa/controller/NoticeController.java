@@ -85,19 +85,35 @@ public class NoticeController {
 		 notice.setnAuthor((Employee)request.getSession().getAttribute("employee"));
 		 notice.setReaders(get_selected_employee(selectEmployees));
 		 noticeService.addNotice(notice);
-		 modelAndView.setViewName("getAllNotice");
+		 modelAndView.setViewName("/getAllNotice");
 		 return modelAndView;
 	}
 	
-	/**获取所有的公告
+	/**加载公告查看列表
 	 * @param request
 	 * @param response
 	 * @return
 	 */
 	@RequestMapping("/getAllNotice")
 	public ModelAndView getAllNotice(HttpServletRequest request,HttpServletResponse response){
+		 HttpSession session = request.getSession();
 		 ModelAndView modelAndView = new ModelAndView();
-		 modelAndView.setViewName("message");
+		 modelAndView.setViewName("MessageRead");
+		 Employee employee = (Employee) session.getAttribute("employee");
+		 List<Notice> notices = noticeService.findNoticeByEid(employee.geteId());
+		 modelAndView.addObject("allNotice", notices);
+		 return modelAndView;
+	}
+	
+	/**加载公告管理界面
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("/noticeManger")
+	public ModelAndView noticeManger(HttpServletRequest request,HttpServletResponse response){
+		 ModelAndView modelAndView = new ModelAndView();
+		 modelAndView.setViewName("MessageManger");
 		 List<Notice> notices = noticeService.getAllNotice();
 		 modelAndView.addObject("allNotice", notices);
 		 return modelAndView;
@@ -142,5 +158,14 @@ public class NoticeController {
 		result = result.substring(0,result.length()-1);
 		System.out.println(result);
 	    response.getWriter().append(""+result);
+	}
+	
+	@RequestMapping("getNoticeById")
+	public ModelAndView getNoticeById(HttpServletRequest request,HttpServletResponse response,String nId){
+		ModelAndView modelAndView = new ModelAndView();
+		Notice notice = noticeService.findNoticeById(Integer.parseInt(nId));
+		modelAndView.addObject("notice", notice);
+		modelAndView.setViewName("NoticeRead");
+		return modelAndView;
 	}
 }

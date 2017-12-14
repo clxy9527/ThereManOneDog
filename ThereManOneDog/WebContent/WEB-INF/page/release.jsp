@@ -44,7 +44,7 @@ text-decoration: none;
 	<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 </head>
 <body>
-<form   action="${pageContext.request.contextPath}/noticeController/saveNotice.action" method="get">
+<form   action="${pageContext.request.contextPath}/noticeController/saveNotice.action" method="post">
 				<table align="center" border="1" >
     <tr>
         <td>标题：</td>
@@ -78,7 +78,7 @@ text-decoration: none;
         </td>
         <td>
         <textarea id="employeeLink" readonly="readonly" style="80%" ></textarea>
-        <textarea id="selectEmployees" name="selectEmployees" readonly="readonly" style="80%" ></textarea>
+        <textarea id="selectEmployees" name="selectEmployees" readonly="readonly" style="display:none;" ></textarea>
         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加人员</button>
         </td>
     </tr> 
