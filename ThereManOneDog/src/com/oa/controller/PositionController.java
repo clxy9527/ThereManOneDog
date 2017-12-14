@@ -40,13 +40,12 @@ public ModelAndView deleteposition(HttpServletRequest request,HttpServletRespons
 }
 
 @RequestMapping("/queryposition")
-public ModelAndView queryposition(HttpServletRequest request,HttpServletResponse response,Position position){
-	int dId=0;
+public ModelAndView queryposition(HttpServletRequest request,HttpServletResponse response,Position position,int dId){
 	ModelAndView modelAndView =new ModelAndView();
+	position.setdId(dId);
 	List<Position> positionlist  =positionService.queryposition(dId);
-	//没有获取list
 	modelAndView.addObject("positionlist",positionlist);
-	modelAndView.setViewName("");
+	modelAndView.setViewName("AddStaff");
 	return modelAndView;
 }
 }

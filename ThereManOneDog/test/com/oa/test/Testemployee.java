@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.pojo.Employee;
 import com.oa.service.impl.EmployeeService;
+import com.oa.util.EidUtil;
 
 
 public class Testemployee {
@@ -70,6 +71,11 @@ public class Testemployee {
 				Employee employee2 = (Employee) iterator.next();
 				System.out.println(employee2.geteId()+ "\t" + employee2.geteName()+"\t"+ employee2.getdId());
 			}
+		}
+		@Test 
+		public void until(){
+			String eid=EidUtil.getRandomString(2);
+			System.out.println(eid);
 		}
 }
 

@@ -19,7 +19,7 @@ public class EidUtil
 	            sb.append(str.charAt(number));  
 	        }  
 	        eid= sdf.format(date)+sb; 
-	        return getRandomString(2);  
+	        return eid;  
 	    }  
 	    public static void main(String[] args){  
 	        System.out.println(getRandomString(2));  

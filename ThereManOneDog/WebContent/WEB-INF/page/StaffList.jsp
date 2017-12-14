@@ -35,7 +35,7 @@
                                     <div class="pull-left">
                                         <div class="btn-group">
                                       
-                  		                          <button class="btn" onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/employeeController/queryAllEmployee.action')" >
+                  		                          <button  id="all" class="btn" onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/employeeController/queryAllEmployee.action')" >
                                              				全部	  </button>
                                       <!-- dropdown-toggle -->
                                            <button class="btn " data-toggle="dropdown">
@@ -46,7 +46,7 @@
                                            <c:forEach items="${departmentlist}" var="department" varStatus="no">  
                                            
                                                 <li>
-                                                <a onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/employeeController/queryEmployeebyterm.action?dId=${department.getdId()}')">
+                                                <a onclick="ajaxRequestPageWithTablebystaff('${pageContext.request.contextPath}/employeeController/queryEmployeebyterm.action?dId=${department.getdId()}','${department.getdName()}')">
                                                 ${department.getdName()}
                                                 </a>
                                                 </li>
@@ -63,8 +63,8 @@
                                 </div>
                                 <div class="module-body table">
                                     <table class="table table-message">
-                                        <tbody>
-                                            <tr class="heading">
+                                        <thead> 
+                                         <tr class="heading">
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
@@ -86,6 +86,9 @@
                                                    	入职日期
                                                 </td>
                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                           
                                             
  									<c:forEach items="${employeelist}" var="employee" varStatus="no">
                                             <tr >

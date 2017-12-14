@@ -122,7 +122,7 @@ xmlhttp.send();
 	function MessageFilter(text) {
 		document.getElementById("output").innerHTML = text;
 	}
-	
+
 	function hide(){
 		$(":checkbox").toggle();
 		$("#delete").toggle();
@@ -238,4 +238,34 @@ function ajaxRequestNames(urlhead){
 		}
 	});
 }
+function ajaxRequestPageadd(url,text){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			//document.getElementById("AddStaff").innerHTML=data;
+			 document.getElementById("depart").innerHTML = text;
+			 MessageTable();
+		}
+	});
+}
+//下拉框显示
+function click(){
+	var x=document.getElementById("bclick");
+	x.value=x.value.toUpperCase();
+}
+
+function ajaxRequestPageWithTablebystaff(url,text){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("content").innerHTML=data;
+			 document.getElementById("all").innerHTML = text;
+		    MessageTable();
+		   
+		}
+	});
+	}
+
 	

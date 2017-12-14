@@ -15,6 +15,7 @@ import com.oa.pojo.Employee;
 import com.oa.service.impl.DepartmentService;
 import com.oa.service.impl.EmployeeService;
 import com.oa.service.impl.PositionService;
+import com.oa.util.EidUtil;
 
 @Controller
 @RequestMapping("employeeController")
@@ -53,6 +54,9 @@ public class EmployeeController {
 	 */
 	@RequestMapping("/addemployee")
 	public String addemployee(HttpServletRequest request,HttpServletResponse response,Employee employee,ModelAndView modelAndView){
+		String eId=EidUtil.getRandomString(2);
+		employee.seteId(eId);
+		employee.setePassword("123456");
 		employeeService.addEmployee(employee);
 		modelAndView.addObject("employee",employee);
 		return "forward:queryAllEmployee.aciton";

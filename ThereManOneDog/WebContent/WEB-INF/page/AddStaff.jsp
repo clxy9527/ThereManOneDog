@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -32,14 +33,64 @@
 		<div class="modal-content">
 			<div class="modal-header">
 			
-				<h4 class="modal-title" id="myModalLabel">
+				<h4 class="modal-title" id="myModalLabel"  >
 					添加员工
 				</h4>
 			</div>
 			<div class="modal-body" style="overflow: auto">
-			<form role="form">
+			
+			<form role="form" class="form-inline">
 			<div class="form-group">
 			<label for="name">员工姓名</label>
+			<input type="text" style="width:180px;" id ="eId" placeholder="请输入员工姓名">
+			<label for="phone">电话号码</label>
+			<input type="text" style="width:180px;" id ="ePhone" placeholder="请输入员工联系电话">
+			<label for="idcard">证件号码</label>
+			<input type="text"  style="width:180px;" id ="eCard" placeholder="请输入员工证件号码">
+			<label for="address">所在住址</label>
+			<input type="text"  style="width:180px;" id ="eAddress" placeholder="请输入员工住址">
+	<table>
+	<tr>
+			<td><label for="did"  class="form-control">所在部门</label></td>
+			<td><div class="container-fluid" > 
+			<div>
+			<ul class="nav navbar-nav" >
+			<li class="dropdown"  >
+				<a  id="depart" href="#"  class="dropdown-toggle" data-toggle="dropdown">
+				部门选择
+					<b class="caret" ></b>
+				</a>
+				<ul class="dropdown-menu" style="width:180px;" >
+					<c:forEach items="${departmentlist}" var="department" varStatus="no">  
+								<li><a onclick="ajaxRequestPageadd('${pageContext.request.contextPath}/positionController/queryposition.action?dId=${department.getdId()}','${department.getdName()}')"> ${department.getdName()}</a> </li>  
+								
+            </c:forEach>  
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
+	</td>
+	</tr>
+</table>
+			<label for="pid" style="width:180px;">部门职位</label>
+			<div class="container-fluid"> 
+			<div>
+			<ul class="nav navbar-nav" >
+			<li class="dropdown"  >
+				<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
+				职位选择
+					<b class="caret" ></b>
+				</a>
+				<ul class="dropdown-menu">
+					<c:forEach items="${positionlist}" var="position" varStatus="no">  
+								<li>${position.getpName()}</li>  
+            </c:forEach>  
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
 			</div>
 			</form>
 			</div>
