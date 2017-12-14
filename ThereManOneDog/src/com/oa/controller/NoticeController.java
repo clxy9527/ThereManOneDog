@@ -36,6 +36,12 @@ public class NoticeController {
 	private DepartmentService departmentService;
 	
 	
+	/**
+	 * 跳转公告发布页面
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping("/addNotice")
 	public ModelAndView addNotice(HttpServletRequest request, HttpServletResponse response){
 		 HttpSession session = request.getSession();
@@ -46,6 +52,12 @@ public class NoticeController {
 		 return modelAndView;
 	}
 	
+	/**根据部门查询员工列表
+	 * @param request
+	 * @param response
+	 * @param dId 部门编号
+	 * @return
+	 */
 	@RequestMapping("/getEmploeeByDepartment")
 	public ModelAndView getEmployeeList(HttpServletRequest request,HttpServletResponse response , int dId){
 		 HttpSession session = request.getSession();
@@ -59,6 +71,13 @@ public class NoticeController {
 	}
 	
 	
+	/**将新公告保存到数据库中
+	 * @param request
+	 * @param response
+	 * @param notice公告内容
+	 * @param selectEmployees相关人员的编号字符串集
+	 * @return
+	 */
 	@RequestMapping("/saveNotice")
 	public ModelAndView saveNotice(HttpServletRequest request,HttpServletResponse response,Notice notice ,String selectEmployees){
 		 ModelAndView modelAndView = new ModelAndView();
@@ -70,6 +89,11 @@ public class NoticeController {
 		 return modelAndView;
 	}
 	
+	/**获取所有的公告
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	@RequestMapping("/getAllNotice")
 	public ModelAndView getAllNotice(HttpServletRequest request,HttpServletResponse response){
 		 ModelAndView modelAndView = new ModelAndView();
@@ -79,6 +103,10 @@ public class NoticeController {
 		
 	}
 	
+	/**转换字符串编号为对象列表
+	 * @param selected_employee
+	 * @return
+	 */
 	public List<Employee> get_selected_employee(String selected_employee){
 		List<String> result = Arrays.asList(selected_employee.split(","));
 		if(result.get(0).equals(""))result=null;
@@ -93,6 +121,12 @@ public class NoticeController {
 		return employees;
 	}
 	
+	/**根据id字符串集查询对应的姓名集
+	 * @param request
+	 * @param response
+	 * @param eIds
+	 * @throws IOException
+	 */
 	@RequestMapping("getEmployeeNames")
 	public void getEmployeeNames(HttpServletRequest request,HttpServletResponse response,String eIds) throws IOException{
 		List<String> eIdList = Arrays.asList(eIds.split(","));
