@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="pull-right">
                                     <button class="btn btn-primary "  data-backdrop="static" data-toggle="modal" data-target="#myModal">添加员工</button>
-                                       
+                                       <button class="btn btn-primary ">删除员工</button>
                                     </div>
                                 </div>
                                 <div class="module-body table">
@@ -66,23 +66,23 @@
                                         <thead> 
                                          <tr class="heading">
                                                 <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
+                                                    
                                                 </td>
                                                 <td class="cell-icon">
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td>
                                               	员工编号  
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td >
                                           	          姓名
                                                 </td>
-                                                  <td class="cell-author hidden-phone hidden-tablet">
+                                                  <td >
                                           	         职位
                                                 </td>
-                                                  <td class="cell-author hidden-phone hidden-tablet">
+                                                  <td >
                                           	          部门
                                                 </td>
-                                                <td class="cell-time align-right">
+                                                <td >
                                                    	入职日期
                                                 </td>
                                             </tr>
@@ -98,16 +98,16 @@
                                                 <td class="cell-icon">
                                                    
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td class="cell-title">
                                                  ${employee.geteId()}
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td class="cell-title">
                                                   ${employee.geteName()}
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td class="cell-title">
                                                    ${employee.getdId()}
                                                 </td> 
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td class="cell-title">
                                                     ${employee.getpId()}
                                                 </td>
                                                 <td class="cell-time align-right">
