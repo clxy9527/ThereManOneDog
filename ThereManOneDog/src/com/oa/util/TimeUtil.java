@@ -11,4 +11,5 @@ public class TimeUtil {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(date);
 	}
+
 }

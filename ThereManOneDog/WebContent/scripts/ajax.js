@@ -219,7 +219,7 @@ function createEditor(){
 		Editor.sync();
 		});
 }
-
+//获取带分页列表
 function ajaxRequestPageWithTable(url){
 		$.ajax({
 			type:'GET',
@@ -230,7 +230,7 @@ function ajaxRequestPageWithTable(url){
 			}
 		});
 		}
-
+//获取不带分页列表
 function ajaxRequestPage(url){
 	$.ajax({
 		type:'GET',

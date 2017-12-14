@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.oa.pojo.Department;
 import com.oa.pojo.Employee;
 import com.oa.service.impl.DepartmentService;
 import com.oa.service.impl.EmployeeService;
@@ -20,6 +21,8 @@ import com.oa.service.impl.PositionService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
+	@Autowired
+	private DepartmentService departmentService;
 	
 	/**
 	 * 登陆方法
@@ -77,12 +80,14 @@ public class EmployeeController {
 	 * @return
 	 */
 	@RequestMapping("/queryAllEmployee")
-	public ModelAndView queryAllEmployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+	public ModelAndView queryAllEmployee(HttpServletRequest request,HttpServletResponse response,Employee employee,Department department){
 		ModelAndView modelAndView =new ModelAndView();
 		//修改传递list
 		List<Employee> employeelist=  employeeService.queryAllEmployee();
 		modelAndView.addObject("employeelist",employeelist);
-		modelAndView.setViewName("Department");
+		List<Department>  departmentlist=departmentService.queryAllDepartment();
+		modelAndView.addObject("departmentlist",departmentlist);
+		modelAndView.setViewName("StaffList");
 		return modelAndView;
 	}
 	/**
@@ -93,12 +98,14 @@ public class EmployeeController {
 	 * @return
 	 */
 	@RequestMapping("/queryEmployeebyterm")
-	public ModelAndView queryEmployeebyterm(HttpServletRequest request,HttpServletResponse response,Employee employee){
+	public ModelAndView queryEmployeebyterm(HttpServletRequest request,HttpServletResponse response,Employee employee,Department department,int dId){
 		ModelAndView modelAndView =new ModelAndView();
+		employee.setdId(dId);
 		List<Employee> employeelist=employeeService.queryEmployeebyterm(employee);
-		//需要修改传递list
 		modelAndView.addObject("employeelist",employeelist);
-		modelAndView.setViewName("Department");
+		List<Department>  departmentlist=departmentService.queryAllDepartment();
+		modelAndView.addObject("departmentlist",departmentlist);
+		modelAndView.setViewName("StaffList");
 		return modelAndView;
 	}
 }

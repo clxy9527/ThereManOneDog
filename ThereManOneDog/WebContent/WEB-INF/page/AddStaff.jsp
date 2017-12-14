@@ -37,7 +37,11 @@
 				</h4>
 			</div>
 			<div class="modal-body" style="overflow: auto">
-			
+			<form role="form">
+			<div class="form-group">
+			<label for="name">员工姓名</label>
+			</div>
+			</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭

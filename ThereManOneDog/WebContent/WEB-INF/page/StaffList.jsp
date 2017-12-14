@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,20 +34,26 @@
                                 <div class="module-option clearfix">
                                     <div class="pull-left">
                                         <div class="btn-group">
-                                            <button class="btn">
-                                                全部</button>
+                                      
+                  		                          <button class="btn" onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/employeeController/queryAllEmployee.action')" >
+                                             				全部	  </button>
                                       <!-- dropdown-toggle -->
                                            <button class="btn " data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">公关部</a></li>
-                                                <li><a href="#">财务部</a></li>
-                                                <li><a href="#">行政部</a></li>
-                                                <li><a href="#">技术部</a></li>
-                                                <li class="divider"></li>
+                                            
+                                           <c:forEach items="${departmentlist}" var="department" varStatus="no">  
+                                           
+                                                <li>
+                                                <a onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/employeeController/queryEmployeebyterm.action?dId=${department.getdId()}')">
+                                                ${department.getdName()}
+                                                </a>
+                                                </li>
                                                
-                                            </ul>
+                                             </c:forEach>  
+                                              </ul>                                          
+                                            
                                         </div>
                                     </div>
                                     <div class="pull-right">
@@ -64,10 +71,10 @@
                                                 <td class="cell-icon">
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                              		      姓名
+                                              	员工编号  
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                          	          性别
+                                          	          姓名
                                                 </td>
                                                   <td class="cell-author hidden-phone hidden-tablet">
                                           	         职位
@@ -79,6 +86,8 @@
                                                    	入职日期
                                                 </td>
                                             </tr>
+                                            
+ 									<c:forEach items="${employeelist}" var="employee" varStatus="no">
                                             <tr >
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
@@ -87,46 +96,22 @@
                                                    
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Donga
+                                                 ${employee.geteId()}
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    Sample Work
-                                                </td>
-                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    Test Title
-                                                </td>
-                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    Test Title
-                                                </td>
-                                                
-                                                <td class="cell-time align-right">
-                                                    18:24
-                                                </td>
-                                            </tr>
-                                            <tr >
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
-                                                </td>
-                                                <td class="cell-icon">
-                                                   
+                                                  ${employee.geteName()}
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    John Donga
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    Test Title
-                                                </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
-                                                    Test Title
+                                                   ${employee.getdId()}
                                                 </td> 
                                                 <td class="cell-author hidden-phone hidden-tablet">
-                                                    Test Title
+                                                    ${employee.getpId()}
                                                 </td>
                                                 <td class="cell-time align-right">
-                                                    18:01
+                                                    ${employee.geteIndate()}
                                                 </td>
                                             </tr>
-                                           
+                                           </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
