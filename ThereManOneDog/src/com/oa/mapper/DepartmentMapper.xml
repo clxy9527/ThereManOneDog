@@ -7,7 +7,7 @@
 	select * from Department 
 	</select>
 	<insert id="addDepaertment" parameterType="Department">
-	insert into Department  values(#{dId},#{dName})
+	insert into Department  values(,#{dName})
 	</insert>
 	<delete id="deleteDepartment" parameterType="Integer">
 	 delete from Department  where dId=#{dId}

@@ -1,6 +1,7 @@
 package com.oa.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class Employee {
 	private String eId;
@@ -14,6 +15,27 @@ public class Employee {
 	private String eOutdate;
 	private int eState;
 	private String eAddress;
+	private Department depart;
+	public Department getDepart() {
+		return depart;
+	}
+	public void setDepart(Department depart) {
+		this.depart = depart;
+	}
+	private List<Department> department;
+	private List<Position> position;
+	public List<Department> getDepartment() {
+		return department;
+	}
+	public void setDepartment(List<Department> department) {
+		this.department = department;
+	}
+	public List<Position> getPosition() {
+		return position;
+	}
+	public void setPosition(List<Position> position) {
+		this.position = position;
+	}
 	public String geteId() {
 		return eId;
 	}
