@@ -68,7 +68,7 @@
                                     	
                                         <li><a  onclick="loadDepartment()"><i class="icon-inbox"></i>员工管理</a></li>
                                         <li><a onclick="loadStaff()"><i class="icon-inbox"></i>员工调动信息</a></li>
-                                           <li><a onclick="loadStaff()"><i class="icon-inbox"></i>部门管理</a></li>
+                                           <li><a onclick="loadMange()"><i class="icon-inbox"></i>部门管理</a></li>
                                     </ul>
                                 </li>
                                 

@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.oa.pojo.Employee;
 
-
-
 public interface EmployeeMapper {
 	public Employee selectEmployeeById(String eid);//登陆查询数据库验证是否正确
 	public void addEmployee(Employee employee);//添加员工方法，包括行政人员

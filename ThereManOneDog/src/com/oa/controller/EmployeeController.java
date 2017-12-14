@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.pojo.Employee;
+import com.oa.service.impl.DepartmentService;
 import com.oa.service.impl.EmployeeService;
+import com.oa.service.impl.PositionService;
 
 @Controller
 @RequestMapping("employeeController")
@@ -48,12 +49,10 @@ public class EmployeeController {
 	 * @return
 	 */
 	@RequestMapping("/addemployee")
-	public ModelAndView addemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
-		ModelAndView modelAndView =new ModelAndView();
+	public String addemployee(HttpServletRequest request,HttpServletResponse response,Employee employee,ModelAndView modelAndView){
 		employeeService.addEmployee(employee);
 		modelAndView.addObject("employee",employee);
-		modelAndView.setViewName("");
-		return modelAndView;
+		return "forward:queryAllEmployee.aciton";
 }
 	/**
 	 * 执行修改员工信息操作
@@ -63,12 +62,12 @@ public class EmployeeController {
 	 * @return
 	 */
 	@RequestMapping("/updateemployee")
-	public ModelAndView updateemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
+	public String updateemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
 		employeeService.updateEmployee(employee);
 		modelAndView.addObject("employee",employee);
-		modelAndView.setViewName("");
-		return modelAndView;
+		//modelAndView.setViewName("Department");
+		return "forward:queryAllEmployee.aciton";
 }
 	/**
 	 * 执行查询所有员工操作
@@ -83,7 +82,7 @@ public class EmployeeController {
 		//修改传递list
 		List<Employee> employeelist=  employeeService.queryAllEmployee();
 		modelAndView.addObject("employeelist",employeelist);
-		modelAndView.setViewName("");
+		modelAndView.setViewName("Department");
 		return modelAndView;
 	}
 	/**
@@ -99,7 +98,7 @@ public class EmployeeController {
 		List<Employee> employeelist=employeeService.queryEmployeebyterm(employee);
 		//需要修改传递list
 		modelAndView.addObject("employeelist",employeelist);
-		modelAndView.setViewName("");
+		modelAndView.setViewName("Department");
 		return modelAndView;
 	}
 }
