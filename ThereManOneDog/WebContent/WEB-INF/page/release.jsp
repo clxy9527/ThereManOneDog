@@ -114,7 +114,7 @@ text-decoration: none;
                         <ul class="nav nav-pills nav-stacked">
                         <c:forEach items="${departments}" var="dept" varStatus="no">
                             <li>
-                            <a  data-toggle="tab" onclick="loadEmployeePage('${dept.getdId()}')">${dept.getdName()}</a>
+                            <a  data-toggle="tab" onclick="ajaxRequestPageWithChecked('${pageContext.request.contextPath}/noticeController/getEmploeeByDepartment.action?dId=${dept.getdId()}')">${dept.getdName()}</a>
                             </li>
                         </c:forEach>
                     </ul>
@@ -130,7 +130,7 @@ text-decoration: none;
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="getNames()">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxRequestNames('${pageContext.request.contextPath}/noticeController/getEmployeeNames.action?eIds=')">
 					提交更改
 				</button>
 			</div>

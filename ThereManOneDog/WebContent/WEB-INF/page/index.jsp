@@ -94,8 +94,8 @@
                                 </i>公告管理
                                  </a>
                                     <ul id="togglePages3" class="collapse unstyled">
-                                        <li><a onclick="loadReleasePage()" id=""><i class="icon-inbox"></i>发布公告 </a></li>
-                                        <li><a id="table" onclick="loadTablePage(id)"><i class="icon-inbox"></i>查看公告 </a></li>
+                                        <li><a onclick="ajaxRequestPageWithEditer('${pageContext.request.contextPath}/noticeController/addNotice.action')"><i class="icon-inbox"></i>发布公告 </a></li>
+                                        <li><a id="table" onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/noticeController/getAllNotice.action')"><i class="icon-inbox"></i>查看公告 </a></li>
                                       
                                     </ul>
                                 </li>

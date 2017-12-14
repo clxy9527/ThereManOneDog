@@ -16,22 +16,6 @@ function changeList(id){
 
 			
 		}
-function loadTablePage()
-{
-var xmlhttp;
-var bu = $(this).attr("id"); 
-xmlhttp=new XMLHttpRequest();
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("content").innerHTML=xmlhttp.responseText;
-    MessageTable()
-    }
-  }
-xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/getAllNotice.action" ,false);
-xmlhttp.send();
-}
 
 function loadTaskRelease()
 {
@@ -236,21 +220,59 @@ function createEditor(){
 		});
 }
 
+function ajaxRequestPageWithTable(url){
+		$.ajax({
+			type:'GET',
+			url:url,
+			success:function(data){
+				document.getElementById("content").innerHTML=data;
+			    MessageTable();
+			}
+		});
+		}
 
-function getNames()
-{
-var xmlhttp;
-xmlhttp=new XMLHttpRequest();
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("employeeLink").value=xmlhttp.responseText;
-    }
-  }
-xmlhttp.open("GET","http://localhost:8080/ThereManOneDog/noticeController/getEmployeeNames.action?eIds="+checkedIds ,false);
-xmlhttp.send();
-alert(checkedIds);
-document.getElementById("selectEmployees").value = checkedIds;
+function ajaxRequestPage(url){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("content").innerHTML=data;
+		}
+	});
+	}
+
+function ajaxRequestPageWithEditer(url){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("content").innerHTML=data;
+		    createEditor();
+		}
+	});
 }
-			
+	
+function ajaxRequestPageWithChecked(url){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("EmployeeList").innerHTML=data;
+		    getChecked();
+		}
+	});
+}
+
+function ajaxRequestNames(urlhead){
+	var url = urlhead + checkedIds;
+	$.ajax({
+		type:'GET',
+		url:url,
+		dataType: 'text',  
+		success:function(result){
+			document.getElementById("employeeLink").value=result;
+			document.getElementById("selectEmployees").value = checkedIds;
+		}
+	});
+}
+	
