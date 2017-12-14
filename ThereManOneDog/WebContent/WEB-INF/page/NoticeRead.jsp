@@ -43,20 +43,26 @@ text-decoration: none;
 	<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 </head>
 <body>
-
-<div id="notive_title" class="row">
-    <h2 class="text-center">${notice.getnTitle()}</h2>
-</div>
-<div id="notive_info" class="row text-uppercase">
-<form action="" style=""></form>
-    <label class="col-md-4">发布人：${notice.getnAuthor().geteName()}</label>
-    <label class="col-md-4">发布日期：${notice.getnTime()}</label>
-</div>
-<div  class="row lead">
-    内容：${notice.getnContent()}
-</div>
-<div id="notive_function" align="center" class="navbar-fixed-bottom">
-    <a class="col-md-3 col-md-offset-5 btn btn-success" href="Notive_servlet?method=Noitve_read&id=%>&state=已读" onClick="w_close()" >已读</a>
-</div>
+                <div class="span9">
+                    <div class="content">
+                        <div class="module">
+                            <div class="module-body">
+                                <h2 class="text-center" align="center">${notice.getnTitle()}</h2>
+                                <hr/>
+                                <section class="docs">
+                                    <div id="notive_info" align="center">
+                                    <label >发布人：${notice.getnAuthor().geteName()}&nbsp;&nbsp;发布日期：${notice.getnTime()}</label>
+                                    </div>
+                                    <div>
+                                    ${notice.getnContent()}
+                                    </div>
+                                    <div id="notive_function" align="center">
+                                    <a class="col-md-3 col-md-offset-5 btn btn-success" href="Notive_servlet?method=Noitve_read&id=%>&state=已读" onClick="w_close()" >已读</a></div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.content-->
+                </div>
 </body>
 </html>

@@ -45,7 +45,7 @@
                                         </thead>
                                         <tbody>
                                         <c:forEach var="notice" items="${allNotice}">
-                                        <tr class="unread<c:if test="${notice.nImportant==1}"> starred</c:if>">
+                                        <tr class="unread<c:if test="${notice.nImportant==1}"> starred</c:if>"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                 <td class="cell-check">
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
                                                     <i class="icon-star"></i>

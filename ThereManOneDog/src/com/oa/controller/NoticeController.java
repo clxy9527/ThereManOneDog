@@ -160,6 +160,13 @@ public class NoticeController {
 	    response.getWriter().append(""+result);
 	}
 	
+	/**
+	 * 获取公告详细内容
+	 * @param request
+	 * @param response
+	 * @param nId 公告id
+	 * @return
+	 */
 	@RequestMapping("getNoticeById")
 	public ModelAndView getNoticeById(HttpServletRequest request,HttpServletResponse response,String nId){
 		ModelAndView modelAndView = new ModelAndView();
