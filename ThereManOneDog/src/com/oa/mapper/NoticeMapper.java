@@ -7,10 +7,11 @@ import com.oa.pojo.Employee;
 import com.oa.pojo.Notice;
 
 public interface NoticeMapper {
-	public List<Notice> getAll();
+	public List<Notice> getAllNotice();
 	public Notice findNoticeById();
 	public List<Notice> findNoticeByState();
 	public void deleteNotice();
 	public void addNotice(Notice notice);
 	public void addReaders(HashMap<String, Object> readers);
+	public List<Employee> getReaders(int nId);
 }
