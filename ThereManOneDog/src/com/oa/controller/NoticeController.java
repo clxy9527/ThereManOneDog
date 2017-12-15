@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.pojo.Department;
@@ -85,7 +86,7 @@ public class NoticeController {
 		 notice.setnAuthor((Employee)request.getSession().getAttribute("employee"));
 		 notice.setReaders(get_selected_employee(selectEmployees));
 		 noticeService.addNotice(notice);
-		 modelAndView.setViewName("/getAllNotice");
+		 modelAndView.setViewName("index");
 		 return modelAndView;
 	}
 	
@@ -145,7 +146,7 @@ public class NoticeController {
 	 * @param eIds
 	 * @throws IOException
 	 */
-	@RequestMapping("getEmployeeNames")
+	@RequestMapping("/getEmployeeNames")
 	public void getEmployeeNames(HttpServletRequest request,HttpServletResponse response,String eIds) throws IOException{
 		List<String> eIdList = Arrays.asList(eIds.split(","));
 		String result = "";
@@ -167,12 +168,66 @@ public class NoticeController {
 	 * @param nId 公告id
 	 * @return
 	 */
-	@RequestMapping("getNoticeById")
+	@RequestMapping("/getNoticeById")
 	public ModelAndView getNoticeById(HttpServletRequest request,HttpServletResponse response,String nId){
+		ModelAndView modelAndView = new ModelAndView();
+		Notice notice = noticeService.findNoticeById(Integer.parseInt(nId));
+		modelAndView.addObject("notice", notice);
+		modelAndView.setViewName("NoticeLook");
+		return modelAndView;
+	}
+	
+	/**
+	 * 获取公告详细内容并进行阅读
+	 * @param request
+	 * @param response
+	 * @param nId 公告id
+	 * @return
+	 */
+	@RequestMapping("/getNoticeByIdToRead")
+	public ModelAndView getNoticeByIdToRead(HttpServletRequest request,HttpServletResponse response,String nId){
 		ModelAndView modelAndView = new ModelAndView();
 		Notice notice = noticeService.findNoticeById(Integer.parseInt(nId));
 		modelAndView.addObject("notice", notice);
 		modelAndView.setViewName("NoticeRead");
 		return modelAndView;
+	}
+	
+	
+	/**
+	 * 删除公告及关系
+	 * @param request
+	 * @param response
+	 * @param selectedNotice被选中的公告数组
+	 * @return
+	 */
+	@RequestMapping("/deleteNotices")
+	public ModelAndView deleteNotices(HttpServletRequest request,HttpServletResponse response,@RequestParam("selectedNotice") String[]  selectedNotice){
+		ModelAndView modelAndView = new ModelAndView();
+		List<Integer> ids = new ArrayList<Integer>();
+		for(String id:selectedNotice){
+			ids.add(Integer.parseInt(id));
+		}
+		noticeService.deleteNoticeByIds(ids);
+		modelAndView.setViewName("index");
+		return modelAndView;
+	}
+	
+	/**
+	 * 将公告标记为已读
+	 * @param request
+	 * @param response
+	 * @param nId公告编号
+	 * @return
+	 */
+	@RequestMapping("/readNotice")
+	public ModelAndView readNotice(HttpServletRequest request,HttpServletResponse response,String nId){
+		ModelAndView modelAndView = new ModelAndView();
+		Employee employee = (Employee)request.getSession().getAttribute("employee");
+		noticeService.readNotice(employee.geteId(), Integer.parseInt(nId));
+		modelAndView.setViewName("index");
+		return modelAndView;
+		
+		
 	}
 }

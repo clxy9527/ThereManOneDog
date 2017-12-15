@@ -9,6 +9,12 @@
 	<parameter property="nReadState"/>
 	</parameterMap>
 	
+	<parameterMap type="map" id="readmap">
+	<parameter property="nId"/>
+	<parameter property="eId"/>
+	<parameter property="readstate"/>
+	</parameterMap>
+	
 	
 	<resultMap id="noticeMap" type="com.oa.pojo.Notice">
 	    <id property="nId" column="Nid"></id>
@@ -16,6 +22,7 @@
 	    <result property="nContent" column="Ncontent"></result>
 	    <result property="nTime" column="Ntime"></result>
 	    <result property="nType" column="Ntype"></result>
+	    <result property="nReadState" column="readstate"></result>
 	    <result property="nImportant" column="Nimportant"></result>
 	    <association property="nAuthor" javaType="com.oa.pojo.Employee">
 	       <id property="eId" column="Eid"></id>
@@ -37,8 +44,6 @@
 	<select id="getAllNotice" resultMap="noticeMap">
 	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,n.Nimportant,e.Eid,e.Ename from notice n,employee e
 	where  n.Nauthor=e.Eid 
-	
-	
 	</select>
 	
 	<select id="getReaders" resultType="com.oa.pojo.Employee">
@@ -52,8 +57,25 @@
 	</select>
 	
     <select id="findNoticeByEmployee" resultMap="noticeMap">
-	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,n.Nimportant,e.Eid,e.Ename from notice n,employee e ,noticeemployee ne
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename from notice n,employee e ,noticeemployee ne
 	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = #{value}
 	</select>
 	
+	<delete id="deleteNotices" parameterType="java.util.List">
+	delete from notice where Nid in 
+	<foreach collection="list" item="item" open="(" close=")" separator=",">
+	    #{item}
+	</foreach>
+	</delete>
+	
+	<delete id="deleteReaders" parameterType="Integer">
+	delete from noticeemployee where Nid in
+	<foreach collection="list" item="item" open="(" close=")" separator=",">
+	    #{item}
+	</foreach>
+	</delete>
+	
+	<update id="readNotice" parameterMap="readmap">
+	    update noticeemployee set readstate = #{readstate} where Nid = #{nId} and Eid=#{eId}
+	</update>
 </mapper>

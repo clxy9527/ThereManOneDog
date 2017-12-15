@@ -11,8 +11,10 @@ public interface NoticeMapper {
 	public Notice findNoticeById(int nId);
 	public List<Notice> findNoticeByEmployee(String eId);
 	public List<Notice> findNoticeByState();
-	public void deleteNotice();
+	public void deleteNotices(List<Integer> ids);
+	public void deleteReaders(List<Integer> ids);
 	public void addNotice(Notice notice);
 	public void addReaders(HashMap<String, Object> readers);
 	public List<Employee> getReaders(int nId);
+	public void readNotice(HashMap<String, Object> readmap);
 }

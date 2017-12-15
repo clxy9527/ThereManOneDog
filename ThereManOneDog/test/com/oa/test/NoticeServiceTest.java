@@ -71,10 +71,33 @@ public class NoticeServiceTest {
 //		noticeService.getAllNotice();
 //	}
 	
+//	@Test
+//	public void getNoticeById(){
+//		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
+//		noticeService.findNoticeById(16);
+//	}
+	
+//	@Test
+//	public void deleteNotice(){
+//		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
+//		List<Integer> ids = new ArrayList<Integer>();
+//		ids.add(14);
+//		ids.add(15);
+//		ids.add(16);
+//		noticeService.deleteNoticeByIds(ids);
+//	}
+//	
 	@Test
-	public void getNoticeById(){
+	public void findNoticeByIdToRead(){
 		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
-		noticeService.findNoticeById(16);
+		List<Notice> notices = noticeService.findNoticeByEid("T9527");
+		System.out.println(notices.size()+"1");
 	}
+	
+//	@Test
+//	public void readTest(){
+//		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
+//		noticeService.readNotice("T9527", 17);
+//	}
 }
 

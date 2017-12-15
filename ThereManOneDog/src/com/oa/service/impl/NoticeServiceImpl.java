@@ -68,11 +68,25 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public List<Notice> findNoticeByEid(String eId) {
 		List<Notice> notices = noticeMapper.findNoticeByEmployee(eId);
-		for(Notice notice:notices){
-			List<Employee> employees = noticeMapper.getReaders(notice.getnId());
-			notice.setReaders(employees);
-		}
 		return notices;
+	}
+
+
+	@Override
+	public void deleteNoticeByIds(List<Integer> ids) {
+		noticeMapper.deleteReaders(ids);
+		noticeMapper.deleteNotices(ids);
+	}
+
+
+	@Override
+	public void readNotice(String eId, int nId) {
+		
+		HashMap<String, Object> map = new  HashMap<String, Object>();
+		map.put("nId", nId);
+		map.put("eId", eId);
+		map.put("readstate",1);
+		noticeMapper.readNotice(map);
 	}
 
 	

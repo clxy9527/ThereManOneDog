@@ -43,13 +43,11 @@ text-decoration: none;
 	<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/noticeController/readNotice.action">
                 <div class="span9">
                     <div class="content">
                         <div class="module">
                             <div class="module-body">
                                 <h2 class="text-center" align="center">${notice.getnTitle()}</h2>
-                                <input name="nId" value="${notice.getnId()}" style="display:none;">
                                 <hr/>
                                 <section class="docs">
                                     <div id="notive_info" align="center">
@@ -58,17 +56,11 @@ text-decoration: none;
                                     <div>
                                     ${notice.getnContent()}
                                     </div>
-                                    <c:if test="${notice.getnReadState()==0}">
-                                    <div id="notive_function" align="center">
-                                    <input  type="submit" class="btn btn-success" value="已读" />
-                                    </div>
-                                    </c:if>
                                 </section>
                             </div>
                         </div>
                     </div>
                     <!--/.content-->
                 </div>
-</form>
 </body>
 </html>

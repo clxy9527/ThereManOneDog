@@ -11,6 +11,7 @@
 </script>
 </head>
 <body>
+<form action="${pageContext.request.contextPath}/noticeController/deleteNotices.action" method="get">
                     <div class="span9">
                         <div class="content">
                             <div class="module message">
@@ -34,8 +35,8 @@
                                         </div>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-primary" onclick="hide()" id="deal">通知处理</a>
-                                        <a href="#" class="btn btn-primary" id="delete">删除</a>
+                                        <input type="button" class="btn btn-primary" onclick="hide()" id="deal" value="通知处理" />
+                                        <input type="submit" class="btn btn-primary" id="delete"  value="删除" />
                                     </div>
                                 </div>
                                 <div class="module-body table">
@@ -52,24 +53,24 @@
                                         </thead>
                                         <tbody>
                                         <c:forEach var="notice" items="${allNotice}">
-                                        <tr class="unread<c:if test="${notice.nImportant==1}" > starred</c:if>"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
+                                        <tr class="unread<c:if test="${notice.nImportant==1}" > starred</c:if>">
                                                 <td class="cell-check">
-                                                    <input name="selectedNotice" type="checkbox" class="inbox-checkbox">
+                                                    <input name="selectedNotice" type="checkbox" class="inbox-checkbox" value="${notice.nId}">
                                                 </td>
-                                                <td class="cell-check">
+                                                <td class="cell-check"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
                                                     <i class="icon-star"></i>
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td class="cell-author hidden-phone hidden-tablet"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                    <c:out value="${notice.getnAuthor().geteName()}" />
                                                 </td>
-                                                <td class="cell-title">
+                                                <td class="cell-title"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                     <c:out value="${notice.getnTitle()}" />
                                                 </td>
-                                                <td class="cell-title">
+                                                <td class="cell-title"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                     <c:out value="${notice.getnType()}" />
                                                 </td>
-                                                <td class="cell-time align-right">
+                                                <td class="cell-time align-right"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                     <c:out value="${notice.getnTime()}" />
                                                 </td>
                                             </tr>
@@ -81,5 +82,6 @@
                         </div>
                         <!--/.content-->
                     </div>
+                    </form>
 </body>
 </html>
