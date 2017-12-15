@@ -41,7 +41,7 @@
 			</div>
 		</div><!-- /navbar-inner -->
 	</div><!-- /navbar -->
-	<div class="wrapper">
+	<div class="wrapper">c
 		<div class="container">
 			<div class="row">
 				<div class="module module-login span4 offset4">
@@ -81,7 +81,7 @@
 		<div class="container">
 			 
 
-			<b class="copyright">&copy; 2014 Edmin - EGrappler.com </b> All rights reserved.
+			<b class="copyright">&copy; 2017 Edmin - EGrappler.com </b> All rights reserved.
 		</div>
 	</div>
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>

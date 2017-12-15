@@ -46,7 +46,6 @@ public class DepartmentController {
 	@RequestMapping("/queryAllDepartment")
 	public ModelAndView queryAllDepartment(HttpServletRequest request,HttpServletResponse response,Department department){
 		ModelAndView modelAndView =new ModelAndView();
-		
 		List<Department>  departmentlist=departmentService.queryAllDepartment();
 		//需要修改传递list
 		modelAndView.addObject("departmentlist",departmentlist);

@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                     <div class="pull-right">
-                                    <button class="btn btn-primary "  data-backdrop="static" data-toggle="modal" data-target="#myModal">添加员工</button>
+                                   
                                        <button class="btn btn-primary ">删除员工</button>
                                     </div>
                                 </div>
@@ -91,26 +91,26 @@
                                            
                                             
  									<c:forEach items="${employeelist}" var="employee" varStatus="no">
-                                            <tr >
+                                            <tr>
                                                 <td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox">
                                                 </td>
                                                 <td class="cell-icon">
                                                    
                                                 </td>
-                                                <td class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')" class="cell-title">
                                                  ${employee.geteId()}
                                                 </td>
-                                                <td class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
                                                   ${employee.geteName()}
                                                 </td>
-                                                <td class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
                                                    ${employee.getdId()}
                                                 </td> 
-                                                <td class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
                                                     ${employee.getpId()}
                                                 </td>
-                                                <td class="cell-time align-right">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-time align-right">
                                                     ${employee.geteIndate()}
                                                 </td>
                                             </tr>
@@ -128,8 +128,7 @@
        </div>
        
        
-       <!-- 添加人员 -->
-       <jsp:include page="/WEB-INF/page/AddStaff.jsp" flush="true"/>
+  
   
  <script src="${pageContext.request.contextPath}/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>

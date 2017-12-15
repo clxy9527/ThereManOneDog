@@ -56,6 +56,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		List<Employee> list =employeeMapper.queryEmployeebyterm(employee);
 		return list;
 	}
+	
+	
 
 
 

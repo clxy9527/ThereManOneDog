@@ -6,6 +6,7 @@
 	<select id="selectEmployeeById" resultType="Employee">
 	 select * from employee where eId=#{value}
 	</select>
+
 	<!-- 插入员工方法 -->
 	<insert id="addEmployee" parameterType="Employee">
 	 insert into employee values(#{eId},#{eName},#{ePassword},#{ePhone},#{eCard},#{pId},#{dId},#{eIndate},#{eOutdate},#{eState},#{eAddress})

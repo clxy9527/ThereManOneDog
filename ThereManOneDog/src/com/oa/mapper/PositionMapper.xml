@@ -7,7 +7,7 @@
 	select * from position  where dId=#{dId}
 	</select>
 	<insert id="addposition" parameterType="Position">
-	insert into position values(,#{pName},#{dId})
+	insert into position values(null,#{pName},#{dId})
 	</insert>
 	<delete id="deleteposition" parameterType="int">
 	delete from position where pId=#{pId} and dId=#{dId}

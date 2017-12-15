@@ -65,10 +65,10 @@
                                 人事管理
 								</a>
                                     <ul id="togglePages1" class="collapse unstyled">
-                                    	
                                         <li><a  onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/employeeController/queryAllEmployee.action')"><i class="icon-inbox"></i>员工管理</a></li>
-                                        <li><a onclick="loadStaff()"><i class="icon-inbox"></i>员工调动信息</a></li>
-                                           <li><a onclick="loadMange()"><i class="icon-inbox"></i>部门管理</a></li>
+                                          <li><a onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/departmentController/queryAllDepartment.action')"><i class="icon-inbox"></i>部门管理</a></li>
+                                            <li><a onclick="loadStaff()"><i class="icon-inbox"></i>员工调动信息</a></li>
+                                           
                                     </ul>
                                 </li>
                                 

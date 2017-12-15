@@ -16,6 +16,7 @@ import com.oa.service.impl.DepartmentService;
 import com.oa.service.impl.EmployeeService;
 import com.oa.service.impl.PositionService;
 import com.oa.util.EidUtil;
+import com.oa.util.TimeUtil;
 
 @Controller
 @RequestMapping("employeeController")
@@ -57,9 +58,12 @@ public class EmployeeController {
 		String eId=EidUtil.getRandomString(2);
 		employee.seteId(eId);
 		employee.setePassword("123456");
+		String date=TimeUtil.getTime();
+		employee.seteIndate(date);
+		employee.seteState(1);
 		employeeService.addEmployee(employee);
 		modelAndView.addObject("employee",employee);
-		return "forward:queryAllEmployee.aciton";
+		return null;
 }
 	/**
 	 * 执行修改员工信息操作
@@ -110,6 +114,22 @@ public class EmployeeController {
 		List<Department>  departmentlist=departmentService.queryAllDepartment();
 		modelAndView.addObject("departmentlist",departmentlist);
 		modelAndView.setViewName("StaffList");
+		return modelAndView;
+	}
+	
+	/**
+	 * 进去页面
+	 * @param request
+	 * @param response
+	 * @param employee
+	 * @return
+	 */
+	@RequestMapping("/querybyid")
+	public ModelAndView querybyid(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView = new ModelAndView();
+		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
+		modelAndView.addObject("dbEmployee",dbEmployee);
+		modelAndView.setViewName("StaffDetail");
 		return modelAndView;
 	}
 }

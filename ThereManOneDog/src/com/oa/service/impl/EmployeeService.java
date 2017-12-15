@@ -13,5 +13,5 @@ public interface EmployeeService {
 	public void updateEmployee(Employee employee);//更新员工方法，包括更新员工状态和其他信息。
 	public List<Employee> queryAllEmployee();//查询所有员工得方法
 	public List<Employee> queryEmployeebyterm(Employee employee);//条件查询员工
-	
+
 }

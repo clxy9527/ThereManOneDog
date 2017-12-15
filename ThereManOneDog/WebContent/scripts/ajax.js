@@ -50,39 +50,7 @@ xmlhttp.send();
 	xmlhttp.send();
 	}
 	
-	function loadDepartment()
-	{
-	var xmlhttp;
-	
-	xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-	    document.getElementById("content").innerHTML=xmlhttp.responseText;
-	    tableFunction();
-	    }
-	  }
-	xmlhttp.open("GET","Department.jsp" ,false);
-	xmlhttp.send();
-	}
-	
-	function loadStaff()
-	{
-	var xmlhttp;
-	
-	xmlhttp=new XMLHttpRequest();
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-	    document.getElementById("content").innerHTML=xmlhttp.responseText;
-	    tableFunction();
-	    }
-	  }
-	xmlhttp.open("GET","Staff.jsp" ,false);
-	xmlhttp.send();
-	}
+
 	function loadMange()
 	{
 	var xmlhttp;
@@ -238,21 +206,32 @@ function ajaxRequestNames(urlhead){
 		}
 	});
 }
-function ajaxRequestPageadd(url,text){
-	$.ajax({
-		type:'GET',
-		url:url,
-		success:function(data){
-			//document.getElementById("AddStaff").innerHTML=data;
-			 document.getElementById("depart").innerHTML = text;
-			 MessageTable();
-		}
-	});
-}
-//下拉框显示
-function click(){
-	var x=document.getElementById("bclick");
-	x.value=x.value.toUpperCase();
+//二级连查 
+function ajaxRequestPageadd(obj){
+	{  
+		   var id = obj;  
+		  var html = "<option value=\"0\" selected=\"selected\">职位选择 </option>";   
+		      
+		   $("#position").empty();  
+		   $("#position").append(html);  
+		   $.ajax({  
+		       type: "get",    
+		       url: "/ThereManOneDog/positionController/queryposition.action",    
+		       data: "dId="+id,  
+		       async: false,  
+		      success: function(data){  
+		    	
+		       var jsonList=eval("("+data+")");  
+		         var len = jsonList.length;  
+		   // alert(jsonList);  
+		         for(var i=0;i<len;i++){    
+		        var e = jsonList[i];    
+		        $("#position").append("<option name="+e.pId+" value="+e.pId+">"+e.pName+"</option>");    
+		        }    
+		        },   
+		      
+		});    
+		} 
 }
 
 function ajaxRequestPageWithTablebystaff(url,text){

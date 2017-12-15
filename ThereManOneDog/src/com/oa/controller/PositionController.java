@@ -1,5 +1,8 @@
 package com.oa.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.oa.pojo.Position;
 import com.oa.service.impl.PositionService;
 
@@ -40,12 +44,14 @@ public ModelAndView deleteposition(HttpServletRequest request,HttpServletRespons
 }
 
 @RequestMapping("/queryposition")
-public ModelAndView queryposition(HttpServletRequest request,HttpServletResponse response,Position position,int dId){
-	ModelAndView modelAndView =new ModelAndView();
+public void  queryposition(HttpServletRequest request,HttpServletResponse response,Position position,int dId) throws IOException{
 	position.setdId(dId);
 	List<Position> positionlist  =positionService.queryposition(dId);
-	modelAndView.addObject("positionlist",positionlist);
-	modelAndView.setViewName("AddStaff");
-	return modelAndView;
+	Gson gson=new Gson();
+	String json=null;
+	json=gson.toJson(positionlist);
+	response.setContentType("text/html;charset=utf-8");
+	PrintWriter out=response.getWriter();
+	out.println(json);
 }
 }
