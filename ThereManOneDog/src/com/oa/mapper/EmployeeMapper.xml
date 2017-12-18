@@ -9,6 +9,7 @@
 	    <result property="ePassword" column="Epassword"></result>
 	    <result property="ePhone" column="Ephone"></result>
 	    <result property="eCard" column="Ecard"></result>
+	    <result property="eState" column="Estate"></result>
 	    <result property="eIndate" column="Eindate"></result>
 	    <result property="eOutdate" column="Eoutdate"></result>
 	    <result property="eAddress" column="Eaddress"></result>
@@ -24,8 +25,8 @@
 
 
 	<!-- 登陆查询 -->
-	<select id="selectEmployeeById" resultType="Employee">
-	 select * from employee where eId=#{value}
+	<select id="selectEmployeeById" resultMap="employeeMap">
+	 select * from employee e ,department d ,position p where eId=#{value} and d.Did = e.Did and e.Pid = p.Pid
 	</select>
 
 	<!-- 插入员工方法 -->
@@ -60,7 +61,7 @@
 		<if test="eOutdate!=null and eOutdate!=''">
 		eOutdate=#{eOutdate},
 	</if>
-	<if test="eState!=0 ">
+	<if test="eState==0 or eState==1 ">
 		eState=#{eState},
 	</if>
 	<if test="eAddress!=null and eAddress!='' ">
@@ -75,7 +76,7 @@
 		where d.Did = e.Did and e.Pid = p.Pid
 	</select>
 	<!-- 按部门查询员工 -->
-	<select id="queryEmployeebyterm" resultType="Employee" parameterType="int">
-		select * from  employee where dId=#{dId} 
+	<select id="queryEmployeebyterm" resultMap="employeeMap" parameterType="int">
+		select * from  employee e ,department d ,position p where e.dId=#{dId} and d.Did = e.Did and e.Pid = p.Pid
 	</select>
 </mapper>

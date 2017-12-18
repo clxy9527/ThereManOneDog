@@ -33,7 +33,7 @@ public class DepartmentController {
 		ModelAndView modelAndView =new ModelAndView();
 		departmentService.addDepaertment(department);
 		modelAndView.addObject("department",department);
-		modelAndView.setViewName("");
+		modelAndView.setViewName("index");
 		return modelAndView;
 }
 	/**
@@ -65,7 +65,7 @@ public class DepartmentController {
 		ModelAndView modelAndView =new ModelAndView();
 		departmentService.deleteDepartment(dId);
 		modelAndView.addObject("department",department);
-		modelAndView.setViewName("");
+		modelAndView.setViewName("index");
 		return modelAndView;
 }
 	

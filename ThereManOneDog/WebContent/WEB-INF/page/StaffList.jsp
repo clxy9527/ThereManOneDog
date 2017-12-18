@@ -58,17 +58,15 @@
                                     </div>
                                     <div class="pull-right">
                                    
-                                       <button class="btn btn-primary ">删除员工</button>
                                     </div>
                                 </div>
                                 <div class="module-body table">
                                     <table class="table table-message">
                                         <thead> 
                                          <tr class="heading">
-                                                <td class="cell-check">
-                                                    
-                                                </td>
+                                              
                                                 <td class="cell-icon">
+                                                       		在职状态
                                                 </td>
                                                 <td>
                                               	员工编号  
@@ -77,10 +75,10 @@
                                           	          姓名
                                                 </td>
                                                   <td >
-                                          	         职位
+                                          	         部门 
                                                 </td>
                                                   <td >
-                                          	          部门
+                                          	         职位
                                                 </td>
                                                 <td >
                                                    	入职日期
@@ -92,25 +90,26 @@
                                             
  									<c:forEach items="${employeelist}" var="employee" varStatus="no">
                                             <tr>
-                                                <td class="cell-check">
-                                                    <input type="checkbox" class="inbox-checkbox">
+                                                
+
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')" class="cell-title">
+                                                <c:if test="${employee.geteState() == 1 }">在职</c:if>
+                                             <c:if test="${employee.geteState() == 0 }">已离职</c:if>
+                                             
                                                 </td>
-                                                <td class="cell-icon">
-                                                   
-                                                </td>
-                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')" class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')" class="cell-title">
                                                  ${employee.geteId()}
                                                 </td>
-                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-title">
                                                   ${employee.geteName()}
                                                 </td>
-                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-title">
                                                    ${employee.getDepartment().getdName()}
                                                 </td> 
-                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-title">
                                                     ${employee.getPosition().getpName()}
                                                 </td>
-                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-time align-right">
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-time align-right">
                                                     ${employee.geteIndate()}
                                                 </td>
                                             </tr>

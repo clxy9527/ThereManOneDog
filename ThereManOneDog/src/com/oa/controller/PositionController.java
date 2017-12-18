@@ -29,7 +29,7 @@ public ModelAndView addedepartment(HttpServletRequest request,HttpServletRespons
 	ModelAndView modelAndView =new ModelAndView();
 	positionService.addposition(position);
 	modelAndView.addObject("position",position);
-	modelAndView.setViewName("");
+	modelAndView.setViewName("index");
 	return modelAndView;
 }
 @RequestMapping("/deleteposition")
@@ -39,7 +39,7 @@ public ModelAndView deleteposition(HttpServletRequest request,HttpServletRespons
 	ModelAndView modelAndView =new ModelAndView();
 	positionService.deleteposition(pId,dId);
 	modelAndView.addObject("position",position);
-	modelAndView.setViewName("");
+	modelAndView.setViewName("index");
 	return modelAndView;
 }
 

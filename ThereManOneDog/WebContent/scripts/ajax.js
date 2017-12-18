@@ -223,7 +223,7 @@ function ajaxRequestPageadd(obj){
 		   // alert(jsonList);  
 		         for(var i=0;i<len;i++){    
 		        var e = jsonList[i];    
-		        $("#position").append("<option name="+e.pId+" value="+e.pId+">"+e.pName+"</option>");    
+		        $("#position").append("<option name="+e.pId+"   value="+e.pId+">"+e.pName+"</option>");    
 		        }    
 		        },   
 		      

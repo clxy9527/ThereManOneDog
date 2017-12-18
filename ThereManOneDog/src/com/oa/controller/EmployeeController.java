@@ -1,5 +1,6 @@
 package com.oa.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.pojo.Department;
 import com.oa.pojo.Employee;
+import com.oa.pojo.Position;
 import com.oa.service.impl.DepartmentService;
 import com.oa.service.impl.EmployeeService;
 import com.oa.service.impl.PositionService;
@@ -25,6 +27,8 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	@Autowired
 	private DepartmentService departmentService;
+	@Autowired
+	private PositionService positionService;
 	
 	/**
 	 * 登陆方法
@@ -32,12 +36,13 @@ public class EmployeeController {
 	 * @param response
 	 * @param employee
 	 * @return
+	 * @throws IOException 
 	 */
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee){
+	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee) throws IOException{
 		ModelAndView modelAndView = new ModelAndView();
 		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
-		if(dbEmployee.getePassword().equals(employee.getePassword())){
+		if(dbEmployee.geteState()==1&&dbEmployee.getePassword().equals(employee.getePassword())){
 			request.getSession().setAttribute("eid", employee.geteId());
 			modelAndView.setViewName("index");
 			request.getSession().setAttribute("employee", employee);
@@ -63,7 +68,7 @@ public class EmployeeController {
 		employee.seteState(1);
 		employeeService.addEmployee(employee);
 		modelAndView.addObject("employee",employee);
-		return null;
+		return "index";
 }
 	/**
 	 * 执行修改员工信息操作
@@ -75,10 +80,13 @@ public class EmployeeController {
 	@RequestMapping("/updateemployee")
 	public String updateemployee(HttpServletRequest request,HttpServletResponse response,Employee employee){
 		ModelAndView modelAndView =new ModelAndView();
+		if(employee.geteState()==0){
+			employee.seteOutdate(TimeUtil.getTime());
+		}
 		employeeService.updateEmployee(employee);
 		modelAndView.addObject("employee",employee);
 		//modelAndView.setViewName("Department");
-		return "forward:queryAllEmployee.aciton";
+		return "index";
 }
 	/**
 	 * 执行查询所有员工操作
@@ -125,10 +133,15 @@ public class EmployeeController {
 	 * @return
 	 */
 	@RequestMapping("/querybyid")
-	public ModelAndView querybyid(HttpServletRequest request,HttpServletResponse response,Employee employee){
+	public ModelAndView querybyid(HttpServletRequest request,HttpServletResponse response,Employee employee,Department department){
 		ModelAndView modelAndView = new ModelAndView();
+		System.out.println(employee.geteId());
 		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
+		List<Department> departmentlist=departmentService.queryAllDepartment();
+		List<Position> positionlist= positionService.queryposition(employee.getdId());
 		modelAndView.addObject("dbEmployee",dbEmployee);
+		modelAndView.addObject("departmentlist",departmentlist);
+		modelAndView.addObject("positionlist",positionlist);
 		modelAndView.setViewName("StaffDetail");
 		return modelAndView;
 	}

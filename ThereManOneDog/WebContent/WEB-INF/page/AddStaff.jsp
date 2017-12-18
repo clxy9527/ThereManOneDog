@@ -42,13 +42,13 @@
 			</td>
 			  
 			<td><label for="phone">电话号码:</label>
-			<input type="text" style="width:180px;" name="ePhone" id ="ePhone" placeholder="请输入员工联系电话">
+			<input type="number" maxlength="11" style="width:180px;" name="ePhone" id ="ePhone" placeholder="请输入员工联系电话">
 			</td>
 			</tr>
 		
 			<tr>
 			<td><label for="idcard">证件号码:</label>
-			<input type="text"  style="width:180px;" name="eCard" id ="eCard" placeholder="请输入员工证件号码">
+			<input type="number" maxlength="18"  style="width:180px;" name="eCard" id ="eCard" placeholder="请输入员工证件号码">
 			
 			</td><td><label for="address">所在住址:</label>
 			<input type="text"  style="width:180px;" name="eAddress" id ="eAddress" placeholder="请输入员工住址">
