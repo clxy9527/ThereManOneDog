@@ -87,9 +87,6 @@ xmlhttp.send();
 		$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 	 
 }
-	function MessageFilter(text) {
-		document.getElementById("output").innerHTML = text;
-	}
 
 	function hide(){
 		$(":checkbox").toggle();
@@ -247,4 +244,40 @@ function ajaxRequestPageWithTablebystaff(url,text){
 	});
 	}
 
+function ajaxRequestPageWithTableHide(url){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("content").innerHTML=data;
+		    MessageTable();
+		    hide();
+		}
+	});
+	}
+
+
+function MessageFilterManger(url,text) {
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("content").innerHTML=data;
+		    MessageTable();
+		    hide();
+			document.getElementById("output").innerHTML = text;
+		}
+	});
+}
 	
+function MessageFilterRead(url,text) {
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("content").innerHTML=data;
+		    MessageTable();
+			document.getElementById("output").innerHTML = text;
+		}
+	});
+}

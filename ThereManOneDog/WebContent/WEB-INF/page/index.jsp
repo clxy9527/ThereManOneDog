@@ -95,7 +95,7 @@
                                  </a>
                                     <ul id="togglePages3" class="collapse unstyled">
                                         <li><a onclick="ajaxRequestPageWithEditer('${pageContext.request.contextPath}/noticeController/addNotice.action')"><i class="icon-inbox"></i>发布公告 </a></li>
-                                        <li><a onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/noticeController/noticeManger.action')"><i class="icon-inbox"></i>管理公告 </a></li>
+                                        <li><a onclick="ajaxRequestPageWithTableHide('${pageContext.request.contextPath}/noticeController/noticeManger.action')"><i class="icon-inbox"></i>管理公告 </a></li>
                                         <li><a onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/noticeController/getAllNotice.action')"><i class="icon-inbox"></i>我的公告 </a></li>
                                     </ul>
                                 </li>

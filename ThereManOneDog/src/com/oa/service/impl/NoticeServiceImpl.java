@@ -89,5 +89,35 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeMapper.readNotice(map);
 	}
 
+
+	@Override
+	public Notice findNoticeByNidAndEid(String eid, int nid) {
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("eId", eid);
+		map.put("nId", nid);
+		
+		return noticeMapper.findNoticeByNidAndEid(map);
+	}
+
+
+	@Override
+	public List<Notice> findNoticeByEidAndState(String eid, int readstate) {
+		HashMap<String, Object> map = new HashMap<String,Object>();
+		map.put("eId", eid);
+		map.put("readstate",readstate);
+		return noticeMapper.findNoticeByEidAndState(map);
+	}
+
+
+	@Override
+	public List<Notice> findNoticeByType(String type) {
+		List<Notice> notices = noticeMapper.findNoticeByType(type);
+		for(Notice notice:notices){
+			List<Employee> employees = noticeMapper.getReaders(notice.getnId());
+			notice.setReaders(employees);
+		}
+		return notices;
+	}
+
 	
 }

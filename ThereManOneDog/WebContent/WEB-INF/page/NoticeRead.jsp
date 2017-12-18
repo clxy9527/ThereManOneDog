@@ -58,10 +58,11 @@ text-decoration: none;
                                     <div>
                                     ${notice.getnContent()}
                                     </div>
-                                    <c:if test="${notice.getnReadState()==0}">
+                                    <c:if test="${notice.nReadState==0}">
                                     <div id="notive_function" align="center">
                                     <input  type="submit" class="btn btn-success" value="已读" />
                                     </div>
+                                    ${notice.nReadState==0}
                                     </c:if>
                                 </section>
                             </div>

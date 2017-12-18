@@ -90,14 +90,22 @@ public class NoticeServiceTest {
 	@Test
 	public void findNoticeByIdToRead(){
 		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
-		List<Notice> notices = noticeService.findNoticeByEid("T9527");
+		List<Notice> notices = noticeService.findNoticeByType("¾ö¶¨");
 		System.out.println(notices.size()+"1");
 	}
-	
+//	
 //	@Test
 //	public void readTest(){
 //		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
 //		noticeService.readNotice("T9527", 17);
+//	}
+	
+	
+//	@Test
+//	public void findNoticeByIdToRead(){
+//		NoticeService noticeService = (NoticeService) ac.getBean("noticeService");
+//		Notice n = noticeService.findNoticeByNidAndEid("T9527", 17);
+//		n.getnAuthor();
 //	}
 }
 

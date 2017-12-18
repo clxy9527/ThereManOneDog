@@ -26,11 +26,11 @@
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#" id="all" onclick="MessageFilter('全部')" >全部</a></li>
-                                                <li><a href="#" id="unReadMessage" onclick="MessageFilter('未读')">公告</a></li>
-                                                <li><a href="#" id="ReadMessage" onclick="MessageFilter('已读')">通知</a></li>
-                                                <li><a href="#" id="ReadMessage" onclick="MessageFilter('已读')">决定</a></li>
-                                                <li><a href="#" id="ReadMessage" onclick="MessageFilter('已读')">其他</a></li>
+                                                <li><a href="#" id="all" onclick="ajaxRequestPageWithTableHide('${pageContext.request.contextPath}/noticeController/noticeManger.action')" >全部</a></li>
+                                                <li><a href="#" id="unReadMessage" onclick="MessageFilterManger('${pageContext.request.contextPath}/noticeController/noticeMangerByType.action?Type=公告','公告')">公告</a></li>
+                                                <li><a href="#" id="ReadMessage" onclick="MessageFilterManger('${pageContext.request.contextPath}/noticeController/noticeMangerByType.action?Type=通知','通知')">通知</a></li>
+                                                <li><a href="#" id="ReadMessage" onclick="MessageFilterManger('${pageContext.request.contextPath}/noticeController/noticeMangerByType.action?Type=决定','决定')">决定</a></li>
+                                                <li><a href="#" id="ReadMessage" onclick="MessageFilterManger('${pageContext.request.contextPath}/noticeController/noticeMangerByType.action?Type=其他','其他')">其他</a></li>
                                             </ul>
                                         </div>
                                     </div>

@@ -15,6 +15,11 @@
 	<parameter property="readstate"/>
 	</parameterMap>
 	
+	<parameterMap type="map" id="idmap">
+	<parameter property="nId"/>
+	<parameter property="eId"/>
+	</parameterMap>
+	
 	
 	<resultMap id="noticeMap" type="com.oa.pojo.Notice">
 	    <id property="nId" column="Nid"></id>
@@ -58,7 +63,7 @@
 	
     <select id="findNoticeByEmployee" resultMap="noticeMap">
 	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename from notice n,employee e ,noticeemployee ne
-	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = #{value}
+	where n.Nid = ne.Nid and ne.Eid = e.Eid and e.Eid = #{value}
 	</select>
 	
 	<delete id="deleteNotices" parameterType="java.util.List">
@@ -78,4 +83,21 @@
 	<update id="readNotice" parameterMap="readmap">
 	    update noticeemployee set readstate = #{readstate} where Nid = #{nId} and Eid=#{eId}
 	</update>
+	
+	<select id="findNoticeByNidAndEid" parameterMap="idmap" resultMap="noticeMap">
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
+	from notice n,employee e ,noticeemployee ne
+	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid=#{eId} and n.Nid = #{nId}
+	</select>
+	
+	<select id="findNoticeByEidAndState" parameterMap="readmap" resultMap="noticeMap">
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
+	from notice n,employee e ,noticeemployee ne
+	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid=#{eId} and ne.readstate = #{readstate}
+	</select>
+	
+	<select id="findNoticeByType" resultMap="noticeMap">
+	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,n.Nimportant,e.Eid,e.Ename from notice n,employee e
+	where  n.Nauthor=e.Eid and n.Ntype = #{value}
+	</select>
 </mapper>

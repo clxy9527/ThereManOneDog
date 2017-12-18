@@ -17,4 +17,7 @@ public interface NoticeMapper {
 	public void addReaders(HashMap<String, Object> readers);
 	public List<Employee> getReaders(int nId);
 	public void readNotice(HashMap<String, Object> readmap);
+	public Notice findNoticeByNidAndEid(HashMap<String, Object> idmap);
+	public List<Notice> findNoticeByEidAndState(HashMap<String, Object> readmap);
+	public List<Notice> findNoticeByType(String type);
 }

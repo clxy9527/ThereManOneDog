@@ -102,6 +102,9 @@ public class NoticeController {
 		 modelAndView.setViewName("MessageRead");
 		 Employee employee = (Employee) session.getAttribute("employee");
 		 List<Notice> notices = noticeService.findNoticeByEid(employee.geteId());
+		 notices.size();
+		 
+		 
 		 modelAndView.addObject("allNotice", notices);
 		 return modelAndView;
 	}
@@ -187,11 +190,14 @@ public class NoticeController {
 	@RequestMapping("/getNoticeByIdToRead")
 	public ModelAndView getNoticeByIdToRead(HttpServletRequest request,HttpServletResponse response,String nId){
 		ModelAndView modelAndView = new ModelAndView();
-		Notice notice = noticeService.findNoticeById(Integer.parseInt(nId));
+		Employee employee = (Employee)request.getSession().getAttribute("employee");
+		Notice notice = noticeService.findNoticeByNidAndEid(employee.geteId(), Integer.parseInt(nId));
 		modelAndView.addObject("notice", notice);
 		modelAndView.setViewName("NoticeRead");
 		return modelAndView;
 	}
+	
+	
 	
 	
 	/**
@@ -227,6 +233,44 @@ public class NoticeController {
 		noticeService.readNotice(employee.geteId(), Integer.parseInt(nId));
 		modelAndView.setViewName("index");
 		return modelAndView;
+	}
+	
+	/**
+	 * 根据类型查看公告
+	 * @param request
+	 * @param response
+	 * @param Type
+	 * @return
+	 */
+	@RequestMapping("/noticeMangerByType")
+	public ModelAndView noticeMangerByType(HttpServletRequest request,HttpServletResponse response, String Type){
+		 ModelAndView modelAndView = new ModelAndView();
+		 modelAndView.setViewName("MessageManger");
+		 List<Notice> notices = noticeService.findNoticeByType(Type);
+		 modelAndView.addObject("allNotice", notices);
+		 return modelAndView;
+		
+		
+	}
+	
+
+	/**
+	 * 根据阅读状态查看公告列表
+	 * @param request
+	 * @param response
+	 * @param readstate阅读状态
+	 * @return
+	 */
+	@RequestMapping("/noticeMangerByReadState")
+	public ModelAndView noticeMangerByReadState(HttpServletRequest request,HttpServletResponse response, String readstate){
+		 HttpSession session = request.getSession();
+		 ModelAndView modelAndView = new ModelAndView();
+		 modelAndView.setViewName("MessageRead");
+		 Employee employee = (Employee) session.getAttribute("employee");
+		 List<Notice> notices = noticeService.findNoticeByEidAndState(employee.geteId(), Integer.parseInt(readstate));
+		 
+		 modelAndView.addObject("allNotice", notices);
+		 return modelAndView;
 		
 		
 	}

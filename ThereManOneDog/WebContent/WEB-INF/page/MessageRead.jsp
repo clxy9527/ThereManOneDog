@@ -25,9 +25,9 @@
                                                 <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#" id="allMessage" onclick="MessageFilter('全部')" >全部</a></li>
-                                                <li><a href="#" id="unReadMessage" onclick="MessageFilter('未读')">未读</a></li>
-                                                <li><a href="#" id="ReadMessage" onclick="MessageFilter('已读')">已读</a></li>
+                                                <li><a href="#" id="allMessage" onclick="ajaxRequestPageWithTable('${pageContext.request.contextPath}/noticeController/getAllNotice.action')" >全部</a></li>
+                                                <li><a href="#" id="unReadMessage" onclick="MessageFilterRead('${pageContext.request.contextPath}/noticeController/noticeMangerByReadState.action?readstate=0','未读')">未读</a></li>
+                                                <li><a href="#" id="ReadMessage" onclick="MessageFilterRead('${pageContext.request.contextPath}/noticeController/noticeMangerByReadState.action?readstate=1','已读')">已读</a></li>
                                             </ul>
                                         </div>
                                     </div>
