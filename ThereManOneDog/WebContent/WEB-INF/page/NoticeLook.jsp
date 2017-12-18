@@ -33,14 +33,7 @@ text-decoration: none;
 }
 -->
 </style>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="${pageContext.request.contextPath}/css/theme.css" rel="stylesheet">
-	<link type="text/css" href="${pageContext.request.contextPath}/images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/scripts/ajax.js"></script>
+
 </head>
 <body>
                 <div class="span9">
@@ -57,10 +50,40 @@ text-decoration: none;
                                     ${notice.getnContent()}
                                     </div>
                                 </section>
+                                <hr />
+                                 <h2 class="text-center" align="center">阅读情况一览</h2>
+                                 <div class="module message">
+                                 <div class="module-body table">
+                                 <table class="table table-message">
+                                        <tbody>
+                                        <tr class="heading">
+                                                <td class="cell-title">员工号</td>
+                                                <td class="cell-title">员工姓名</td>
+                                                <td class="cell-title">阅读情况</td>
+                                        </tr>
+                                        <c:forEach var="reader" items="${notice.readers}">
+                                        <tr class="unread">
+                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                   <c:out value="${reader.eId}" />
+                                                </td>
+                                                <td class="cell-title">
+                                                    <c:out value="${reader.eName}" />
+                                                </td>
+                                                <td class="cell-title">
+                                                <c:if test="${reader.readState==0 }">未读</c:if>
+                                                <c:if test="${reader.readState==1 }">已读</c:if>
+                                                </td>
+                                            </tr>
+                                         </c:forEach>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!--/.content-->
+                    
                 </div>
 </body>
 </html>

@@ -15,7 +15,7 @@
                         <div class="content">
                             <div class="module message">
                                 <div class="module-head">
-                                    <h3>消息管理</h3>
+                                    <h3>我的公告</h3>
                                 </div>
                                 <div class="module-option clearfix">
                                     <div class="pull-left">
@@ -45,7 +45,12 @@
                                         </thead>
                                         <tbody>
                                         <c:forEach var="notice" items="${allNotice}">
+                                        <c:if test="${notice.nReadState==0 }">
                                         <tr class="unread<c:if test="${notice.nImportant==1}"> starred</c:if>"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeByIdToRead.action?nId=${notice.nId}')">
+                                        </c:if>
+                                        <c:if test="${notice.nReadState==1 }">
+                                        <tr class="read<c:if test="${notice.nImportant==1}"> starred</c:if>"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeByIdToRead.action?nId=${notice.nId}')">
+                                        </c:if>
                                                 <td class="cell-check">
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
                                                     <i class="icon-star"></i>
