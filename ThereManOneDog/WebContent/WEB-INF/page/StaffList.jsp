@@ -105,10 +105,10 @@
                                                   ${employee.geteName()}
                                                 </td>
                                                 <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
-                                                   ${employee.getdId()}
+                                                   ${employee.getDepartment().getdName()}
                                                 </td> 
                                                 <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-title">
-                                                    ${employee.getpId()}
+                                                    ${employee.getPosition().getpName()}
                                                 </td>
                                                 <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}')"  class="cell-time align-right">
                                                     ${employee.geteIndate()}

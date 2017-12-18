@@ -2,6 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oa.mapper.EmployeeMapper">
+
+	<resultMap id="employeeMap" type="com.oa.pojo.Employee">
+	    <id property="eId" column="Eid"></id>
+	    <result property="eName" column="Ename"></result>
+	    <result property="ePassword" column="Epassword"></result>
+	    <result property="ePhone" column="Ephone"></result>
+	    <result property="eCard" column="Ecard"></result>
+	    <result property="eIndate" column="Eindate"></result>
+	    <result property="eOutdate" column="Eoutdate"></result>
+	    <result property="eAddress" column="Eaddress"></result>
+	    <association property="department" javaType="com.oa.pojo.Department">
+	       <id property="dId" column="Did"></id>
+	       <result property="dName" column="dName"></result>
+	    </association>
+	    <association property="position" javaType="com.oa.pojo.Position">
+	       <id property="pId" column="Pid"></id>
+	       <result property="pName" column="Pname"></result>
+	    </association>
+	</resultMap> 
+
+
 	<!-- 登陆查询 -->
 	<select id="selectEmployeeById" resultType="Employee">
 	 select * from employee where eId=#{value}
@@ -49,8 +70,9 @@
 	where eId=#{eId}
 	</update>
 	<!-- 查询所有员工 -->
-	<select id="queryAllEmployee"  resultType="Employee">
-		select * from employee
+	<select id="queryAllEmployee"  resultMap="employeeMap">
+		select * from employee e ,department d ,position p
+		where d.Did = e.Did and e.Pid = p.Pid
 	</select>
 	<!-- 按部门查询员工 -->
 	<select id="queryEmployeebyterm" resultType="Employee" parameterType="int">
