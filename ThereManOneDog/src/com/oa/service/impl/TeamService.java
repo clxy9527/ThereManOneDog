@@ -8,22 +8,22 @@ import com.oa.pojo.Team;
 import com.oa.pojo.TeamEmployee;
 
 public interface TeamService {
-	//╦Ы╬щID╡Иурме╤спео╒
+	//О©╫О©╫О©╫О©╫IDО©╫О©╫О©╫О©╫О©╫е╤О©╫О©╫О©╫о╒
 	public Team selectTeamById(String eId);
-	//╢╢╫╗ме╤с
+	//О©╫О©╫О©╫О©╫О©╫е╤О©╫
 	public void createTeam(Team team);
-	//и╬ЁЩме╤с
+	//и╬О©╫О©╫О©╫е╤О©╫
 	public void deleteTeam(Integer tmId);
 	
-	//╦Э╦дме╤сцШЁф
+	//О©╫О©╫О©╫О©╫О©╫е╤О©╫О©╫О©╫О©╫О©╫
 	public void changeTeamName(Team team);
-	//и╬ЁЩме╤сЁит╠
+	//и╬О©╫О©╫О©╫е╤сЁО©╫т╠
 	public void deleteTeamMember(HashMap<String,Object> TeamEmployee);
-	//╡Иурсц╩╖╪схК╣дкЫспме╤с
+	//О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫е╤О©╫
 	public List<Team> selectAllTeamFromEmployee(String eId);
-	//лМ╪сме╤сЁит╠
+	//О©╫О©╫О©╫О©╫е╤сЁО©╫т╠
 	public void addTeamMember(HashMap<String,Object> TeamEmployee);
-	//╡Ия╞ме╤сжпЁит╠
+	//О©╫О©╫я╞О©╫е╤О©╫О©╫пЁО©╫т╠
 	public List<Employee> selectAllMenmberInTeam(Integer tmId);
 	
 	

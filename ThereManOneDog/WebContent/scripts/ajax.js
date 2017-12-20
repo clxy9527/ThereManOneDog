@@ -302,7 +302,7 @@ function TeamMangement(url,text){
 			document.getElementById("content").innerHTML=data;
 			document.getElementById("listName").innerHTML=text;
 		    MessageTable();
-		 
+		    buttonShow();
 		    multiModal();
 		    setModalsAndBackdropsOrder();
 		    
@@ -344,24 +344,34 @@ function teamTable(url,text){
 		}
 function multiModal(){
 	 // 通过该方法来为每次弹出的模态框设置最新的zIndex值，从而使最新的modal显示在最前面
-    $(document).on('show.bs.modal', '.modal', function (event) {
-        var zIndex = 1040 + (10 * $('.modal:visible').length);
-        $(this).css('z-index', zIndex);
-        // setTimeout(function() {
-        //     $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
-        // }, 0);
-    });
+   $(document).on('show.bs.modal', '.modal', function (event) {
+       var zIndex = 1040 + (10 * $('.modal:visible').length);
+       $(this).css('z-index', zIndex);
+       // setTimeout(function() {
+       //     $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+       // }, 0);
+   });
 
 }
 function setModalsAndBackdropsOrder() {  
-    var modalZIndex = 1040;
-    $('.modal.in').each(function(index) {
-        var $modal = $(this);
-        modalZIndex++;
-        $modal.css('zIndex', modalZIndex);
-        $modal.next('.modal-backdrop.in').addClass('hidden').css('zIndex', modalZIndex - 1);
-    });
-    $('.modal.in:visible:last').focus().next('.modal-backdrop.in').removeClass('hidden');
+   var modalZIndex = 1040;
+   $('.modal.in').each(function(index) {
+       var $modal = $(this);
+       modalZIndex++;
+       $modal.css('zIndex', modalZIndex);
+       $modal.next('.modal-backdrop.in').addClass('hidden').css('zIndex', modalZIndex - 1);
+   });
+   $('.modal.in:visible:last').focus().next('.modal-backdrop.in').removeClass('hidden');
+}
+function ajaxRequestTeamPageWithChecked(url){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("EmployeeList").innerHTML=data;
+			getTeamChecked();
+		}
+	});
 }
 function ajaxRequestTeamPageWithChecked(url){
 	$.ajax({

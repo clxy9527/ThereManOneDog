@@ -42,7 +42,7 @@ public class TeamController {
 	
 	@RequestMapping("/selectTeamById")
 	public ModelAndView SelectTeamById(HttpServletRequest request,HttpServletResponse response,Team team){
-		System.out.println("µ÷ÓÃ²éÑ¯Ö¸¶¨ÍÅ¶Ó·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½Ã²ï¿½Ñ¯Ö¸ï¿½ï¿½ï¿½Å¶Ó·ï¿½ï¿½ï¿½");
 		ModelAndView modelAndView = new ModelAndView();
 		String EID=request.getParameter("eid");
 		System.out.println("EID");
@@ -51,11 +51,11 @@ public class TeamController {
 		modelAndView.setViewName("");	
 		return modelAndView;		
 	}
-	 
+	
 	@RequestMapping("/selectAllTeamFromEmployee")
 	public ModelAndView SelectAllTeamFromEmployee(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
-		System.out.println("µ÷ÓÃ²éÑ¯Ô±¹¤ËùÓÐÍÅ¶Ó·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½Ã²ï¿½Ñ¯Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¶Ó·ï¿½ï¿½ï¿½");
 		ModelAndView modelAndView = new ModelAndView();
 		Employee employee = (Employee)request.getSession().getAttribute("employee");
 		System.out.println(employee.geteId().toString());
@@ -83,7 +83,7 @@ public class TeamController {
 		String tmTime=request.getParameter("createDate");
 		String tmDescribe=request.getParameter("teamD");
 		
-		System.out.println("µ÷ÓÃ´´½¨ÍÅ¶Ó·½·¨·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Å¶Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		Team team=new Team();
 		team.seteId(eId);
 		team.setTmDescribe(tmDescribe);
@@ -96,7 +96,7 @@ public class TeamController {
 	
 	@RequestMapping("/deleteTeam")
 	public ModelAndView deleteTeam(HttpServletRequest request,HttpServletResponse response,String tmId){
-		System.out.println("µ÷ÓÃÉ¾³ýÍÅ¶Ó·½·¨·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Å¶Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		ModelAndView modelAndView = new ModelAndView();
 		Integer TMID=Integer.valueOf(tmId);
 		teamService.deleteTeam(TMID);
@@ -105,7 +105,7 @@ public class TeamController {
 	}
 	@RequestMapping("/changeTeamName")
 	public void changeTeamName(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("µ÷ÓÃ¸üÐÂÍÅ¶Ó·½·¨·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Å¶Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		Team team=new Team();
 		String tmName=request.getParameter("tmName");
 		Integer TMID=Integer.valueOf(request.getParameter("tmId"));
@@ -114,7 +114,7 @@ public class TeamController {
 	}
 	@RequestMapping("/addTeamMember")
 	public void addTeamMember(HttpServletRequest request,HttpServletResponse response,String tmId,String selected_employee){
-		System.out.println("µ÷ÓÃÍÅ¶ÓÌí¼Ó³ÉÔ±·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½Ó³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½");
 		System.out.println(tmId);
 		List<String> result = Arrays.asList(selected_employee.split(","));
 		if(result.get(0).equals(""))result=null;
@@ -139,7 +139,7 @@ public class TeamController {
 	}
 	@RequestMapping("/deleteTeamMember")
 	public ModelAndView deleteTeamMember(HttpServletRequest request,HttpServletResponse response,@RequestParam("userId") String[]  userId){
-		System.out.println("µ÷ÓÃÍÅ¶ÓÉ¾³ý³ÉÔ±·½·¨");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Å¶ï¿½É¾ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½");
 		String testID=request.getParameter("userId");
 		String TMID=request.getParameter("tmId");
 		System.out.println(TMID);
