@@ -55,7 +55,7 @@ public class TeamController {
 	@RequestMapping("/selectAllTeamFromEmployee")
 	public ModelAndView SelectAllTeamFromEmployee(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
-		System.out.println("���ò�ѯԱ�������Ŷӷ���");
+		System.out.println("222");
 		ModelAndView modelAndView = new ModelAndView();
 		Employee employee = (Employee)request.getSession().getAttribute("employee");
 		System.out.println(employee.geteId().toString());
