@@ -30,7 +30,7 @@ public class TeamServiceImpl implements TeamService{
 		
 		System.out.println(team.getTmId());
 		HashMap<String, Object> map = new  HashMap<String, Object>();
-		map.put("tmID",team.getTmId());
+		map.put("tmId",team.getTmId());
 		map.put("eId", team.geteId());
 		teamMapper.addTeamMember(map);
 		

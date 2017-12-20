@@ -33,15 +33,18 @@
                         <i class="icon-reorder shaded"></i>
                         </a>
                         <!-- 这个是 方法 -->
-                        <a class="brand" href="/WEB-INF/page/index.jsp">ThereManOneDog </a>
+                        <a class="brand" href="/WEB-INF/page/index.jsp">ThreeManOneDog </a>
                     <div class="nav-collapse collapse navbar-inverse-collapse">
                         <ul class="nav nav-icons">
                             <li class="active"><a href="#"><i class="icon-envelope"></i></a></li>
                             <li><a href="#"><i class="icon-eye-open"></i></a></li>
                             <li><a href="#"><i class="icon-bar-chart"></i></a></li>
+            
                         </ul>
                        
                         <ul class="nav pull-right">
+                      	<li><a href="#">欢迎你：${dbEmployee.geteName()}</a></li>
+                      	<li><a href="${pageContext.request.contextPath}/login.jsp">退出</a></li>
   </ul>
                     </div>
                     <!-- /.nav-collapse -->
@@ -79,7 +82,7 @@
                                 </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
                                 </i>我的团队 </a><!-- 这里开始 -->
                                     <ul id="togglePages2" class="collapse unstyled">
-                                        <li><a onclick="loadTeamTablePage()"><i class="icon-inbox"></i>团队管理 </a></li>
+                                        <li><a onclick="teamTable('${pageContext.request.contextPath}/teamController/selectAllTeamFromEmployee.action')"><i class="icon-inbox"></i>团队管理 </a></li>
                                         <li><a onclick="loadTaskRelease()"><i class="icon-inbox"></i>发布任务 </a></li>
                                     </ul>
                                 </li>

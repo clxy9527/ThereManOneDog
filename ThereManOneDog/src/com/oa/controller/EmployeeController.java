@@ -44,6 +44,7 @@ public class EmployeeController {
 		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
 		if(dbEmployee!=null&&dbEmployee.geteState()==1&&dbEmployee.getePassword().equals(employee.getePassword())){
 			request.getSession().setAttribute("eid", employee.geteId());
+			modelAndView.addObject("dbEmployee", dbEmployee);
 			modelAndView.setViewName("index");
 			request.getSession().setAttribute("employee", employee);
 		}else{
