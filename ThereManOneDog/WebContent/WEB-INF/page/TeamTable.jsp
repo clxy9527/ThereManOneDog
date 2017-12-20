@@ -114,26 +114,26 @@
                            
               
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-	<div class="modal-dialog" >
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;" >
+	<div class="modal-dialog"  >
 		<div class="modal-content" >
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					选择员工
+					添加员工
 				</h4>
 			</div>
 			<div class="modal-body" style="overflow: auto;">
 			<table>
 			    <tr>
 			    <td colspan="3">
-                   <div class="col-md-6">         
-                      <ul class="nav nav-pills nav-stacked">
+                    <div class="col-md-6">         
+                        <ul class="nav nav-pills nav-stacked">
                         <c:forEach items="${departments}" var="dept" varStatus="no">
                             <li>
-                            <a  data-toggle="tab" onclick="ajaxRequestTeamPageWithChecked('${pageContext.request.contextPath}/noticeController/getEmploeeByDepartment.action?dId=${dept.getdId()}')">${dept.getdName()}</a>
+                            <a  data-toggle="tab" onclick="ajaxRequestPageWithChecked('${pageContext.request.contextPath}/noticeController/getEmploeeByDepartment.action?dId=${dept.getdId()}')">${dept.getdName()}</a>
                             </li>
                         </c:forEach>
                     </ul>
@@ -149,7 +149,7 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxAddTeamMember('${pageContext.request.contextPath}/teamController/addTeamMember.action?tmId=${tmId}&selected_employee=')">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxRequestNames('${pageContext.request.contextPath}/noticeController/getEmployeeNames.action?eIds=')">
 					提交更改
 				</button>
 			</div>
@@ -157,7 +157,7 @@
 	</div><!-- /.modal -->
 </div>
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;" >
 	<div class="modal-dialog"  >
 		<div class="modal-content" >
 			<div class="modal-header">

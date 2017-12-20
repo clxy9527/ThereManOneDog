@@ -55,7 +55,7 @@ public class TeamController {
 	@RequestMapping("/selectAllTeamFromEmployee")
 	public ModelAndView SelectAllTeamFromEmployee(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
-		System.out.println("222");
+		System.out.println("这是一条延迟测试");
 		ModelAndView modelAndView = new ModelAndView();
 		Employee employee = (Employee)request.getSession().getAttribute("employee");
 		System.out.println(employee.geteId().toString());
@@ -96,7 +96,7 @@ public class TeamController {
 	
 	@RequestMapping("/deleteTeam")
 	public ModelAndView deleteTeam(HttpServletRequest request,HttpServletResponse response,String tmId){
-		System.out.println("����ɾ���Ŷӷ�������");
+		System.out.println("调用删除团队方法");
 		ModelAndView modelAndView = new ModelAndView();
 		Integer TMID=Integer.valueOf(tmId);
 		teamService.deleteTeam(TMID);

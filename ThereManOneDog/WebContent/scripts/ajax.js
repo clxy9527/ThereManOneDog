@@ -302,7 +302,7 @@ function TeamMangement(url,text){
 			document.getElementById("content").innerHTML=data;
 			document.getElementById("listName").innerHTML=text;
 		    MessageTable();
-		    buttonShow();
+		    
 		    multiModal();
 		    setModalsAndBackdropsOrder();
 		    
@@ -353,13 +353,7 @@ function multiModal(){
    });
 
 }
-$(document).on('show.bs.modal', '.modal', function(event) {
-    $(this).appendTo($('body'));
-}).on('shown.bs.modal', '.modal.in', function(event) {
-    setModalsAndBackdropsOrder();
-}).on('hidden.bs.modal', '.modal', function(event) {
-    setModalsAndBackdropsOrder();
-});
+
 function setModalsAndBackdropsOrder() {  
     var modalZIndex = 1040;
     $('.modal.in').each(function(index) {
