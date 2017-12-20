@@ -29,7 +29,10 @@
 </head>
 <body>
 	<form role="form" class="form-inline" action="${pageContext.request.contextPath}/employeeController/addemployee.action">			
-			
+			 <div class="span9">
+                        <div class="content">
+                            <div class="module message">
+                                <div class="module-head">            
 			
 				<h4 class="modal-title" id="myModalLabel">
 					添加员工
@@ -82,13 +85,18 @@
 				<button type="reset" class="btn btn-default" >重置
 				</button>
 				
-			
+			</div></div></div></div>
 	</form>
 <br>
+ <div class="span9">
+                        <div class="content">
+                            <div class="module message">
+                                <div class="module-head">     
 <table width="100%" cellpadding="1" cellspacing="1">
 <tr>
 <td>
 <form role="form" class="form-inline" action="${pageContext.request.contextPath}/departmentController/addedepartment.action">			
+         
    <h4 class="modal-title" id="myModalLabel">
 					添加部门
 				</h4>
@@ -113,6 +121,7 @@
 </td>
 <td >
 <form role="form" class="form-inline" action="${pageContext.request.contextPath}/positionController/addposition.action">			
+   
    <h4 class="modal-title" id="myModalLabel">
 					添加职位
 				</h4>
@@ -143,7 +152,7 @@
    </form></td>
 </tr>
 </table>
-   
+   </div></div></div></div>
  <script src="${pageContext.request.contextPath}/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
         <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

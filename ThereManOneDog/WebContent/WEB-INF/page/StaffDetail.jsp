@@ -57,7 +57,16 @@
 			<tr>
 			<td>入职日期:<input type="text" name="eIndate" value="${dbEmployee.geteIndate()}"  readonly>   </td>
 			<td>离职日期:<input type="text" name="eOutdate" value="${dbEmployee.geteOutdate()}" readonly></td>
-			<td>在职状态:<input type="number"    placeholder="1为在职0为已离职"  name="eState" value="${dbEmployee.geteState()}"></td>
+			<td>在职状态:	<select name="eState" >			
+			<option 
+			<c:if test="${dbEmployee.geteState() == 1}">selected="selected"</c:if>
+			 value="1"> 在职
+			</option>	
+        <option 
+			<c:if test="${dbEmployee.geteState() == 0}">selected="selected"</c:if>
+			 value="0"> 已离职
+			</option>
+			</select>	</td>
 			</tr>
 			</table>
 			
