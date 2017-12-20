@@ -74,6 +74,9 @@
                                                 <td >
                                           	          姓名
                                                 </td>
+                                                <td>
+                                                	性别
+                                                </td>
                                                   <td >
                                           	         部门 
                                                 </td>
@@ -102,6 +105,9 @@
                                                 </td>
                                                 <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-title">
                                                   ${employee.geteName()}
+                                                </td>
+                                                <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-title">
+                                                  ${employee.geteSex()}
                                                 </td>
                                                 <td onclick="ajaxRequestPage('${pageContext.request.contextPath}/employeeController/querybyid.action?eId=${employee.eId}&dId=${employee.getDepartment().getdId()}')"  class="cell-title">
                                                    ${employee.getDepartment().getdName()}

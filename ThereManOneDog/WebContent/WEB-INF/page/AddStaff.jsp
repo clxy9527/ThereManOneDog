@@ -47,6 +47,15 @@
 			<td><label for="phone">电话号码:</label>
 			<input type="number" maxlength="11" style="width:180px;" name="ePhone" id ="ePhone" placeholder="请输入员工联系电话">
 			</td>
+			
+			<td><label for="sex">员工性别:</label>
+			 <select name="eSex"   id="eSex" class="form-control" >
+				<option  selected>请选择性别 </option>
+				<option value="男">男</option>	
+				<option  value="女">女</option>
+		</select>
+			</td>
+			
 			</tr>
 		
 			<tr>

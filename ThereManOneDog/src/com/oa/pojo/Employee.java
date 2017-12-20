@@ -18,8 +18,15 @@ public class Employee {
 	private int readState;
 	private Department department;
 	private Position position;
+	private String eSex;
 
 	
+	public String geteSex() {
+		return eSex;
+	}
+	public void seteSex(String eSex) {
+		this.eSex = eSex;
+	}
 	public String geteId() {
 		return eId;
 	}
