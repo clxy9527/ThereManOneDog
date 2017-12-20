@@ -82,7 +82,6 @@ public class NoticeController {
 	@RequestMapping("/saveNotice")
 	public ModelAndView saveNotice(HttpServletRequest request,HttpServletResponse response,Notice notice ,String selectEmployees){
 		 ModelAndView modelAndView = new ModelAndView();
-		 System.out.println(selectEmployees);
 		 notice.setnAuthor((Employee)request.getSession().getAttribute("employee"));
 		 notice.setReaders(get_selected_employee(selectEmployees));
 		 noticeService.addNotice(notice);

@@ -33,7 +33,6 @@ public class NoticeServiceImpl implements NoticeService {
 	public void addNotice(Notice notice) {
 		notice.setnTime(TimeUtil.getTime());
 		noticeMapper.addNotice(notice);
-		System.out.println(notice.getReaders().get(0).geteId());
 		
 		HashMap<String, Object> map = new  HashMap<String, Object>();
 		

@@ -42,7 +42,7 @@ public class EmployeeController {
 	public ModelAndView login(HttpServletRequest request,HttpServletResponse response,Employee employee) throws IOException{
 		ModelAndView modelAndView = new ModelAndView();
 		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
-		if(dbEmployee.geteState()==1&&dbEmployee.getePassword().equals(employee.getePassword())){
+		if(dbEmployee!=null&&dbEmployee.geteState()==1&&dbEmployee.getePassword().equals(employee.getePassword())){
 			request.getSession().setAttribute("eid", employee.geteId());
 			modelAndView.setViewName("index");
 			request.getSession().setAttribute("employee", employee);
