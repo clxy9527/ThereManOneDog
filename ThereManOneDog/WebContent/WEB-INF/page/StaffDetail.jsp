@@ -74,7 +74,7 @@
 		</select>		</td>
 		<td>
 				
-		 岗位：<select name="pId"    >
+		 岗位：<select name="pId" id="position"   >
 		 <c:forEach items="${positionlist}" var="position" varStatus="no"> 
 				<option 
 			<c:if test="${dbEmployee.getPosition().getpName() == position.getpName()}">selected="selected"</c:if>
