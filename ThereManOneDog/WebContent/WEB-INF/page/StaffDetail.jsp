@@ -71,7 +71,7 @@
 			onclick="ajaxRequestPageadd('${department.getdId()}')"  value="${department.getdId()}"> ${department.getdName()}
 			</option>	
             </c:forEach>     
-		</select>		</td>
+		</select>		</td> 
 		<td>
 				
 		 岗位：<select name="pId" id="position"   >
