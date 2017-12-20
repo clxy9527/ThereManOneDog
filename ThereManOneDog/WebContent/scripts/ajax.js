@@ -89,6 +89,7 @@ xmlhttp.send();
 }
 
 	function hide(){
+		$("#selectedNoticeItem").toggle();
 		$(":checkbox").toggle();
 		$("#delete").toggle();
 	}
@@ -254,7 +255,6 @@ function ajaxRequestPageWithTableHide(url){
 		success:function(data){
 			document.getElementById("content").innerHTML=data;
 		    MessageTable();
-		    hide();
 		}
 	});
 	}
@@ -267,7 +267,6 @@ function MessageFilterManger(url,text) {
 		success:function(data){
 			document.getElementById("content").innerHTML=data;
 		    MessageTable();
-		    hide();
 			document.getElementById("output").innerHTML = text;
 		}
 	});

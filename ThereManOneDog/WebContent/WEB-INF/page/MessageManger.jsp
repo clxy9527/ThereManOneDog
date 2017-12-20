@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="pull-right">
                                         <input type="button" class="btn btn-primary" onclick="hide()" id="deal" value="通知处理" />
-                                        <input type="submit" class="btn btn-primary" id="delete"  value="删除" />
+                                        <input type="submit" class="btn btn-primary" style="display:none;" id="delete"  value="删除" />
                                     </div>
                                 </div>
                                 <div class="module-body table">
@@ -55,7 +55,7 @@
                                         <c:forEach var="notice" items="${allNotice}">
                                         <tr class="unread<c:if test="${notice.nImportant==1}" > starred</c:if>">
                                                 <td class="cell-check">
-                                                    <input name="selectedNotice" type="checkbox" class="inbox-checkbox" value="${notice.nId}">
+                                                    <input style="display:none;" name="selectedNotice" type="checkbox" class="inbox-checkbox" value="${notice.nId}">
                                                 </td>
                                                 <td class="cell-check"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
