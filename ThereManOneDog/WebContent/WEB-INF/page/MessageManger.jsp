@@ -61,7 +61,7 @@
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
                                                     <i class="icon-star"></i>
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
+                                                <td class="cell-title"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                    <c:out value="${notice.getnAuthor().geteName()}" />
                                                 </td>
                                                 <td class="cell-title"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">

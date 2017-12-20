@@ -62,8 +62,9 @@
 	</select>
 	
     <select id="findNoticeByEmployee" resultMap="noticeMap">
-	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename from notice n,employee e ,noticeemployee ne
-	where n.Nid = ne.Nid and ne.Eid = e.Eid and e.Eid = #{value}
+select n.Nid,n.Ntitle,n.Ncontent,n.Nauthor,author.Ename,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
+	from notice n,employee e ,noticeemployee ne ,employee author
+	where  n.Nauthor=author.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid= #{value}
 	</select>
 	
 	<delete id="deleteNotices" parameterType="java.util.List">
@@ -85,15 +86,15 @@
 	</update>
 	
 	<select id="findNoticeByNidAndEid" parameterMap="idmap" resultMap="noticeMap">
-	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
-	from notice n,employee e ,noticeemployee ne
-	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid=#{eId} and n.Nid = #{nId}
+select n.Nid,n.Ntitle,n.Ncontent,n.Nauthor,author.Ename,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
+	from notice n,employee e ,noticeemployee ne ,employee author
+	where  n.Nauthor=author.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid=#{eId} and n.Nid = #{nId}
 	</select>
 	
 	<select id="findNoticeByEidAndState" parameterMap="readmap" resultMap="noticeMap">
-	select n.Nid,n.Ntitle,n.Ncontent,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
-	from notice n,employee e ,noticeemployee ne
-	where  n.Nauthor=e.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid=#{eId} and ne.readstate = #{readstate}
+	select n.Nid,n.Ntitle,n.Ncontent,n.Nauthor,author.Ename,n.Ntime,n.Ntype,ne.readstate,n.Nimportant,e.Eid,e.Ename  
+	from notice n,employee e ,noticeemployee ne ,employee author
+	where  n.Nauthor=author.Eid and n.nid = ne.Nid and ne.Eid = e.Eid AND e.Eid=#{eId} and ne.readstate = #{readstate}
 	</select>
 	
 	<select id="findNoticeByType" resultMap="noticeMap">
