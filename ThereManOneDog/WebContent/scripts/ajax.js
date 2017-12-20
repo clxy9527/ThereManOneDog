@@ -154,7 +154,10 @@ function ajaxRequestPageWithTable(url){
 			url:url,
 			success:function(data){
 				document.getElementById("content").innerHTML=data;
-			    MessageTable();
+				MessageTable();
+			    buttonShow();
+			    multiModal();
+			    setModalsAndBackdropsOrder();
 			}
 		});
 		}
@@ -279,5 +282,171 @@ function MessageFilterRead(url,text) {
 		    MessageTable();
 			document.getElementById("output").innerHTML = text;
 		}
+	});
+}//团队
+//团队管理ajax
+function buttonShow(){
+
+
+	$("#addMemberButoon").toggle();		
+	$("#deleteMemberButton").toggle();
+	$("#deleteTeam").toggle();
+	
+}
+//选择团队
+function TeamMangement(url,text){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			
+			document.getElementById("content").innerHTML=data;
+			document.getElementById("listName").innerHTML=text;
+		    MessageTable();
+		 
+		    multiModal();
+		    setModalsAndBackdropsOrder();
+		    
+		   
+		}
+	});
+	}
+//发布任务
+function loadTaskRelease()
+{
+var xmlhttp;
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("content").innerHTML=xmlhttp.responseText;
+    MessageTable();
+    }
+  }
+xmlhttp.open("GET","TaskRelease.jsp" ,false);
+xmlhttp.send();
+}
+//团队管理
+function teamTable(url,text){
+		$.ajax({
+			type:'GET',
+			url:url,
+			success:function(data){
+				document.getElementById("content").innerHTML=data;
+				document.getElementById("listName").innerHTML=text;
+			    MessageTable();
+			    buttonShow();
+			    multiModal();
+			    setModalsAndBackdropsOrder();
+			   
+			}
+		});
+		}
+function multiModal(){
+	 // 通过该方法来为每次弹出的模态框设置最新的zIndex值，从而使最新的modal显示在最前面
+    $(document).on('show.bs.modal', '.modal', function (event) {
+        var zIndex = 1040 + (10 * $('.modal:visible').length);
+        $(this).css('z-index', zIndex);
+        // setTimeout(function() {
+        //     $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+        // }, 0);
+    });
+
+}
+function setModalsAndBackdropsOrder() {  
+    var modalZIndex = 1040;
+    $('.modal.in').each(function(index) {
+        var $modal = $(this);
+        modalZIndex++;
+        $modal.css('zIndex', modalZIndex);
+        $modal.next('.modal-backdrop.in').addClass('hidden').css('zIndex', modalZIndex - 1);
+    });
+    $('.modal.in:visible:last').focus().next('.modal-backdrop.in').removeClass('hidden');
+}
+function ajaxRequestTeamPageWithChecked(url){
+	$.ajax({
+		type:'GET',
+		url:url,
+		success:function(data){
+			document.getElementById("EmployeeList").innerHTML=data;
+			getTeamChecked();
+		}
+	});
+}
+var checkedIds=[];
+function teamchangeIds(){
+    var oneches=document.getElementsByName("employeeSelected");
+    var num=0;
+  for(var i=0;i<oneches.length;i++){
+      if(oneches[i].checked==true){
+          //避免重复累计id （不含该id时进行累加）
+          for(var j=0;j<teamcheckedIds.length;j++){
+        	  if(oneches[i].value==teamcheckedIds[j]){
+        		  num=1;
+        		  break;
+        	  }
+          }
+          if(num==0){
+        	  teamcheckedIds.push(oneches[i].value);
+        	  
+          }
+          num=0;
+      }
+      if(oneches[i].checked==false){
+          //取消复选框时 含有该id时将id从全局变量中去除
+          for(var j=0;j<teamcheckedIds.length;j++){
+        	  if(oneches[i].value==teamcheckedIds[j]){
+        		  teamcheckedIds.splice(j, 1);
+        	  }
+          }
+      }
+  }
+}
+function getTeamChecked(){
+    var oneches=document.getElementsByName("employeeSelected");
+    for(var i=0;i<oneches.length;i++){
+  	  for(var j=0;j<teamcheckedIds.length;j++){
+  		  if(oneches[i].value==teamcheckedIds[j]){
+                oneches[i].checked=true;
+  		  }
+  	  }
+        }
+    teamchangeIds();
+ }
+function ajaxAddTeamMember(urlhead){
+	var url = urlhead + checkedIds;
+	$.ajax({
+		type:'GET',
+		url:url,
+		dataType: 'text',
+		success:function(data){
+			checkedIds= null;
+		}
+		
+	});
+}
+function ajaxdeleteTeamMember(urlhead){
+	var url = urlhead + checkedIds;
+	$.ajax({
+		type:'GET',
+		url:url,
+		dataType: 'text',
+		success:function(data){
+			checkedIds= null;
+		}
+		
+	});
+}
+function ajaxDeleteTeam(url){
+
+	$.ajax({
+		type:'GET',
+		url:url,
+		dataType:'text',
+		success:function(data){
+			
+		}
+		
 	});
 }

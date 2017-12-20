@@ -6,7 +6,8 @@ public class Team {
 	private int tmId;
 	private String tmName;
 	private String tmDescribe;
-	private Date tmTime;
+	private String tmTime;
+	private String eId;
 	public int getTmId() {
 		return tmId;
 	}
@@ -25,11 +26,18 @@ public class Team {
 	public void setTmDescribe(String tmDescribe) {
 		this.tmDescribe = tmDescribe;
 	}
-	public Date getTmTime() {
+	public String getTmTime() {
 		return tmTime;
 	}
-	public void setTmTime(Date tmTime) {
+	public void setTmTime(String tmTime) {
 		this.tmTime = tmTime;
 	}
+	public String geteId() {
+		return eId;
+	}
+	public void seteId(String eId) {
+		this.eId = eId;
+	}
+
 
 }

@@ -8,32 +8,45 @@
 	</select>
 	
 	<select id="selectAllTeamFromEmployee" resultType="Team">
-		SELECT team.TMid,TMname,TMdescribe,TMtime FROM team,teamemployee WHERE teamemployee.TMid=team.TMid AND teamemployee.Eid=#{eId}
+		SELECT team.TMid,TMname,TMdescribe,TMtime,team.Eid FROM team,teamemployee WHERE teamemployee.TMid=team.TMid AND teamemployee.Eid=#{eId}
 	</select>
 	
-	<select id=" selectAllMenmberInTeam" resultType="Employee"> 
-		SELECT employee.Eid,Ename,Epassword,Ephone,Ecard FROM employee,teamemployee WHERE teamemployee.Eid=employee.Eid AND teamemployee.TMid=#{tmId}
+	<select id="selectAllMenmberInTeam" resultType="Employee"> 
+		SELECT employee.* FROM employee,teamemployee WHERE teamemployee.Eid=employee.Eid AND teamemployee.TMid=#{tmId}
 	</select>
 	
+	<parameterMap type="map" id="teamInfo">
+	<parameter property="tmName"/>
+	<parameter property="tmDescribe"/>
+	<parameter property="tmTime"/>
+	<parameter property="eId"/>
+	</parameterMap>
+	<insert id="createTeam"  useGeneratedKeys="true" keyProperty="tmId" parameterType="Team">
+		insert into team values(null,#{tmName},#{tmDescribe},#{tmTime},#{eId});
+	</insert>
 	
-	<select id="createTeam" parameterType="Team">
-		insert into team (TMid,TMname,TMdescribe,TMtime,Eid) values(#{tmId},#{tmName},#{tmDescribe},#{tmTime},#{eId});
-	</select>
-	
-	<select id="deleteTeam" parameterType="Team">
+	<delete id="deleteTeam">
 		delete from team where TMid =#{tmId}
-	</select>
+	</delete>
 	
-	<select id="changeTeamName" >
-		update team set TMname=#{tmName} where TMid=#{tmid}
+	<delete id="deleteTeam2">
+		delete from teamemployee where TMid =#{tmId}
+	</delete>
 	
-	</select>
+	<update id="changeTeamName" parameterType="Team" >
+		update team set TMname=#{tmName} where TMid=#{tmId}
+	</update>
 	
-	<select id="addTeamMember" >
-		insert into teamemployee (,TMid,Eid) values(,#{tmId},#{eId})
-	</select>
+	<parameterMap type="map" id="TeamEmployee">
+	<parameter property="tmId"/>
+	<parameter property="eId"/>
+	</parameterMap>
+	<insert id="addTeamMember" parameterMap="TeamEmployee" >
+		 replace  into teamemployee (TMid,Eid) values(#{tmId},#{eId})
+	</insert>
 	
-	<select id="deleteTeamMember">
-		delete from teamemployee where TMidid=#{tmId} and Eid=#{eId}
-	</select>
+	
+	<delete id="deleteTeamMember" parameterMap="TeamEmployee" >
+		delete from teamemployee where TMid=#{tmId} and Eid=#{eId}
+	</delete>
 </mapper>

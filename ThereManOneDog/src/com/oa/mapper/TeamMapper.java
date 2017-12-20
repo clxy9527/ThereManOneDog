@@ -1,9 +1,11 @@
 package com.oa.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.oa.pojo.Employee;
 import com.oa.pojo.Team;
+import com.oa.pojo.TeamEmployee;
 
 public interface TeamMapper {
 	public Team selectTeamById(String tmId);
@@ -12,15 +14,16 @@ public interface TeamMapper {
 	
 	public List<Employee> selectAllMenmberInTeam(Integer tmId);
 	
-	public void createTeam(Team team,String eId);
+	public void createTeam(Team team);
 	
-	public void deleteTeam(String tmId);
+	public void deleteTeam(Integer tmId);
+	public void deleteTeam2(Integer tmId);
 	
-	public void changeTeamName(int tmId,String tmName);
+	public void changeTeamName(Team team);
 	
-	public void addTeamMember(String tmId,String eId);
-	
-	public void deleteTeamMember(String tmid,String eId);
+	public void addTeamMember(HashMap<String,Object> TeamEmployee);
+		
+	public void deleteTeamMember(HashMap<String,Object> TeamEmployee);
 	
 	
 	
