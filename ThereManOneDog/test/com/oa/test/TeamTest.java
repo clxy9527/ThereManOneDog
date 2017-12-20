@@ -23,7 +23,7 @@ public class TeamTest {
 		team.setTmDescribe("≤‚ ‘”√");
 		team.setTmId(2017-12-13);
 		TeamService teamService=(TeamService)ac.getBean("teamService");
-		teamService.createTeam(team,"T9527");
+		teamService.createTeam(team);
 		
 	}
 	

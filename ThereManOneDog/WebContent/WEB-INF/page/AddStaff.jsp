@@ -65,7 +65,7 @@
 			 <select name="dId" >
 				<option  selected>部门选择 </option>
 					<c:forEach items="${departmentlist}" var="department" varStatus="no">  
-			<option onclick="ajaxRequestPageadd('${department.getdId()}')"  value="${department.getdId()}"> ${department.getdName()},${department.getdId()}</option>	
+			<option onclick="ajaxRequestPageadd('${department.getdId()}')"  value="${department.getdId()}"> ${department.getdName()}</option>	
             </c:forEach>   
 		</select>		
 
@@ -131,7 +131,7 @@
 	 <select name="dId" class="form-control">
 				<option  selected>部门选择 </option>
 					<c:forEach items="${departmentlist}" var="department" varStatus="no">  
-			<option  value="${department.getdId()}"> ${department.getdName()},${department.getdId()}</option>	
+			<option  value="${department.getdId()}"> ${department.getdName()}</option>	
             </c:forEach>   
 		</select>	
 		</td>	
