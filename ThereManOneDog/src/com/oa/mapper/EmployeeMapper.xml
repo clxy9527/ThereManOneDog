@@ -13,6 +13,7 @@
 	    <result property="eIndate" column="Eindate"></result>
 	    <result property="eOutdate" column="Eoutdate"></result>
 	    <result property="eAddress" column="Eaddress"></result>
+	        <result property="eSex" column="Esex"/>
 	    <association property="department" javaType="com.oa.pojo.Department">
 	       <id property="dId" column="Did"></id>
 	       <result property="dName" column="dName"></result>
@@ -31,7 +32,7 @@
 
 	<!-- 插入员工方法 -->
 	<insert id="addEmployee" parameterType="Employee">
-	 insert into employee values(#{eId},#{eName},#{ePassword},#{ePhone},#{eCard},#{pId},#{dId},#{eIndate},#{eOutdate},#{eState},#{eAddress})
+	 insert into employee values(#{eId},#{eName},#{ePassword},#{ePhone},#{eCard},#{pId},#{dId},#{eIndate},#{eOutdate},#{eState},#{eAddress},#{eSex})
 	</insert>
 	<!-- 更新方法 -->
 	<update id="updateEmployee" parameterType="Employee">

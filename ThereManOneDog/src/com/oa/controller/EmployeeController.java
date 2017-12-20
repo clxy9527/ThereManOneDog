@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.pojo.Department;
@@ -44,7 +45,7 @@ public class EmployeeController {
 		Employee dbEmployee = employeeService.selectEmployeeById(employee.geteId());
 		if(dbEmployee!=null&&dbEmployee.geteState()==1&&dbEmployee.getePassword().equals(employee.getePassword())){
 			request.getSession().setAttribute("eid", employee.geteId());
-			modelAndView.addObject("dbEmployee", dbEmployee);
+			request.getSession().setAttribute("hey", dbEmployee.geteName());
 			modelAndView.setViewName("index");
 			request.getSession().setAttribute("employee", employee);
 		}else{
@@ -144,6 +145,13 @@ public class EmployeeController {
 		modelAndView.addObject("departmentlist",departmentlist);
 		modelAndView.addObject("positionlist",positionlist);
 		modelAndView.setViewName("StaffDetail");
+		return modelAndView;
+	}
+	@RequestMapping("/reflash")
+	public ModelAndView reflash(HttpServletRequest request,HttpServletResponse response,Employee employee){
+		ModelAndView modelAndView = new ModelAndView();
+		request.getAttribute("dbEmployee");
+	
 		return modelAndView;
 	}
 }

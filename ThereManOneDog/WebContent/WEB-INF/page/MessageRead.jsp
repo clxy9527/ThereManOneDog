@@ -55,7 +55,7 @@
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
                                                     <i class="icon-star"></i>
                                                 </td>
-                                                <td class="cell-author hidden-phone hidden-tablet">
+                                                <td class="cell-title">
                                                    <c:out value="${notice.getnAuthor().geteName()}" />
                                                 </td>
                                                 <td class="cell-title">

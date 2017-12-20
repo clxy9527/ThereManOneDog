@@ -43,7 +43,7 @@
                         </ul>
                        
                         <ul class="nav pull-right">
-                      	<li><a href="#">欢迎你：${dbEmployee.geteName()}</a></li>
+                      	<li><a href="#">欢迎你：${sessionScope.hey}</a></li>
                       	<li><a href="${pageContext.request.contextPath}/login.jsp">退出</a></li>
   </ul>
                     </div>
@@ -82,7 +82,7 @@
                                 </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
                                 </i>我的团队 </a><!-- 这里开始 -->
                                     <ul id="togglePages2" class="collapse unstyled">
-                                        <li><a onclick="teamTable('${pageContext.request.contextPath}/teamController/selectAllTeamFromEmployee.action')"><i class="icon-inbox"></i>团队管理 </a></li>
+                                        <li><a onclick="loadTeamTablePage()"><i class="icon-inbox"></i>团队管理 </a></li>
                                         <li><a onclick="loadTaskRelease()"><i class="icon-inbox"></i>发布任务 </a></li>
                                     </ul>
                                 </li>

@@ -267,7 +267,6 @@ function MessageFilterManger(url,text) {
 		success:function(data){
 			document.getElementById("content").innerHTML=data;
 		    MessageTable();
-		    hide();
 			document.getElementById("output").innerHTML = text;
 		}
 	});

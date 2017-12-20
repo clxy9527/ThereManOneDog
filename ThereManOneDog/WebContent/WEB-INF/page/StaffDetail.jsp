@@ -57,16 +57,7 @@
 			<tr>
 			<td>入职日期:<input type="text" name="eIndate" value="${dbEmployee.geteIndate()}"  readonly>   </td>
 			<td>离职日期:<input type="text" name="eOutdate" value="${dbEmployee.geteOutdate()}" readonly></td>
-			<td>在职状态:	<select name="eState" >			
-			<option 
-			<c:if test="${dbEmployee.geteState() == 1}">selected="selected"</c:if>
-			 value="1"> 在职
-			</option>	
-        <option 
-			<c:if test="${dbEmployee.geteState() == 0}">selected="selected"</c:if>
-			 value="0"> 已离职
-			</option>
-			</select>	</td>
+		<td>离职日期:<input type="text" name="eSex" value="${dbEmployee.geteSex()}" readonly></td>
 			</tr>
 			</table>
 			
@@ -91,6 +82,16 @@
 			</option>
 					 </c:forEach>	
 		</select></td>
+			<td>在职状态:	<select name="eState" >			
+			<option 
+			<c:if test="${dbEmployee.geteState() == 1}">selected="selected"</c:if>
+			 value="1"> 在职
+			</option>	
+        <option 
+			<c:if test="${dbEmployee.geteState() == 0}">selected="selected"</c:if>
+			 value="0"> 已离职
+			</option>
+			</select>	</td>
 			</tr>
 			</table>
 			<table align="center" ><tr><td>
