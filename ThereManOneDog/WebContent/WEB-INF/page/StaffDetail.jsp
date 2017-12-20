@@ -70,11 +70,11 @@
 			<c:if test="${dbEmployee.getDepartment().getdName() == department.getdName()}">selected="selected"</c:if>
 			onclick="ajaxRequestPageadd('${department.getdId()}')"  value="${department.getdId()}"> ${department.getdName()}
 			</option>	
-            </c:forEach>   
-		</select>		</td>
+            </c:forEach>     
+		</select>		</td> 
 		<td>
 				
-		 岗位：<select name="pId"    >
+		 岗位：<select name="pId" id="position"   >
 		 <c:forEach items="${positionlist}" var="position" varStatus="no"> 
 				<option 
 			<c:if test="${dbEmployee.getPosition().getpName() == position.getpName()}">selected="selected"</c:if>
