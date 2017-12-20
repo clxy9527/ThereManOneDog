@@ -36,14 +36,14 @@
                                     </div>
                                     <div class="pull-right">
                                         <input type="button" class="btn btn-primary" onclick="hide()" id="deal" value="通知处理" />
-                                        <input type="submit" class="btn btn-primary" id="delete"  value="删除" />
+                                        <input type="submit" class="btn btn-primary" style="visibility:none" id="delete"  value="删除" />
                                     </div>
                                 </div>
                                 <div class="module-body table">
                                     <table class="table table-message">
                                         <thead>        
                                         <tr class="heading">
-                                                <td class="cell-check" ></td>
+                                                <td style="visibility:none" class="cell-check" ></td>
                                                 <td class="cell-icon"></td>
                                                 <td>发送人</td>
                                                 <td>公告标题</td>
@@ -54,8 +54,8 @@
                                         <tbody>
                                         <c:forEach var="notice" items="${allNotice}">
                                         <tr class="unread<c:if test="${notice.nImportant==1}" > starred</c:if>">
-                                                <td class="cell-check">
-                                                    <input name="selectedNotice" type="checkbox" class="inbox-checkbox" value="${notice.nId}">
+                                                <td style="visibility:none" class="cell-check">
+                                                    <input style="visibility:none" name="selectedNotice" type="checkbox" class="inbox-checkbox" value="${notice.nId}">
                                                 </td>
                                                 <td class="cell-check"  onclick="ajaxRequestPage('${pageContext.request.contextPath}/noticeController/getNoticeById.action?nId=${notice.nId}')">
                                                 <label  style="display:none;"><c:out value="${notice.nImportant}"></c:out></label>
