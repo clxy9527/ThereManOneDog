@@ -43,7 +43,7 @@
                         </ul>
                        
                         <ul class="nav pull-right">
-                      	<li><a href="#">欢迎你：${dbEmployee.geteName()}</a></li>
+                      	<li><a href="#">欢迎你：${sessionScope.hey}</a></li>
                       	<li><a href="${pageContext.request.contextPath}/login.jsp">退出</a></li>
   </ul>
                     </div>
