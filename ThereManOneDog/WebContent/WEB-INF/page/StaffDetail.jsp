@@ -70,7 +70,7 @@
 			<c:if test="${dbEmployee.getDepartment().getdName() == department.getdName()}">selected="selected"</c:if>
 			onclick="ajaxRequestPageadd('${department.getdId()}')"  value="${department.getdId()}"> ${department.getdName()}
 			</option>	
-            </c:forEach>   
+            </c:forEach>    
 		</select>		</td>
 		<td>
 				
