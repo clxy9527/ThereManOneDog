@@ -35,11 +35,11 @@
                                 <div class="module-option clearfix">
                                     <div class="pull-left">
                                         <div class="btn-group">
-                                            <button class="btn" style="size: 20px" id="listName" value="Team">team</button>
+                                            <button class="btn" style="size: 20px" id="listName" value="Team" onclick="">选择团队</button>
                                             <button class="btn dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu" value="Team">
                                             <c:forEach items="${allTeam}" var="team" varStatus="no">
                                             	<li><a href="#" onclick="TeamMangement('${pageContext.request.contextPath}/teamController/selectAllMenmberInTeam.action?tmId=${team.tmId}','${team.tmName}')" id="${team.tmName}">${team.tmName}</a></li>
                                             </c:forEach>

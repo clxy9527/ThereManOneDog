@@ -327,13 +327,13 @@ xmlhttp.open("GET","TaskRelease.jsp" ,false);
 xmlhttp.send();
 }
 //团队管理
-function teamTable(url,text){
+function teamTable(url){
 		$.ajax({
 			type:'GET',
 			url:url,
 			success:function(data){
 				document.getElementById("content").innerHTML=data;
-				document.getElementById("listName").innerHTML=text;
+				
 			    MessageTable();
 			    buttonShow();
 			    multiModal();
