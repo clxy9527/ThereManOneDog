@@ -94,8 +94,8 @@ text-decoration: none;
 </form>
 
 
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+<!-- 模态框（Modal） --> 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  style="display:none;" >
 	<div class="modal-dialog"  >
 		<div class="modal-content" >
 			<div class="modal-header">

@@ -202,7 +202,7 @@
                            						
                            						</td>
                            						<td>
-                           						<button type="reset" class="btn btn-default" >取消</button>
+                           						<button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
                            						<input type="submit" class="btn btn-primary" value="提交更改" />
                            						</td>
                            						
