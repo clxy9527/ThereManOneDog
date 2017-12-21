@@ -26,6 +26,8 @@
 <body>
 <body>
 
+
+
 					<div class="span9">
                         <div class="content">
                             <div class="module message">
@@ -33,7 +35,7 @@
                                     <h3> 团队管理</h3>
                                 </div>
                                 <div class="module-option clearfix">
-                                    <div class="pull-left">
+                                    <div class="pull-right">
                                         <div class="btn-group">
                                             <button class="btn" style="size: 20px" id="listName" value="Team" onclick="">选择团队</button>
                                             <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -114,7 +116,7 @@
                            
               
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;" >
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	<div class="modal-dialog"  >
 		<div class="modal-content" >
 			<div class="modal-header">
@@ -149,7 +151,7 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxRequestNames('${pageContext.request.contextPath}/noticeController/getEmployeeNames.action?eIds=')">
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxAddTeamMember('${pageContext.request.contextPath}/teamController/addTeamMember.action?tmId=${tmId}&selected_employee=')">
 					提交更改
 				</button>
 			</div>
@@ -157,7 +159,7 @@
 	</div><!-- /.modal -->
 </div>
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;" >
+<div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	<div class="modal-dialog"  >
 		<div class="modal-content" >
 			<div class="modal-header">
@@ -214,12 +216,10 @@
                 
 			</div>
 			</form>
-			<div class="modal-footer">
-				
-			</div>
+			
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
-</div>	
+</div>
 
 
 </body>
