@@ -63,10 +63,10 @@
                                                     <input type="checkbox" class="inbox-checkbox" id="teamMemberSelect" >
                                                     <input  type="hidden"  name="tmId" value="${tmId}" >
                                                 </td>
-                                                <td class="cell-icon">
+                                                <td class="cell-title">
                                                  	员工编号
                                                 </td>
-                                                <td class="cell-icon">
+                                                <td class="cell-title">
                                                  	姓名
                                                 </td>
                                                 <td class="cell-author hidden-phone hidden-tablet">
@@ -82,10 +82,10 @@
                                            		<td class="cell-check">
                                                     <input type="checkbox" class="inbox-checkbox" name="userId" value="${employee.eId}">
                                                 </td>
-                                                <td class="cell-icon" ">
+                                                <td class="cell-title">
                                                    ${employee.eId}
                                                 </td>
-                                                <td class="cell-icon">
+                                                <td class="cell-title">
                                                    ${employee.eName}
                                                 </td>
                                                
@@ -113,51 +113,9 @@
                                 </div>
                            
               
+
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;" >
-	<div class="modal-dialog"  >
-		<div class="modal-content" >
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					添加员工
-				</h4>
-			</div>
-			<div class="modal-body" style="overflow: auto;">
-			<table>
-			    <tr>
-			    <td colspan="3">
-                    <div class="col-md-6">         
-                        <ul class="nav nav-pills nav-stacked">
-                        <c:forEach items="${departments}" var="dept" varStatus="no">
-                            <li>
-                            <a  data-toggle="tab" onclick="ajaxRequestPageWithChecked('${pageContext.request.contextPath}/noticeController/getEmploeeByDepartment.action?dId=${dept.getdId()}')">${dept.getdName()}</a>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-                </td>
-                <td>
-                <div id="EmployeeList" class="col-md-4">
-                </div>
-                 </td>
-                </tr>
-                </table>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxRequestNames('${pageContext.request.contextPath}/noticeController/getEmployeeNames.action?eIds=')">
-					提交更改
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
-</div>
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;" >
+<div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	<div class="modal-dialog"  >
 		<div class="modal-content" >
 			<div class="modal-header">
@@ -220,7 +178,49 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>	
-
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;"  >
+	<div class="modal-dialog"  >
+		<div class="modal-content" >
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					添加员工
+				</h4>
+			</div>
+			<div class="modal-body" style="overflow: auto;">
+			<table>
+			    <tr>
+			    <td colspan="3">
+                    <div class="col-md-6">         
+                        <ul class="nav nav-pills nav-stacked">
+                        <c:forEach items="${departments}" var="dept" varStatus="no">
+                            <li>
+                            <a  data-toggle="tab" onclick="ajaxRequestPageWithChecked('${pageContext.request.contextPath}/noticeController/getEmploeeByDepartment.action?dId=${dept.getdId()}')">${dept.getdName()}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                </td>
+                <td>
+                <div id="EmployeeList" class="col-md-4">
+                </div>
+                 </td>
+                </tr>
+                </table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxRequestNames('${pageContext.request.contextPath}/noticeController/getEmployeeNames.action?eIds=')">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 
 </body>
 </html>

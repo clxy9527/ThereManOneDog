@@ -55,7 +55,7 @@ public class TeamController {
 	@RequestMapping("/selectAllTeamFromEmployee")
 	public ModelAndView SelectAllTeamFromEmployee(HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
-		System.out.println("这是一条延迟测试");
+		System.out.println("调用查询员工所有部门");
 		ModelAndView modelAndView = new ModelAndView();
 		Employee employee = (Employee)request.getSession().getAttribute("employee");
 		System.out.println(employee.geteId().toString());
@@ -83,7 +83,7 @@ public class TeamController {
 		String tmTime=request.getParameter("createDate");
 		String tmDescribe=request.getParameter("teamD");
 		
-		System.out.println("���ô����Ŷӷ�������");
+		System.out.println("调用创建团队的方法");
 		Team team=new Team();
 		team.seteId(eId);
 		team.setTmDescribe(tmDescribe);
@@ -114,7 +114,7 @@ public class TeamController {
 	}
 	@RequestMapping("/addTeamMember")
 	public void addTeamMember(HttpServletRequest request,HttpServletResponse response,String tmId,String selected_employee){
-		System.out.println("�����Ŷ���ӳ�Ա����");
+		System.out.println("调用创建团队方法");
 		System.out.println(tmId);
 		List<String> result = Arrays.asList(selected_employee.split(","));
 		if(result.get(0).equals(""))result=null;
