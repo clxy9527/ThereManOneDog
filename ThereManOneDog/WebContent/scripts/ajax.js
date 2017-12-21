@@ -302,9 +302,7 @@ function TeamMangement(url,text){
 			document.getElementById("content").innerHTML=data;
 			document.getElementById("listName").innerHTML=text;
 		    MessageTable();
-		    
-		    multiModal();
-		    setModalsAndBackdropsOrder();
+		  
 		    
 		   
 		}

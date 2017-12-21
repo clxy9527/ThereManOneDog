@@ -26,6 +26,8 @@
 <body>
 <body>
 
+
+
 					<div class="span9">
                         <div class="content">
                             <div class="module message">
@@ -33,7 +35,7 @@
                                     <h3> 团队管理</h3>
                                 </div>
                                 <div class="module-option clearfix">
-                                    <div class="pull-left">
+                                    <div class="pull-right">
                                         <div class="btn-group">
                                             <button class="btn" style="size: 20px" id="listName" value="Team" onclick="">选择团队</button>
                                             <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -115,6 +117,51 @@
               
 
 <!-- 模态框（Modal） -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal-dialog"  >
+		<div class="modal-content" >
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					添加员工
+				</h4>
+			</div>
+			<div class="modal-body" style="overflow: auto;">
+			<table>
+			    <tr>
+			    <td colspan="3">
+                    <div class="col-md-6">         
+                        <ul class="nav nav-pills nav-stacked">
+                        <c:forEach items="${departments}" var="dept" varStatus="no">
+                            <li>
+                            <a  data-toggle="tab" onclick="ajaxRequestPageWithChecked('${pageContext.request.contextPath}/noticeController/getEmploeeByDepartment.action?dId=${dept.getdId()}')">${dept.getdName()}</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+                </td>
+                <td>
+                <div id="EmployeeList" class="col-md-4">
+                </div>
+                 </td>
+                </tr>
+                </table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ajaxAddTeamMember('${pageContext.request.contextPath}/teamController/addTeamMember.action?tmId=${tmId}&selected_employee=')">
+					提交更改
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal） -->
+
 <div class="modal fade" id="createNewTeam" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	<div class="modal-dialog"  >
 		<div class="modal-content" >
@@ -172,11 +219,10 @@
                 
 			</div>
 			</form>
-			<div class="modal-footer">
-				
-			</div>
+			
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
+
 </div>	
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"style="display: none;"  >
@@ -221,6 +267,10 @@
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->
 </div>
+
+</div>
+
+
 
 </body>
 </html>
